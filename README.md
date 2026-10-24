@@ -12,35 +12,126 @@ Not just *"how busy is the gym?"* but *"given my schedule and workout goals, whe
 
 ## 🚀 Quick Start
 
+RepsIn has three runnable pieces:
+
+| Piece | What it is | Required to demo? |
+|-------|-----------|-------------------|
+| **Mobile app** (`mobile-app/`) | The Expo / React Native app you run in Expo Go | ✅ Yes |
+| **Pose server** (`opencv-tracker/server/`) | FastAPI + MediaPipe server that powers the AI rep tracker (the **Train** tab) | Only for the form-tracking demo |
+| **ML pipeline** (`ml-pipeline/`) | Offline scripts that generated the baked foot-traffic data | ❌ No — its output is already committed |
+
+> **Important:** your **phone and your laptop must be on the same Wi-Fi network.** Expo Go connects to the Metro bundler over the LAN, and the app auto-discovers the pose server at the same laptop IP on port `8000`.
+
 ### Prerequisites
 
-- Node.js 20+ (or 22+ for full compatibility)
-- Python 3.8+
-- Expo Go app on your phone
+- **Node.js 20+** (22+ recommended — Expo SDK 58 prefers it). If you use `nvm`: `nvm install 22 && nvm use 22`.
+- **Python 3.10+** (only needed for the pose server)
+- **Expo Go** app installed on your phone ([iOS](https://apps.apple.com/app/expo-go/id982107779) / [Android](https://play.google.com/store/apps/details?id=host.exp.exponent))
+- A **Supabase** project (free tier) for auth — or use the built-in demo bypass (see below)
 
-### Setup (5 minutes)
+---
+
+### 1. Mobile app (required)
 
 ```bash
-# 1. ML Pipeline - Generate training data and train model
-cd ml-pipeline
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+cd mobile-app
+npm install
+```
 
+Create your environment file from the template and fill in your Supabase **public** values (Dashboard → Project Settings → API):
+
+```bash
+cp .env.example .env
+```
+
+```ini
+# mobile-app/.env
+EXPO_PUBLIC_SUPABASE_URL=https://<your-project>.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=<your-anon-or-publishable-key>
+```
+
+> These are **public** client values — safe to commit to your own private env, but `.env` is git-ignored here by design. Never put the service-role key or any OAuth client secret in this file.
+>
+> **No Supabase handy?** Leave `.env` empty and tap **"Preview as demo account"** on the login screen to explore the whole app with a local fake session.
+
+If you're using real auth, apply the database schema once in the Supabase SQL editor:
+
+```bash
+# paste the contents of supabase/schema.sql into Supabase → SQL Editor → Run
+```
+
+Start the app:
+
+```bash
+npm start            # or: npx expo start
+# npx expo start --clear   # use --clear if you hit a stale-cache error
+```
+
+Scan the QR code with **Expo Go** (Android) or the **Camera** app (iOS). Metro also prints `exp://<your-lan-ip>:8081`.
+
+---
+
+### 2. Pose server — AI rep tracker (optional, for the Train tab)
+
+The **Train** tab streams camera frames to a local Python server that runs
+MediaPipe pose detection and counts reps / gives form cues. The app finds the
+server automatically at `http://<laptop-lan-ip>:8000` — **no IP typing needed**,
+as long as the server runs on the same laptop as Metro.
+
+One-time setup (creates a shared virtualenv at the repo root):
+
+```bash
+# from the repo root
+python3 -m venv .venv
+source .venv/bin/activate              # Windows: .venv\Scripts\activate
+pip install -r opencv-tracker/server/requirements.txt
+```
+
+Run the server (keep it running in its own terminal):
+
+```bash
+cd opencv-tracker/server
+../../.venv/bin/python -m uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+The server prints its LAN IP on startup and exposes `GET /health`. Verify it:
+
+```bash
+curl http://localhost:8000/health
+```
+
+> **Auth is optional on the server.** It tracks reps anonymously out of the box.
+> To scope sessions to the signed-in user, copy `opencv-tracker/server/.env.example`
+> to `opencv-tracker/server/.env` and add your `SUPABASE_JWT_SECRET`.
+
+---
+
+### Run everything together (two terminals)
+
+```bash
+# Terminal 1 — Metro / Expo
+cd mobile-app && npm start
+
+# Terminal 2 — pose server (only needed for the Train tab)
+cd opencv-tracker/server && ../../.venv/bin/python -m uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+Then open Expo Go on your phone (same Wi-Fi) and scan the QR code. The Train tab's connection card should show the server as reachable.
+
+---
+
+### (Optional) Regenerate the ML foot-traffic data
+
+The app ships with pre-generated data (`mobile-app/src/data/occupancyPredictions.json` and `bostonGyms.json`), so you **don't** need this to run the app. To regenerate it:
+
+```bash
+cd ml-pipeline
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
 cd scripts
 python generate_synthetic_data.py
 python train_model.py
-
-# 2. Copy ML predictions to mobile app
-cp ../models/occupancy_predictions.json ../../mobile-app/src/data/
-
-# 3. Mobile App - Install and run
-cd ../../mobile-app
-npm install
-npm start
 ```
-
-Scan QR code with Expo Go to test on device!
 
 ---
 
@@ -48,15 +139,25 @@ Scan QR code with Expo Go to test on device!
 
 ```
 RepsIn/
-├── ml-pipeline/              # ML training & data generation
-│   ├── scripts/              # Python scripts
-│   ├── data/                 # Generated datasets
-│   └── models/               # Trained models
-├── mobile-app/               # React Native/Expo app
+├── mobile-app/               # React Native / Expo app
+│   ├── .env.example          # Supabase public config template → copy to .env
 │   └── src/
-│       ├── screens/          # UI screens
-│       ├── services/         # ML predictor, storage
-│       └── data/             # ML predictions, gym data
+│       ├── screens/          # UI screens (Home, Forecast, Floor, Workout, Train, Profile, …)
+│       ├── navigation/       # Tab + stack navigators
+│       ├── context/          # Theme / Gym / Profile / Session providers
+│       ├── auth/             # Supabase auth context
+│       ├── components/       # Shared UI (HeroCard, GymDropdown, MachineCard, …)
+│       ├── services/         # Occupancy predictor, recommendations, storage
+│       ├── tracker/          # Pose client (talks to the pose server)
+│       └── data/             # Baked ML predictions + Boston gym data
+├── opencv-tracker/           # AI rep-tracker (Python)
+│   ├── server/               # FastAPI + MediaPipe pose server (app.py)
+│   └── data/models/          # Bundled pose_landmarker_lite.task
+├── ml-pipeline/              # Offline ML data generation (output already baked in)
+│   └── scripts/              # generate_synthetic_data.py, train_model.py
+├── supabase/
+│   └── schema.sql            # Profiles table + RLS policies
+├── .venv/                    # Shared Python venv for the pose server (git-ignored)
 └── Feature_Roadmap.md        # Complete feature spec
 ```
 
@@ -189,21 +290,12 @@ RepsIn/
 
 ---
 
-## ⚠️ Important Constraints
+## 🧱 Architecture notes
 
-### Must Have
-- ✅ Expo Go compatibility (no native modules)
-- ✅ On-device ML inference (no backend)
-- ✅ Local data persistence only
-- ✅ Clear "Synthetic Data" labeling
-
-### Must NOT Have
-- ❌ Production authentication
-- ❌ Backend API or cloud database
-- ❌ Live equipment sensors
-- ❌ Social features
-- ❌ Calendar sync
-- ❌ Paid AI APIs
+- **Expo Go friendly.** The core app runs in Expo Go with no custom native modules. The AI rep tracker streams frames to a local Python server (rather than running pose detection on-device), which keeps it Expo Go compatible.
+- **Auth:** Supabase email/password + Google OAuth, with a local demo bypass when Supabase isn't configured.
+- **Data:** gym foot-traffic is baked from the ML pipeline (BestTime-derived) and read from JSON at runtime. Workout/availability/streak state persists locally via AsyncStorage.
+- **Pose server:** FastAPI + OpenCV + MediaPipe; optional Supabase JWT verification to scope sessions to a user.
 
 ---
 
@@ -229,29 +321,46 @@ RepsIn/
 
 ## 🔧 Troubleshooting
 
-### Node version warnings
-The latest Expo SDK (58) prefers Node 22+. Node 20 will work but shows warnings. To upgrade:
-```bash
-# macOS (Homebrew)
-brew install node@22
-
-# Or use nvm
-nvm install 22
-nvm use 22
-```
-
-### ML predictions not showing
-Make sure you copied the JSON file:
-```bash
-ls mobile-app/src/data/occupancyPredictions.json
-```
-
-### App won't start
-Clear cache:
+### App won't start / "cannot read bytecode" / stale cache
+Start Metro with a clean cache:
 ```bash
 cd mobile-app
-npm start -- --clear
+npx expo start --clear
 ```
+
+### Phone can't connect to Metro (QR scans but won't load)
+Make sure the **phone and laptop are on the same Wi-Fi**, and that the network
+isn't a guest/AP-isolation network that blocks device-to-device traffic. Metro
+prints the LAN URL (`exp://<ip>:8081`) — you can type it into Expo Go manually.
+
+### Train tab says the AI coach isn't reachable
+1. Confirm the pose server is running: `curl http://localhost:8000/health`
+2. Confirm it's bound to all interfaces (`--host 0.0.0.0`, not `127.0.0.1`).
+3. Confirm the server is on the **same laptop** running Metro (the app derives
+   the server IP from the Expo host). On a different machine, you'd need to set
+   the URL manually.
+4. Check the laptop firewall allows inbound connections on port `8000`.
+
+### Login screen shows "Supabase isn't configured"
+Your `mobile-app/.env` is missing or empty. Fill in `EXPO_PUBLIC_SUPABASE_URL`
+and `EXPO_PUBLIC_SUPABASE_ANON_KEY`, then restart with `npx expo start --clear`
+(env vars are read at bundler start). Or just tap **"Preview as demo account"**.
+
+### `expo-image-picker` / dependency errors after a pull
+Dependencies changed — reinstall:
+```bash
+cd mobile-app && npm install
+```
+
+### Node version warnings
+Expo SDK 58 prefers Node 22+. To upgrade with nvm:
+```bash
+nvm install 22 && nvm use 22
+```
+
+### Pose server: `mediapipe` fails to install
+MediaPipe ships wheels for Python 3.10–3.12. If `pip install` can't find a
+wheel, check your Python version (`python3 --version`) and use one in that range.
 
 ---
 
