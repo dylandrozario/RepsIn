@@ -1,0 +1,110 @@
+RepsIn/
+│
+├── 📄 README.md                          ⭐ START HERE - Main overview
+├── 📄 QUICKSTART.md                      🚀 Fast setup for ML engineer
+├── 📄 SETUP_COMPLETE.md                  ✅ What's been built
+├── 📄 Feature_Roadmap.md                 📋 Complete P0/P1/P2 features
+├── 📄 .gitignore                         
+│
+├── 🧠 ml-pipeline/                       ML ENGINEER WORKSPACE
+│   ├── 📄 README.md                      ML documentation
+│   ├── 📄 requirements.txt               Python deps (numpy, pandas, sklearn)
+│   │
+│   ├── 📁 scripts/
+│   │   ├── generate_synthetic_data.py   🔬 Create training dataset
+│   │   ├── train_model.py               🤖 Train & export model
+│   │   └── test_predictions.py          🧪 Validate predictions
+│   │
+│   ├── 📁 data/                          (created after training)
+│   │   ├── synthetic_occupancy_data.csv  Training data (10k+ rows)
+│   │   └── equipment_metadata.json       Equipment types & units
+│   │
+│   └── 📁 models/                        (created after training)
+│       ├── occupancy_predictions.json    JSON lookup table → copy to mobile app
+│       └── occupancy_model.pkl           Sklearn model (optional)
+│
+├── 📱 mobile-app/                        UI ENGINEER WORKSPACE
+│   ├── 📄 README.md                      Mobile app guide
+│   ├── 📄 package.json                   ✅ Dependencies installed
+│   ├── 📄 App.js                         Root component (placeholder)
+│   │
+│   └── 📁 src/
+│       ├── 📁 screens/                   🎨 TO IMPLEMENT
+│       │   ├── OnboardingScreen.js       Goals, experience, preferences
+│       │   ├── HomeScreen.js             Dashboard with next workout
+│       │   ├── ForecastScreen.js         Equipment predictions + time slider
+│       │   ├── RecommendationsScreen.js  Ranked workout times
+│       │   └── WorkoutScreen.js          Exercise list & completion
+│       │
+│       ├── 📁 components/                🧩 TO IMPLEMENT
+│       │   ├── TimeSlider.js             Interactive hour picker
+│       │   ├── EquipmentCard.js          Equipment with congestion
+│       │   ├── CongestionBadge.js        Color-coded low/med/high
+│       │   ├── AvailabilityPicker.js     Weekly schedule builder
+│       │   └── WorkoutCard.js            Exercise with sets/reps
+│       │
+│       ├── 📁 services/                  ⚙️ READY
+│       │   ├── occupancyPredictor.js     ✅ ML prediction service
+│       │   └── storageService.js         ✅ AsyncStorage wrapper
+│       │
+│       ├── 📁 data/                      📊 DATA
+│       │   ├── occupancyPredictions.json 🔄 Copy from ML pipeline
+│       │   └── gymData.js                ✅ Demo gym constants
+│       │
+│       └── 📁 utils/                     🔧 TO IMPLEMENT
+│           ├── recommendationEngine.js   Time ranking algorithm
+│           ├── workoutGenerator.js       Personalized routines
+│           └── conflictDetector.js       Schedule validation
+│
+└── 📁 .kiro/specs/repsin-12-hour-mvp/   REQUIREMENTS
+    ├── requirements.md                   ✅ 20 formal requirements
+    └── .config.kiro                      Workflow config
+
+════════════════════════════════════════════════════════════════
+
+KEY FILES FOR EACH ENGINEER:
+
+🧠 ML Engineer (You!):
+   1. ml-pipeline/README.md               Read this first
+   2. QUICKSTART.md                       Step-by-step setup
+   3. scripts/generate_synthetic_data.py  Run this first
+   4. scripts/train_model.py              Run this second
+   5. models/occupancy_predictions.json   Copy to mobile app
+
+🎨 UI Engineer:
+   1. mobile-app/README.md                Read this first
+   2. src/services/occupancyPredictor.js  How to use ML predictions
+   3. src/services/storageService.js      How to persist data
+   4. src/data/gymData.js                 Demo gym info
+
+🔧 Integration Engineer:
+   1. README.md                           Project overview
+   2. .kiro/specs/.../requirements.md     Formal requirements
+   3. src/services/                       Services to integrate
+   4. src/utils/                          Recommendation logic
+
+════════════════════════════════════════════════════════════════
+
+PRIORITY ORDER:
+
+Hour 0-1:   Setup + data contracts
+Hour 1-5:   Parallel development
+Hour 5-8:   Integration
+Hour 8-10:  Testing on device
+Hour 10-12: Polish + demo rehearsal
+
+════════════════════════════════════════════════════════════════
+
+INTEGRATION FLOW:
+
+  ML Pipeline → occupancy_predictions.json
+                        ↓
+              mobile-app/src/data/
+                        ↓
+              occupancyPredictor.js
+                        ↓
+              ForecastScreen.js (UI)
+              RecommendationsScreen.js (UI)
+              recommendationEngine.js (Integration)
+
+════════════════════════════════════════════════════════════════

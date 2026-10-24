@@ -1,0 +1,11 @@
+{
+  "_comment": "This file will be populated after running ml-pipeline/scripts/train_model.py",
+  "bench_press": {
+    "Monday": {
+      "17": {
+        "probability": 0.85,
+        "congestion_level": "high"
+      }
+    }
+  }
+}
