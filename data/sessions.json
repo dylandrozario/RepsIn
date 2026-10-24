@@ -1,0 +1,12 @@
+[
+  {
+    "exercise": "squat",
+    "reps": 7,
+    "good_reps": 0,
+    "bad_reps": 7,
+    "frames_processed": 11419,
+    "frames_with_pose": 11288,
+    "started_at": "2026-10-24T11:17:14-04:00",
+    "duration_seconds": 788.28
+  }
+]
