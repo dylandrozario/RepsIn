@@ -1,0 +1,44 @@
+{
+  "equipment_types": [
+    {
+      "id": "bench_press",
+      "name": "Bench Press",
+      "units": 3
+    },
+    {
+      "id": "squat_rack",
+      "name": "Squat Rack",
+      "units": 2
+    },
+    {
+      "id": "leg_press",
+      "name": "Leg Press",
+      "units": 2
+    },
+    {
+      "id": "cable_machine",
+      "name": "Cable Machine",
+      "units": 4
+    },
+    {
+      "id": "treadmill",
+      "name": "Treadmill",
+      "units": 10
+    },
+    {
+      "id": "rowing_machine",
+      "name": "Rowing Machine",
+      "units": 5
+    },
+    {
+      "id": "dumbbells",
+      "name": "Dumbbells",
+      "units": 15
+    },
+    {
+      "id": "smith_machine",
+      "name": "Smith Machine",
+      "units": 1
+    }
+  ]
+}

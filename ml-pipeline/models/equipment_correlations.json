@@ -1,0 +1,254 @@
+{
+  "correlations": [
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Leg Press",
+      "correlation": 0.3284081452429355
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Cable",
+      "correlation": 0.3140965351595442
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Leg Press",
+      "correlation": 0.31082511985852035
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.30994489232055916
+    },
+    {
+      "equipment_1": "Leg Press",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.29442609067720854
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.25798810007430945
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Dumbbells",
+      "correlation": 0.246371267999923
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Rowing",
+      "correlation": 0.23733980005207717
+    },
+    {
+      "equipment_1": "Dumbbells",
+      "equipment_2": "Rowing",
+      "correlation": 0.23593075085650325
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Dumbbells",
+      "correlation": 0.2342629348015031
+    },
+    {
+      "equipment_1": "Dumbbells",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.23085029547618277
+    },
+    {
+      "equipment_1": "Leg Press",
+      "equipment_2": "Rowing",
+      "correlation": 0.2116645784102293
+    },
+    {
+      "equipment_1": "Leg Press",
+      "equipment_2": "Smith",
+      "correlation": 0.20772806624675363
+    },
+    {
+      "equipment_1": "Smith",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.2045406378095493
+    },
+    {
+      "equipment_1": "Rowing",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.20382199779932478
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Rowing",
+      "correlation": 0.19915742511855755
+    },
+    {
+      "equipment_1": "Dumbbells",
+      "equipment_2": "Leg Press",
+      "correlation": 0.19845946176675539
+    },
+    {
+      "equipment_1": "Rowing",
+      "equipment_2": "Treadmill",
+      "correlation": 0.1973164185077383
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Treadmill",
+      "correlation": 0.19731255747557505
+    },
+    {
+      "equipment_1": "Dumbbells",
+      "equipment_2": "Smith",
+      "correlation": 0.19504123783858016
+    },
+    {
+      "equipment_1": "Rowing",
+      "equipment_2": "Smith",
+      "correlation": 0.18698541550776107
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Smith",
+      "correlation": 0.1748413915135899
+    },
+    {
+      "equipment_1": "Squat Rack",
+      "equipment_2": "Treadmill",
+      "correlation": 0.1742702706908676
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Treadmill",
+      "correlation": 0.17309543151732515
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Smith",
+      "correlation": 0.17266089237995844
+    },
+    {
+      "equipment_1": "Dumbbells",
+      "equipment_2": "Treadmill",
+      "correlation": 0.1671485231470032
+    },
+    {
+      "equipment_1": "Leg Press",
+      "equipment_2": "Treadmill",
+      "correlation": 0.16354654541981414
+    },
+    {
+      "equipment_1": "Smith",
+      "equipment_2": "Treadmill",
+      "correlation": 0.11833297935078171
+    }
+  ],
+  "top_positive": [
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Leg Press",
+      "correlation": 0.3284081452429355
+    },
+    {
+      "equipment_1": "Bench Press",
+      "equipment_2": "Cable",
+      "correlation": 0.3140965351595442
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Leg Press",
+      "correlation": 0.31082511985852035
+    },
+    {
+      "equipment_1": "Cable",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.30994489232055916
+    },
+    {
+      "equipment_1": "Leg Press",
+      "equipment_2": "Squat Rack",
+      "correlation": 0.29442609067720854
+    }
+  ],
+  "top_negative": [],
+  "matrix": {
+    "bench_press": {
+      "bench_press": 1.0,
+      "cable_machine": 0.3140965351595442,
+      "dumbbells": 0.246371267999923,
+      "leg_press": 0.3284081452429355,
+      "rowing_machine": 0.19915742511855755,
+      "smith_machine": 0.17266089237995844,
+      "squat_rack": 0.25798810007430945,
+      "treadmill": 0.19731255747557505
+    },
+    "cable_machine": {
+      "bench_press": 0.3140965351595442,
+      "cable_machine": 1.0,
+      "dumbbells": 0.2342629348015031,
+      "leg_press": 0.31082511985852035,
+      "rowing_machine": 0.23733980005207717,
+      "smith_machine": 0.1748413915135899,
+      "squat_rack": 0.30994489232055916,
+      "treadmill": 0.17309543151732515
+    },
+    "dumbbells": {
+      "bench_press": 0.246371267999923,
+      "cable_machine": 0.2342629348015031,
+      "dumbbells": 1.0,
+      "leg_press": 0.19845946176675539,
+      "rowing_machine": 0.23593075085650325,
+      "smith_machine": 0.19504123783858016,
+      "squat_rack": 0.23085029547618277,
+      "treadmill": 0.1671485231470032
+    },
+    "leg_press": {
+      "bench_press": 0.3284081452429355,
+      "cable_machine": 0.31082511985852035,
+      "dumbbells": 0.19845946176675539,
+      "leg_press": 1.0,
+      "rowing_machine": 0.2116645784102293,
+      "smith_machine": 0.20772806624675363,
+      "squat_rack": 0.29442609067720854,
+      "treadmill": 0.16354654541981414
+    },
+    "rowing_machine": {
+      "bench_press": 0.19915742511855755,
+      "cable_machine": 0.23733980005207717,
+      "dumbbells": 0.23593075085650325,
+      "leg_press": 0.2116645784102293,
+      "rowing_machine": 1.0,
+      "smith_machine": 0.18698541550776107,
+      "squat_rack": 0.20382199779932478,
+      "treadmill": 0.1973164185077383
+    },
+    "smith_machine": {
+      "bench_press": 0.17266089237995844,
+      "cable_machine": 0.1748413915135899,
+      "dumbbells": 0.19504123783858016,
+      "leg_press": 0.20772806624675363,
+      "rowing_machine": 0.18698541550776107,
+      "smith_machine": 1.0,
+      "squat_rack": 0.2045406378095493,
+      "treadmill": 0.11833297935078171
+    },
+    "squat_rack": {
+      "bench_press": 0.25798810007430945,
+      "cable_machine": 0.30994489232055916,
+      "dumbbells": 0.23085029547618277,
+      "leg_press": 0.29442609067720854,
+      "rowing_machine": 0.20382199779932478,
+      "smith_machine": 0.2045406378095493,
+      "squat_rack": 1.0,
+      "treadmill": 0.1742702706908676
+    },
+    "treadmill": {
+      "bench_press": 0.19731255747557505,
+      "cable_machine": 0.17309543151732515,
+      "dumbbells": 0.1671485231470032,
+      "leg_press": 0.16354654541981414,
+      "rowing_machine": 0.1973164185077383,
+      "smith_machine": 0.11833297935078171,
+      "squat_rack": 0.1742702706908676,
+      "treadmill": 1.0
+    }
+  }
+}

@@ -1,0 +1,1682 @@
+{
+  "Monday": {
+    "6": {
+      "average_probability": 0.292,
+      "congestion_level": "low",
+      "percent_full": 29.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.58,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.04,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 3,
+        "high": 0
+      }
+    },
+    "7": {
+      "average_probability": 0.416,
+      "congestion_level": "moderate",
+      "percent_full": 42.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.72,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.15,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 4,
+        "high": 1
+      }
+    },
+    "8": {
+      "average_probability": 0.291,
+      "congestion_level": "low",
+      "percent_full": 29.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.49,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "9": {
+      "average_probability": 0.368,
+      "congestion_level": "moderate",
+      "percent_full": 37.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.61,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.18,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 4,
+        "high": 1
+      }
+    },
+    "10": {
+      "average_probability": 0.416,
+      "congestion_level": "moderate",
+      "percent_full": 42.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.78,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 2,
+        "high": 3
+      }
+    },
+    "11": {
+      "average_probability": 0.422,
+      "congestion_level": "moderate",
+      "percent_full": 42.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.76,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.1,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 5,
+        "high": 1
+      }
+    },
+    "12": {
+      "average_probability": 0.669,
+      "congestion_level": "high",
+      "percent_full": 67.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.3,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "13": {
+      "average_probability": 0.787,
+      "congestion_level": "high",
+      "percent_full": 79.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.46,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "14": {
+      "average_probability": 0.735,
+      "congestion_level": "high",
+      "percent_full": 74.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.35,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "15": {
+      "average_probability": 0.453,
+      "congestion_level": "moderate",
+      "percent_full": 45.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.82,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.19,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 4,
+        "high": 2
+      }
+    },
+    "16": {
+      "average_probability": 0.517,
+      "congestion_level": "moderate",
+      "percent_full": 52.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.9,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.26,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 3,
+        "high": 3
+      }
+    },
+    "17": {
+      "average_probability": 0.907,
+      "congestion_level": "high",
+      "percent_full": 91.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.61,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "18": {
+      "average_probability": 0.868,
+      "congestion_level": "high",
+      "percent_full": 87.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.7,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "19": {
+      "average_probability": 0.88,
+      "congestion_level": "high",
+      "percent_full": 88.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.78,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "20": {
+      "average_probability": 0.167,
+      "congestion_level": "low",
+      "percent_full": 17.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.46,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.244,
+      "congestion_level": "low",
+      "percent_full": 24.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.47,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.07,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.211,
+      "congestion_level": "low",
+      "percent_full": 21.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.43,
+      "quietest_equipment": "Leg Press",
+      "quietest_probability": 0.09,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    }
+  },
+  "Tuesday": {
+    "6": {
+      "average_probability": 0.213,
+      "congestion_level": "low",
+      "percent_full": 21.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.42,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    },
+    "7": {
+      "average_probability": 0.291,
+      "congestion_level": "low",
+      "percent_full": 29.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.4,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.06,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "8": {
+      "average_probability": 0.31,
+      "congestion_level": "moderate",
+      "percent_full": 31.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.55,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.11,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "9": {
+      "average_probability": 0.398,
+      "congestion_level": "moderate",
+      "percent_full": 40.0,
+      "busiest_equipment": "Treadmill",
+      "busiest_probability": 0.65,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.16,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 4,
+        "high": 1
+      }
+    },
+    "10": {
+      "average_probability": 0.3,
+      "congestion_level": "moderate",
+      "percent_full": 30.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.55,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.12,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "11": {
+      "average_probability": 0.297,
+      "congestion_level": "low",
+      "percent_full": 30.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.74,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.02,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 2,
+        "high": 1
+      }
+    },
+    "12": {
+      "average_probability": 0.659,
+      "congestion_level": "high",
+      "percent_full": 66.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.24,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "13": {
+      "average_probability": 0.651,
+      "congestion_level": "high",
+      "percent_full": 65.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.14,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "14": {
+      "average_probability": 0.632,
+      "congestion_level": "high",
+      "percent_full": 63.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.3,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "15": {
+      "average_probability": 0.418,
+      "congestion_level": "moderate",
+      "percent_full": 42.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.69,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.18,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 3,
+        "high": 2
+      }
+    },
+    "16": {
+      "average_probability": 0.463,
+      "congestion_level": "moderate",
+      "percent_full": 46.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.83,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.21,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 4,
+        "high": 2
+      }
+    },
+    "17": {
+      "average_probability": 0.811,
+      "congestion_level": "high",
+      "percent_full": 81.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.59,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 2,
+        "high": 6
+      }
+    },
+    "18": {
+      "average_probability": 0.818,
+      "congestion_level": "high",
+      "percent_full": 82.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.42,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 1,
+        "high": 7
+      }
+    },
+    "19": {
+      "average_probability": 0.878,
+      "congestion_level": "high",
+      "percent_full": 88.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.74,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "20": {
+      "average_probability": 0.262,
+      "congestion_level": "low",
+      "percent_full": 26.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.57,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.1,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 3,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.19,
+      "congestion_level": "low",
+      "percent_full": 19.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.46,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.172,
+      "congestion_level": "low",
+      "percent_full": 17.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.36,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.04,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    }
+  },
+  "Wednesday": {
+    "6": {
+      "average_probability": 0.254,
+      "congestion_level": "low",
+      "percent_full": 25.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.49,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.13,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    },
+    "7": {
+      "average_probability": 0.36,
+      "congestion_level": "moderate",
+      "percent_full": 36.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.63,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.13,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 4,
+        "high": 1
+      }
+    },
+    "8": {
+      "average_probability": 0.443,
+      "congestion_level": "moderate",
+      "percent_full": 44.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.84,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 3,
+        "high": 3
+      }
+    },
+    "9": {
+      "average_probability": 0.494,
+      "congestion_level": "moderate",
+      "percent_full": 49.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.88,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.19,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 2,
+        "high": 3
+      }
+    },
+    "10": {
+      "average_probability": 0.389,
+      "congestion_level": "moderate",
+      "percent_full": 39.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.74,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.21,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 3,
+        "high": 1
+      }
+    },
+    "11": {
+      "average_probability": 0.32,
+      "congestion_level": "moderate",
+      "percent_full": 32.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.78,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 4,
+        "high": 1
+      }
+    },
+    "12": {
+      "average_probability": 0.716,
+      "congestion_level": "high",
+      "percent_full": 72.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.36,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "13": {
+      "average_probability": 0.785,
+      "congestion_level": "high",
+      "percent_full": 79.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.53,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 2,
+        "high": 6
+      }
+    },
+    "14": {
+      "average_probability": 0.707,
+      "congestion_level": "high",
+      "percent_full": 71.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.43,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 4,
+        "high": 4
+      }
+    },
+    "15": {
+      "average_probability": 0.524,
+      "congestion_level": "moderate",
+      "percent_full": 52.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.34,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 6,
+        "high": 2
+      }
+    },
+    "16": {
+      "average_probability": 0.529,
+      "congestion_level": "moderate",
+      "percent_full": 53.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.97,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 2,
+        "high": 4
+      }
+    },
+    "17": {
+      "average_probability": 0.899,
+      "congestion_level": "high",
+      "percent_full": 90.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.69,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "18": {
+      "average_probability": 0.882,
+      "congestion_level": "high",
+      "percent_full": 88.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.58,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 1,
+        "high": 7
+      }
+    },
+    "19": {
+      "average_probability": 0.885,
+      "congestion_level": "high",
+      "percent_full": 89.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.73,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "20": {
+      "average_probability": 0.277,
+      "congestion_level": "low",
+      "percent_full": 28.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.57,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.246,
+      "congestion_level": "low",
+      "percent_full": 25.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.41,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.25,
+      "congestion_level": "low",
+      "percent_full": 25.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.45,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.04,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    }
+  },
+  "Thursday": {
+    "6": {
+      "average_probability": 0.219,
+      "congestion_level": "low",
+      "percent_full": 22.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.45,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.08,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    },
+    "7": {
+      "average_probability": 0.372,
+      "congestion_level": "moderate",
+      "percent_full": 37.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.59,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.21,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "8": {
+      "average_probability": 0.189,
+      "congestion_level": "low",
+      "percent_full": 19.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.28,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    },
+    "9": {
+      "average_probability": 0.318,
+      "congestion_level": "moderate",
+      "percent_full": 32.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.59,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.05,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "10": {
+      "average_probability": 0.296,
+      "congestion_level": "low",
+      "percent_full": 30.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.6,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.02,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 3,
+        "high": 1
+      }
+    },
+    "11": {
+      "average_probability": 0.291,
+      "congestion_level": "low",
+      "percent_full": 29.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.46,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "12": {
+      "average_probability": 0.625,
+      "congestion_level": "high",
+      "percent_full": 63.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.92,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.25,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "13": {
+      "average_probability": 0.614,
+      "congestion_level": "high",
+      "percent_full": 61.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.28,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "14": {
+      "average_probability": 0.678,
+      "congestion_level": "high",
+      "percent_full": 68.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.28,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 2,
+        "high": 5
+      }
+    },
+    "15": {
+      "average_probability": 0.467,
+      "congestion_level": "moderate",
+      "percent_full": 47.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.74,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.21,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 5,
+        "high": 1
+      }
+    },
+    "16": {
+      "average_probability": 0.411,
+      "congestion_level": "moderate",
+      "percent_full": 41.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.93,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 4,
+        "high": 2
+      }
+    },
+    "17": {
+      "average_probability": 0.764,
+      "congestion_level": "high",
+      "percent_full": 76.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.46,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 2,
+        "high": 6
+      }
+    },
+    "18": {
+      "average_probability": 0.776,
+      "congestion_level": "high",
+      "percent_full": 78.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.24,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 0,
+        "high": 7
+      }
+    },
+    "19": {
+      "average_probability": 0.819,
+      "congestion_level": "high",
+      "percent_full": 82.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.41,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 1,
+        "high": 7
+      }
+    },
+    "20": {
+      "average_probability": 0.126,
+      "congestion_level": "low",
+      "percent_full": 13.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.24,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.215,
+      "congestion_level": "low",
+      "percent_full": 21.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.33,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.146,
+      "congestion_level": "low",
+      "percent_full": 15.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.29,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.02,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    }
+  },
+  "Friday": {
+    "6": {
+      "average_probability": 0.33,
+      "congestion_level": "moderate",
+      "percent_full": 33.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.46,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.22,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "7": {
+      "average_probability": 0.342,
+      "congestion_level": "moderate",
+      "percent_full": 34.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.67,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.11,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 1,
+        "high": 2
+      }
+    },
+    "8": {
+      "average_probability": 0.276,
+      "congestion_level": "low",
+      "percent_full": 28.0,
+      "busiest_equipment": "Treadmill",
+      "busiest_probability": 0.42,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.16,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "9": {
+      "average_probability": 0.302,
+      "congestion_level": "moderate",
+      "percent_full": 30.0,
+      "busiest_equipment": "Treadmill",
+      "busiest_probability": 0.49,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.04,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 5,
+        "high": 0
+      }
+    },
+    "10": {
+      "average_probability": 0.321,
+      "congestion_level": "moderate",
+      "percent_full": 32.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.73,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 3,
+        "high": 1
+      }
+    },
+    "11": {
+      "average_probability": 0.352,
+      "congestion_level": "moderate",
+      "percent_full": 35.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.74,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 2,
+        "high": 2
+      }
+    },
+    "12": {
+      "average_probability": 0.645,
+      "congestion_level": "high",
+      "percent_full": 65.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.28,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 2,
+        "high": 5
+      }
+    },
+    "13": {
+      "average_probability": 0.742,
+      "congestion_level": "high",
+      "percent_full": 74.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.42,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "14": {
+      "average_probability": 0.614,
+      "congestion_level": "high",
+      "percent_full": 61.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.15,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "15": {
+      "average_probability": 0.418,
+      "congestion_level": "moderate",
+      "percent_full": 42.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.89,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.13,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 4,
+        "high": 1
+      }
+    },
+    "16": {
+      "average_probability": 0.579,
+      "congestion_level": "moderate",
+      "percent_full": 58.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.19,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 2,
+        "high": 4
+      }
+    },
+    "17": {
+      "average_probability": 0.871,
+      "congestion_level": "high",
+      "percent_full": 87.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.7,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 0,
+        "high": 8
+      }
+    },
+    "18": {
+      "average_probability": 0.704,
+      "congestion_level": "high",
+      "percent_full": 70.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.46,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 4,
+        "high": 4
+      }
+    },
+    "19": {
+      "average_probability": 0.695,
+      "congestion_level": "high",
+      "percent_full": 70.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.92,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.44,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 4,
+        "high": 4
+      }
+    },
+    "20": {
+      "average_probability": 0.076,
+      "congestion_level": "low",
+      "percent_full": 8.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.21,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.115,
+      "congestion_level": "low",
+      "percent_full": 11.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.42,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.158,
+      "congestion_level": "low",
+      "percent_full": 16.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.35,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    }
+  },
+  "Saturday": {
+    "6": {
+      "average_probability": 0.232,
+      "congestion_level": "low",
+      "percent_full": 23.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.57,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.02,
+      "equipment_breakdown": {
+        "low": 6,
+        "moderate": 2,
+        "high": 0
+      }
+    },
+    "7": {
+      "average_probability": 0.242,
+      "congestion_level": "low",
+      "percent_full": 24.0,
+      "busiest_equipment": "Rowing Machine",
+      "busiest_probability": 0.37,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.1,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 3,
+        "high": 0
+      }
+    },
+    "8": {
+      "average_probability": 0.56,
+      "congestion_level": "moderate",
+      "percent_full": 56.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.76,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.32,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 3,
+        "high": 5
+      }
+    },
+    "9": {
+      "average_probability": 0.532,
+      "congestion_level": "moderate",
+      "percent_full": 53.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.83,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.29,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 4,
+        "high": 3
+      }
+    },
+    "10": {
+      "average_probability": 0.471,
+      "congestion_level": "moderate",
+      "percent_full": 47.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.72,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.15,
+      "equipment_breakdown": {
+        "low": 3,
+        "moderate": 2,
+        "high": 3
+      }
+    },
+    "11": {
+      "average_probability": 0.534,
+      "congestion_level": "moderate",
+      "percent_full": 53.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.78,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.12,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "12": {
+      "average_probability": 0.632,
+      "congestion_level": "high",
+      "percent_full": 63.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.99,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.17,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 2,
+        "high": 4
+      }
+    },
+    "13": {
+      "average_probability": 0.582,
+      "congestion_level": "moderate",
+      "percent_full": 58.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.89,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.11,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "14": {
+      "average_probability": 0.547,
+      "congestion_level": "moderate",
+      "percent_full": 55.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 2,
+        "high": 4
+      }
+    },
+    "15": {
+      "average_probability": 0.301,
+      "congestion_level": "moderate",
+      "percent_full": 30.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.84,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.03,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 3,
+        "high": 1
+      }
+    },
+    "16": {
+      "average_probability": 0.225,
+      "congestion_level": "low",
+      "percent_full": 22.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.39,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.08,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 3,
+        "high": 0
+      }
+    },
+    "17": {
+      "average_probability": 0.573,
+      "congestion_level": "moderate",
+      "percent_full": 57.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.9,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.31,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 4,
+        "high": 4
+      }
+    },
+    "18": {
+      "average_probability": 0.643,
+      "congestion_level": "high",
+      "percent_full": 64.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.37,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 4,
+        "high": 4
+      }
+    },
+    "19": {
+      "average_probability": 0.597,
+      "congestion_level": "moderate",
+      "percent_full": 60.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.21,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "20": {
+      "average_probability": 0.129,
+      "congestion_level": "low",
+      "percent_full": 13.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.38,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.036,
+      "congestion_level": "low",
+      "percent_full": 4.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.2,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.091,
+      "congestion_level": "low",
+      "percent_full": 9.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.26,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    }
+  },
+  "Sunday": {
+    "6": {
+      "average_probability": 0.241,
+      "congestion_level": "low",
+      "percent_full": 24.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.66,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 5,
+        "moderate": 2,
+        "high": 1
+      }
+    },
+    "7": {
+      "average_probability": 0.126,
+      "congestion_level": "low",
+      "percent_full": 13.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.31,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    },
+    "8": {
+      "average_probability": 0.463,
+      "congestion_level": "moderate",
+      "percent_full": 46.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.82,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.17,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 4,
+        "high": 2
+      }
+    },
+    "9": {
+      "average_probability": 0.543,
+      "congestion_level": "moderate",
+      "percent_full": 54.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.87,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.09,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 2,
+        "high": 4
+      }
+    },
+    "10": {
+      "average_probability": 0.56,
+      "congestion_level": "moderate",
+      "percent_full": 56.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.9,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.12,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 4,
+        "high": 3
+      }
+    },
+    "11": {
+      "average_probability": 0.551,
+      "congestion_level": "moderate",
+      "percent_full": 55.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.82,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.14,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "12": {
+      "average_probability": 0.57,
+      "congestion_level": "moderate",
+      "percent_full": 57.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 1.0,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.31,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 5,
+        "high": 3
+      }
+    },
+    "13": {
+      "average_probability": 0.558,
+      "congestion_level": "moderate",
+      "percent_full": 56.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.35,
+      "equipment_breakdown": {
+        "low": 0,
+        "moderate": 5,
+        "high": 3
+      }
+    },
+    "14": {
+      "average_probability": 0.61,
+      "congestion_level": "high",
+      "percent_full": 61.0,
+      "busiest_equipment": "Cable Machine",
+      "busiest_probability": 0.98,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.16,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "15": {
+      "average_probability": 0.418,
+      "congestion_level": "moderate",
+      "percent_full": 42.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.81,
+      "quietest_equipment": "Dumbbells",
+      "quietest_probability": 0.19,
+      "equipment_breakdown": {
+        "low": 2,
+        "moderate": 5,
+        "high": 1
+      }
+    },
+    "16": {
+      "average_probability": 0.297,
+      "congestion_level": "low",
+      "percent_full": 30.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.6,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.02,
+      "equipment_breakdown": {
+        "low": 4,
+        "moderate": 4,
+        "high": 0
+      }
+    },
+    "17": {
+      "average_probability": 0.641,
+      "congestion_level": "high",
+      "percent_full": 64.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.97,
+      "quietest_equipment": "Smith Machine",
+      "quietest_probability": 0.28,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 3,
+        "high": 4
+      }
+    },
+    "18": {
+      "average_probability": 0.631,
+      "congestion_level": "high",
+      "percent_full": 63.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.89,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.22,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 2,
+        "high": 5
+      }
+    },
+    "19": {
+      "average_probability": 0.636,
+      "congestion_level": "high",
+      "percent_full": 64.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.97,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.17,
+      "equipment_breakdown": {
+        "low": 1,
+        "moderate": 2,
+        "high": 5
+      }
+    },
+    "20": {
+      "average_probability": 0.113,
+      "congestion_level": "low",
+      "percent_full": 11.0,
+      "busiest_equipment": "Bench Press",
+      "busiest_probability": 0.34,
+      "quietest_equipment": "Treadmill",
+      "quietest_probability": 0.0,
+      "equipment_breakdown": {
+        "low": 7,
+        "moderate": 1,
+        "high": 0
+      }
+    },
+    "21": {
+      "average_probability": 0.082,
+      "congestion_level": "low",
+      "percent_full": 8.0,
+      "busiest_equipment": "Squat Rack",
+      "busiest_probability": 0.2,
+      "quietest_equipment": "Rowing Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    },
+    "22": {
+      "average_probability": 0.097,
+      "congestion_level": "low",
+      "percent_full": 10.0,
+      "busiest_equipment": "Leg Press",
+      "busiest_probability": 0.19,
+      "quietest_equipment": "Cable Machine",
+      "quietest_probability": 0.01,
+      "equipment_breakdown": {
+        "low": 8,
+        "moderate": 0,
+        "high": 0
+      }
+    }
+  }
+}

@@ -674,13 +674,14 @@
     <div class="nav">
       <button class="back-btn" onclick="goBack()">←</button>
       <span class="nav-title">Profile</span>
+      <button class="btn btn-ghost btn-sm" style="margin-left:auto;font-size:12px;padding:6px 12px" onclick="go('s-edit-profile')">Edit</button>
     </div>
 
     <div style="display:flex;gap:14px;align-items:center;margin-bottom:20px">
-      <div class="prof-ava">N</div>
+      <div class="prof-ava" id="prof-ava-initials">N</div>
       <div>
-        <div style="font-size:18px;font-weight:700">Nate</div>
-        <div style="font-size:13px;color:var(--muted)">@nate_lifts · Member since Jan 2024</div>
+        <div style="font-size:18px;font-weight:700" id="prof-display-name">Nate</div>
+        <div style="font-size:13px;color:var(--muted)" id="prof-display-handle">@nate_lifts · Member since Jan 2024</div>
       </div>
     </div>
 
@@ -691,10 +692,128 @@
       <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">3h 2m</div><div class="stat-l">Time</div></div>
     </div>
 
-    <!-- Theme color picker -->
-    <div class="sec" style="margin-top:4px">App theme color</div>
-    <div class="card" style="margin-bottom:14px">
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Pick an accent color — updates the whole app instantly.</div>
+    <div class="sec">Goals & Preferences</div>
+    <div class="card" id="prof-prefs-card">
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Goal</span><span style="font-size:13px;font-weight:600" id="pref-goal">Hypertrophy</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Experience</span><span style="font-size:13px;font-weight:600" id="pref-exp">Intermediate</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Session length</span><span style="font-size:13px;font-weight:600" id="pref-dur">45 min</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Frequency</span><span style="font-size:13px;font-weight:600" id="pref-freq">4×/week</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Preferred time</span><span style="font-size:13px;font-weight:600" id="pref-time">Morning (6–9am)</span></div>
+    </div>
+
+    <div class="sec" style="margin-top:4px">Recent machines</div>
+    <div class="card">
+      <div class="card-row"><span class="bold">Bench Press</span><span class="muted">Today · 4 sets</span></div>
+      <div class="card-row"><span class="bold">Incline Press</span><span class="muted">Today · 3 sets</span></div>
+      <div class="card-row"><span class="bold">Squat Rack A</span><span class="muted">Wednesday · 5 sets</span></div>
+      <div class="card-row"><span class="bold">Pull-Up Bar</span><span class="muted">Wednesday · 4 sets</span></div>
+    </div>
+
+    <div class="divider"></div>
+    <button class="btn btn-danger btn-full" onclick="toast('Signed out.')">Sign Out</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 14 — Edit Profile ══ -->
+  <div class="screen" id="s-edit-profile">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">Edit Profile</span>
+    </div>
+
+    <!-- Avatar -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:24px">
+      <div class="prof-ava" id="edit-ava-preview" style="width:72px;height:72px;font-size:28px;cursor:pointer" onclick="toast('Photo upload coming soon!')">N</div>
+      <span style="font-size:12px;color:var(--accent-dark);font-weight:600;cursor:pointer" onclick="toast('Photo upload coming soon!')">Change photo</span>
+    </div>
+
+    <!-- Name + handle -->
+    <div class="label">Full name</div>
+    <input id="edit-name" type="text" value="Nate"
+      style="width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--border);background:var(--surface);font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px;outline:none"
+      onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+
+    <div class="label">Username</div>
+    <div style="display:flex;align-items:center;border:1.5px solid var(--border);border-radius:12px;background:var(--surface);margin-bottom:14px;overflow:hidden"
+         id="handle-wrap"
+         onfocusin="this.style.borderColor='var(--accent)'" onfocusout="this.style.borderColor='var(--border)'">
+      <span style="padding:12px 4px 12px 14px;font-size:15px;color:var(--muted);font-weight:600">@</span>
+      <input id="edit-handle" type="text" value="nate_lifts"
+        style="flex:1;padding:12px 14px 12px 2px;border:none;background:transparent;font-size:15px;font-weight:600;color:var(--text);outline:none">
+    </div>
+
+    <div class="label">Gym</div>
+    <input id="edit-gym" type="text" value="Planet Fitness – Midtown"
+      style="width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--border);background:var(--surface);font-size:15px;color:var(--text);margin-bottom:20px;outline:none"
+      onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+
+    <!-- Goal -->
+    <div class="label">Goal</div>
+    <div class="opt-grid" id="edit-goal-opts">
+      <div class="opt on" onclick="soloEdit(this,'goal')">💪 Muscle building</div>
+      <div class="opt" onclick="soloEdit(this,'goal')">🏋️ Strength</div>
+      <div class="opt" onclick="soloEdit(this,'goal')">🏃 Endurance</div>
+      <div class="opt" onclick="soloEdit(this,'goal')">⚖️ Weight management</div>
+      <div class="opt" onclick="soloEdit(this,'goal')">🌿 General fitness</div>
+    </div>
+
+    <!-- Experience -->
+    <div class="label">Experience level</div>
+    <div class="opt-grid" id="edit-exp-opts">
+      <div class="opt" onclick="soloEdit(this,'exp')">Beginner</div>
+      <div class="opt on" onclick="soloEdit(this,'exp')">Intermediate</div>
+      <div class="opt" onclick="soloEdit(this,'exp')">Advanced</div>
+    </div>
+
+    <!-- Session length -->
+    <div class="label">Session length</div>
+    <div class="opt-grid" id="edit-dur-opts">
+      <div class="opt" onclick="soloEdit(this,'dur')">20 min</div>
+      <div class="opt" onclick="soloEdit(this,'dur')">30 min</div>
+      <div class="opt on" onclick="soloEdit(this,'dur')">45 min</div>
+      <div class="opt" onclick="soloEdit(this,'dur')">60 min</div>
+      <div class="opt" onclick="soloEdit(this,'dur')">90 min</div>
+    </div>
+
+    <!-- Weekly frequency -->
+    <div class="label">Weekly workout goal</div>
+    <div class="opt-grid" id="edit-freq-opts">
+      <div class="opt" onclick="soloEdit(this,'freq')">2×/week</div>
+      <div class="opt" onclick="soloEdit(this,'freq')">3×/week</div>
+      <div class="opt on" onclick="soloEdit(this,'freq')">4×/week</div>
+      <div class="opt" onclick="soloEdit(this,'freq')">5×/week</div>
+      <div class="opt" onclick="soloEdit(this,'freq')">6×/week</div>
+    </div>
+
+    <!-- Preferred time -->
+    <div class="label">Preferred time</div>
+    <div class="opt-grid" id="edit-time-opts">
+      <div class="opt" onclick="soloEdit(this,'ptime')">Early morning</div>
+      <div class="opt on" onclick="soloEdit(this,'ptime')">Morning (6–9am)</div>
+      <div class="opt" onclick="soloEdit(this,'ptime')">Midday</div>
+      <div class="opt" onclick="soloEdit(this,'ptime')">Evening</div>
+      <div class="opt" onclick="soloEdit(this,'ptime')">Late night</div>
+    </div>
+
+    <!-- Free days -->
+    <div class="label">Free days</div>
+    <div class="day-row" style="margin-bottom:24px">
+      <div class="day on" onclick="this.classList.toggle('on')">M</div>
+      <div class="day on" onclick="this.classList.toggle('on')">T</div>
+      <div class="day" onclick="this.classList.toggle('on')">W</div>
+      <div class="day on" onclick="this.classList.toggle('on')">Th</div>
+      <div class="day" onclick="this.classList.toggle('on')">F</div>
+      <div class="day on" onclick="this.classList.toggle('on')">Sa</div>
+      <div class="day" onclick="this.classList.toggle('on')">Su</div>
+    </div>
+
+    <button class="btn btn-a btn-full" onclick="saveProfile()" style="margin-bottom:12px">Save Changes</button>
+
+    <div class="divider"></div>
+
+    <!-- Accent color -->
+    <div class="sec" style="margin-top:4px">App accent color</div>
+    <div class="card" style="margin-bottom:4px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Tap a color to update the whole app.</div>
       <div class="theme-swatches" id="theme-swatches">
         <div class="swatch active" style="background:#38bdf8" onclick="setTheme(this,'#38bdf8','#0ea5e9','rgba(56,189,248,.12)','rgba(56,189,248,.35)')"></div>
         <div class="swatch" style="background:#f472b6" onclick="setTheme(this,'#f472b6','#db2777','rgba(244,114,182,.12)','rgba(244,114,182,.35)')"></div>
@@ -707,25 +826,18 @@
       </div>
     </div>
 
-    <div class="sec">Goals & Preferences</div>
-    <div class="card">
-      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Goal</span><span style="font-size:13px;font-weight:600">Hypertrophy</span></div>
-      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Frequency</span><span style="font-size:13px;font-weight:600">4×/week</span></div>
-      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Preferred time</span><span style="font-size:13px;font-weight:600">Morning (6–9am)</span></div>
-      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Session length</span><span style="font-size:13px;font-weight:600">45 min</span></div>
-      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Experience</span><span style="font-size:13px;font-weight:600">Intermediate</span></div>
-    </div>
-
-    <div class="sec" style="margin-top:4px">Recent machines</div>
-    <div class="card">
-      <div class="card-row"><span class="bold">Bench Press</span><span class="muted">Today · 4 sets</span></div>
-      <div class="card-row"><span class="bold">Incline Press</span><span class="muted">Today · 3 sets</span></div>
-      <div class="card-row"><span class="bold">Squat Rack A</span><span class="muted">Wednesday · 5 sets</span></div>
-      <div class="card-row"><span class="bold">Pull-Up Bar</span><span class="muted">Wednesday · 4 sets</span></div>
-    </div>
-
     <div class="divider"></div>
-    <button class="btn btn-danger btn-full">Sign Out</button>
+
+    <!-- Danger zone -->
+    <div class="sec" style="color:var(--red)">Danger zone</div>
+    <div class="card" style="border-color:#fecaca;background:#fef2f2">
+      <div style="font-size:13px;font-weight:600;margin-bottom:4px">Delete account</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">This permanently deletes your profile, workout history, and all data. This cannot be undone.</div>
+      <button class="btn btn-full" style="background:#fef2f2;color:var(--red);border:1.5px solid #fecaca;font-size:13px;padding:10px"
+        onclick="if(confirm('Delete your account? This cannot be undone.'))toast('Account deleted. Goodbye 👋')">
+        Delete My Account
+      </button>
+    </div>
   </div>
 
   <!-- ════════════════════════════════ TAB BAR ══ -->
@@ -1066,6 +1178,40 @@ function openMachineSheet(id){
 // ── Sheet ─────────────────────────────────────────────────────────────────────
 function openSheet(html){document.getElementById('sheet-content').innerHTML=html;document.getElementById('overlay').classList.add('on');}
 function closeSheet(){document.getElementById('overlay').classList.remove('on');}
+
+// ── Edit Profile ─────────────────────────────────────────────────────────────
+function soloEdit(el, group) {
+  el.closest('.opt-grid').querySelectorAll('.opt').forEach(o => o.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function saveProfile() {
+  const name   = document.getElementById('edit-name').value.trim() || 'Nate';
+  const handle = document.getElementById('edit-handle').value.trim() || 'nate_lifts';
+  const goal   = document.querySelector('#edit-goal-opts .opt.on')?.textContent.trim().replace(/^.\s/,'') || 'Hypertrophy';
+  const exp    = document.querySelector('#edit-exp-opts .opt.on')?.textContent.trim() || 'Intermediate';
+  const dur    = document.querySelector('#edit-dur-opts .opt.on')?.textContent.trim() || '45 min';
+  const freq   = document.querySelector('#edit-freq-opts .opt.on')?.textContent.trim() || '4×/week';
+  const ptime  = document.querySelector('#edit-time-opts .opt.on')?.textContent.trim() || 'Morning (6–9am)';
+
+  // Update profile view
+  document.getElementById('prof-display-name').textContent = name;
+  document.getElementById('prof-display-handle').textContent = `@${handle} · Member since Jan 2024`;
+  document.getElementById('prof-ava-initials').textContent = name[0].toUpperCase();
+  document.getElementById('edit-ava-preview').textContent  = name[0].toUpperCase();
+  document.getElementById('pref-goal').textContent  = goal;
+  document.getElementById('pref-exp').textContent   = exp;
+  document.getElementById('pref-dur').textContent   = dur;
+  document.getElementById('pref-freq').textContent  = freq;
+  document.getElementById('pref-time').textContent  = ptime;
+
+  // Also update home avatar initials
+  const homeAva = document.querySelector('#s-home .prof-ava');
+  if (homeAva) homeAva.textContent = name[0].toUpperCase();
+
+  goBack();
+  toast('✓ Profile saved');
+}
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 renderWorkout();

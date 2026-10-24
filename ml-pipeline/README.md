@@ -1,10 +1,52 @@
 # RepsIn ML Pipeline
 
-Equipment occupancy prediction system using synthetic training data.
+Equipment occupancy prediction system - **Hackathon Ready! 🚀**
 
-## 🎯 Goal
+## 🎬 Quick Start: Live Demo Mode
 
-Train a lightweight model that predicts gym equipment availability, optimized for on-device inference in React Native/Expo.
+For your hackathon presentation, use the **real-time demo** that shows predictions for RIGHT NOW:
+
+```bash
+cd scripts
+source ../venv/bin/activate
+
+# Show current time
+python demo_current_time.py
+
+# Or override for specific scenarios
+python demo_current_time.py --time 17 --day monday   # Peak hour (91% full)
+python demo_current_time.py --time 21 --day saturday # Sweet spot (4% full)
+```
+
+**📖 See [DEMO_GUIDE.md](DEMO_GUIDE.md) for complete hackathon presentation guide.**
+
+---
+
+## 📊 What's Built
+
+### Core ML System
+- ✅ **Random Forest Model** - 73% accuracy (cross-validated)
+- ✅ **11,424 Training Examples** - 12 weeks of synthetic data
+- ✅ **952 Predictions** - 8 equipment × 7 days × 17 hours
+- ✅ **19 JSON Files** - ~765 KB total output
+
+### Feature Completeness
+- ✅ **All P0 features** (6/6) - Equipment predictions, historical usage, time slider, congestion levels, best windows, equipment-specific forecasts
+- ✅ **All P1 features** (4/4) - Gym-wide congestion, peak-hour forecasting, occupancy heatmap, prediction confidence
+- ✅ **All P2 features** (3/3) - Predicted wait times, multi-gym predictions, usage trend analytics
+- ✅ **Advanced ML** (6 features) - Feature importance, cross-validation, correlations, confidence intervals, time series decomposition, model comparison
+- ✅ **Personalized Recommendations** - THE KILLER FEATURE answering "When should YOU go?"
+
+### React Native Integration
+- ✅ **7 UI Components** - Production-ready for mobile app
+- ✅ **All predictions copied** to `mobile-app/src/data/`
+- ✅ **Component test screen** - Preview all components
+
+### Testing & Validation
+- ✅ **21/21 Tests Passing** - 13 ML tests + 8 demo tests
+- ✅ **CLI Demo Mode** - No Expo needed for quick validation
+
+---
 
 ## 📁 Structure
 

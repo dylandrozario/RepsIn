@@ -20,7 +20,6 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    // Keep the cream background while fonts load to avoid a flash.
     return <View style={{ flex: 1, backgroundColor: colors.bg }} />;
   }
 

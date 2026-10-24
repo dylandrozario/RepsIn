@@ -1,0 +1,778 @@
+{
+  "daily_data": [
+    {
+      "week": 0,
+      "weekday": "Friday",
+      "day_num": 0,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": NaN,
+      "seasonal": -0.012780112044817993,
+      "residual": -0.01838235294117646
+    },
+    {
+      "week": 0,
+      "weekday": "Monday",
+      "day_num": 1,
+      "is_fully_occupied": 0.5073529411764706,
+      "trend": NaN,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.009191176470588203
+    },
+    {
+      "week": 0,
+      "weekday": "Saturday",
+      "day_num": 2,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": NaN,
+      "seasonal": -0.047093837535014005,
+      "residual": 0.01593137254901955
+    },
+    {
+      "week": 0,
+      "weekday": "Sunday",
+      "day_num": 3,
+      "is_fully_occupied": 0.40441176470588236,
+      "trend": 0.43697478991596633,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.007790616246498683
+    },
+    {
+      "week": 0,
+      "weekday": "Thursday",
+      "day_num": 4,
+      "is_fully_occupied": 0.4117647058823529,
+      "trend": 0.4401260504201681,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.002100840336134502
+    },
+    {
+      "week": 0,
+      "weekday": "Tuesday",
+      "day_num": 5,
+      "is_fully_occupied": 0.40441176470588236,
+      "trend": 0.4317226890756302,
+      "seasonal": -0.01400560224089642,
+      "residual": -0.013305322128851438
+    },
+    {
+      "week": 0,
+      "weekday": "Wednesday",
+      "day_num": 6,
+      "is_fully_occupied": 0.47794117647058826,
+      "trend": 0.43277310924369744,
+      "seasonal": 0.08158263305322122,
+      "residual": -0.0364145658263304
+    },
+    {
+      "week": 1,
+      "weekday": "Friday",
+      "day_num": 7,
+      "is_fully_occupied": 0.4485294117647059,
+      "trend": 0.43697478991596644,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.024334733893557448
+    },
+    {
+      "week": 1,
+      "weekday": "Monday",
+      "day_num": 8,
+      "is_fully_occupied": 0.4485294117647059,
+      "trend": 0.4432773109243698,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.053658963585434094
+    },
+    {
+      "week": 1,
+      "weekday": "Saturday",
+      "day_num": 9,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.453781512605042,
+      "seasonal": -0.047093837535014005,
+      "residual": 0.02713585434173671
+    },
+    {
+      "week": 1,
+      "weekday": "Sunday",
+      "day_num": 10,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.4569327731092437,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.01724439775910369
+    },
+    {
+      "week": 1,
+      "weekday": "Thursday",
+      "day_num": 11,
+      "is_fully_occupied": 0.45588235294117646,
+      "trend": 0.45798319327731096,
+      "seasonal": -0.02626050420168069,
+      "residual": 0.024159663865546188
+    },
+    {
+      "week": 1,
+      "weekday": "Tuesday",
+      "day_num": 12,
+      "is_fully_occupied": 0.47794117647058826,
+      "trend": 0.47373949579831937,
+      "seasonal": -0.01400560224089642,
+      "residual": 0.018207282913165312
+    },
+    {
+      "week": 1,
+      "weekday": "Wednesday",
+      "day_num": 13,
+      "is_fully_occupied": 0.5,
+      "trend": 0.47268907563025214,
+      "seasonal": 0.08158263305322122,
+      "residual": -0.05427170868347336
+    },
+    {
+      "week": 2,
+      "weekday": "Friday",
+      "day_num": 14,
+      "is_fully_occupied": 0.45588235294117646,
+      "trend": 0.4695378151260504,
+      "seasonal": -0.012780112044817993,
+      "residual": -0.0008753501400559638
+    },
+    {
+      "week": 2,
+      "weekday": "Monday",
+      "day_num": 15,
+      "is_fully_occupied": 0.5588235294117647,
+      "trend": 0.46113445378151263,
+      "seasonal": 0.05891106442577021,
+      "residual": 0.03877801120448188
+    },
+    {
+      "week": 2,
+      "weekday": "Saturday",
+      "day_num": 16,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": 0.46113445378151263,
+      "seasonal": -0.047093837535014005,
+      "residual": 0.012429971988795474
+    },
+    {
+      "week": 2,
+      "weekday": "Sunday",
+      "day_num": 17,
+      "is_fully_occupied": 0.4117647058823529,
+      "trend": 0.4695378151260505,
+      "seasonal": -0.040353641456582656,
+      "residual": -0.017419467787114895
+    },
+    {
+      "week": 2,
+      "weekday": "Thursday",
+      "day_num": 18,
+      "is_fully_occupied": 0.39705882352941174,
+      "trend": 0.4726890756302521,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.049369747899159655
+    },
+    {
+      "week": 2,
+      "weekday": "Tuesday",
+      "day_num": 19,
+      "is_fully_occupied": 0.47794117647058826,
+      "trend": 0.46638655462184875,
+      "seasonal": -0.01400560224089642,
+      "residual": 0.02556022408963593
+    },
+    {
+      "week": 2,
+      "weekday": "Wednesday",
+      "day_num": 20,
+      "is_fully_occupied": 0.5588235294117647,
+      "trend": 0.46638655462184875,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.01085434173669475
+    },
+    {
+      "week": 3,
+      "weekday": "Friday",
+      "day_num": 21,
+      "is_fully_occupied": 0.47794117647058826,
+      "trend": 0.4716386554621849,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.019082633053221332
+    },
+    {
+      "week": 3,
+      "weekday": "Monday",
+      "day_num": 22,
+      "is_fully_occupied": 0.5147058823529411,
+      "trend": 0.47373949579831937,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.01794467787114845
+    },
+    {
+      "week": 3,
+      "weekday": "Saturday",
+      "day_num": 23,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": 0.46743697478991597,
+      "seasonal": -0.047093837535014005,
+      "residual": 0.006127450980392135
+    },
+    {
+      "week": 3,
+      "weekday": "Sunday",
+      "day_num": 24,
+      "is_fully_occupied": 0.4485294117647059,
+      "trend": 0.4642857142857143,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.024597338935574253
+    },
+    {
+      "week": 3,
+      "weekday": "Thursday",
+      "day_num": 25,
+      "is_fully_occupied": 0.4117647058823529,
+      "trend": 0.4600840336134454,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.022058823529411797
+    },
+    {
+      "week": 3,
+      "weekday": "Tuesday",
+      "day_num": 26,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.45693277310924374,
+      "seasonal": -0.01400560224089642,
+      "residual": -0.0091036414565826
+    },
+    {
+      "week": 3,
+      "weekday": "Wednesday",
+      "day_num": 27,
+      "is_fully_occupied": 0.5367647058823529,
+      "trend": 0.453781512605042,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.0014005602240896864
+    },
+    {
+      "week": 4,
+      "weekday": "Friday",
+      "day_num": 28,
+      "is_fully_occupied": 0.4485294117647059,
+      "trend": 0.4443277310924369,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.016981792717086996
+    },
+    {
+      "week": 4,
+      "weekday": "Monday",
+      "day_num": 29,
+      "is_fully_occupied": 0.49264705882352944,
+      "trend": 0.45168067226890757,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.01794467787114834
+    },
+    {
+      "week": 4,
+      "weekday": "Saturday",
+      "day_num": 30,
+      "is_fully_occupied": 0.40441176470588236,
+      "trend": 0.4600840336134454,
+      "seasonal": -0.047093837535014005,
+      "residual": -0.008578431372549045
+    },
+    {
+      "week": 4,
+      "weekday": "Sunday",
+      "day_num": 31,
+      "is_fully_occupied": 0.38235294117647056,
+      "trend": 0.4611344537815126,
+      "seasonal": -0.040353641456582656,
+      "residual": -0.03842787114845936
+    },
+    {
+      "week": 4,
+      "weekday": "Thursday",
+      "day_num": 32,
+      "is_fully_occupied": 0.4632352941176471,
+      "trend": 0.45693277310924374,
+      "seasonal": -0.02626050420168069,
+      "residual": 0.03256302521008403
+    },
+    {
+      "week": 4,
+      "weekday": "Tuesday",
+      "day_num": 33,
+      "is_fully_occupied": 0.49264705882352944,
+      "trend": 0.4590336134453782,
+      "seasonal": -0.01400560224089642,
+      "residual": 0.04761904761904767
+    },
+    {
+      "week": 4,
+      "weekday": "Wednesday",
+      "day_num": 34,
+      "is_fully_occupied": 0.5441176470588235,
+      "trend": 0.4558823529411765,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.006652661064425747
+    },
+    {
+      "week": 5,
+      "weekday": "Friday",
+      "day_num": 35,
+      "is_fully_occupied": 0.41911764705882354,
+      "trend": 0.46113445378151263,
+      "seasonal": -0.012780112044817993,
+      "residual": -0.0292366946778711
+    },
+    {
+      "week": 5,
+      "weekday": "Monday",
+      "day_num": 36,
+      "is_fully_occupied": 0.5073529411764706,
+      "trend": 0.45063025210084034,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.0021883753501399927
+    },
+    {
+      "week": 5,
+      "weekday": "Saturday",
+      "day_num": 37,
+      "is_fully_occupied": 0.38235294117647056,
+      "trend": 0.4338235294117648,
+      "seasonal": -0.047093837535014005,
+      "residual": -0.0043767507002802075
+    },
+    {
+      "week": 5,
+      "weekday": "Sunday",
+      "day_num": 38,
+      "is_fully_occupied": 0.41911764705882354,
+      "trend": 0.444327731092437,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.01514355742296919
+    },
+    {
+      "week": 5,
+      "weekday": "Thursday",
+      "day_num": 39,
+      "is_fully_occupied": 0.3897058823529412,
+      "trend": 0.4495798319327731,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.03361344537815125
+    },
+    {
+      "week": 5,
+      "weekday": "Tuesday",
+      "day_num": 40,
+      "is_fully_occupied": 0.375,
+      "trend": 0.44642857142857145,
+      "seasonal": -0.01400560224089642,
+      "residual": -0.05742296918767503
+    },
+    {
+      "week": 5,
+      "weekday": "Wednesday",
+      "day_num": 41,
+      "is_fully_occupied": 0.6176470588235294,
+      "trend": 0.4527310924369748,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.08333333333333343
+    },
+    {
+      "week": 6,
+      "weekday": "Friday",
+      "day_num": 42,
+      "is_fully_occupied": 0.45588235294117646,
+      "trend": 0.4548319327731093,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.01383053221288516
+    },
+    {
+      "week": 6,
+      "weekday": "Monday",
+      "day_num": 43,
+      "is_fully_occupied": 0.4852941176470588,
+      "trend": 0.4684873949579832,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.042104341736694584
+    },
+    {
+      "week": 6,
+      "weekday": "Saturday",
+      "day_num": 44,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": 0.476890756302521,
+      "seasonal": -0.047093837535014005,
+      "residual": -0.0033263305322128733
+    },
+    {
+      "week": 6,
+      "weekday": "Sunday",
+      "day_num": 45,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.45693277310924374,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.017244397759103636
+    },
+    {
+      "week": 6,
+      "weekday": "Thursday",
+      "day_num": 46,
+      "is_fully_occupied": 0.4852941176470588,
+      "trend": 0.45798319327731096,
+      "seasonal": -0.02626050420168069,
+      "residual": 0.05357142857142855
+    },
+    {
+      "week": 6,
+      "weekday": "Tuesday",
+      "day_num": 47,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.4653361344537815,
+      "seasonal": -0.01400560224089642,
+      "residual": -0.017507002801120386
+    },
+    {
+      "week": 6,
+      "weekday": "Wednesday",
+      "day_num": 48,
+      "is_fully_occupied": 0.47794117647058826,
+      "trend": 0.4642857142857143,
+      "seasonal": 0.08158263305322122,
+      "residual": -0.06792717086834726
+    },
+    {
+      "week": 7,
+      "weekday": "Friday",
+      "day_num": 49,
+      "is_fully_occupied": 0.4632352941176471,
+      "trend": 0.46743697478991597,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.0085784313725491
+    },
+    {
+      "week": 7,
+      "weekday": "Monday",
+      "day_num": 50,
+      "is_fully_occupied": 0.5367647058823529,
+      "trend": 0.4600840336134454,
+      "seasonal": 0.05891106442577021,
+      "residual": 0.017769607843137303
+    },
+    {
+      "week": 7,
+      "weekday": "Saturday",
+      "day_num": 51,
+      "is_fully_occupied": 0.41911764705882354,
+      "trend": 0.4684873949579832,
+      "seasonal": -0.047093837535014005,
+      "residual": -0.00227591036414565
+    },
+    {
+      "week": 7,
+      "weekday": "Sunday",
+      "day_num": 52,
+      "is_fully_occupied": 0.45588235294117646,
+      "trend": 0.4852941176470588,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.010941876750700297
+    },
+    {
+      "week": 7,
+      "weekday": "Thursday",
+      "day_num": 53,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.47478991596638653,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.014705882352941124
+    },
+    {
+      "week": 7,
+      "weekday": "Tuesday",
+      "day_num": 54,
+      "is_fully_occupied": 0.49264705882352944,
+      "trend": 0.47373949579831937,
+      "seasonal": -0.01400560224089642,
+      "residual": 0.03291316526610649
+    },
+    {
+      "week": 7,
+      "weekday": "Wednesday",
+      "day_num": 55,
+      "is_fully_occupied": 0.5955882352941176,
+      "trend": 0.48214285714285715,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.03186274509803927
+    },
+    {
+      "week": 8,
+      "weekday": "Friday",
+      "day_num": 56,
+      "is_fully_occupied": 0.3897058823529412,
+      "trend": 0.4695378151260504,
+      "seasonal": -0.012780112044817993,
+      "residual": -0.06705182072829124
+    },
+    {
+      "week": 8,
+      "weekday": "Monday",
+      "day_num": 57,
+      "is_fully_occupied": 0.5294117647058824,
+      "trend": 0.47058823529411764,
+      "seasonal": 0.05891106442577021,
+      "residual": -8.753501400549091e-05
+    },
+    {
+      "week": 8,
+      "weekday": "Saturday",
+      "day_num": 58,
+      "is_fully_occupied": 0.47794117647058826,
+      "trend": 0.4632352941176471,
+      "seasonal": -0.047093837535014005,
+      "residual": 0.061799719887955185
+    },
+    {
+      "week": 8,
+      "weekday": "Sunday",
+      "day_num": 59,
+      "is_fully_occupied": 0.36764705882352944,
+      "trend": 0.45483193277310924,
+      "seasonal": -0.040353641456582656,
+      "residual": -0.046831232492997144
+    },
+    {
+      "week": 8,
+      "weekday": "Thursday",
+      "day_num": 60,
+      "is_fully_occupied": 0.4411764705882353,
+      "trend": 0.4600840336134454,
+      "seasonal": -0.02626050420168069,
+      "residual": 0.007352941176470562
+    },
+    {
+      "week": 8,
+      "weekday": "Tuesday",
+      "day_num": 61,
+      "is_fully_occupied": 0.4411764705882353,
+      "trend": 0.45378151260504207,
+      "seasonal": -0.01400560224089642,
+      "residual": 0.0014005602240896309
+    },
+    {
+      "week": 8,
+      "weekday": "Wednesday",
+      "day_num": 62,
+      "is_fully_occupied": 0.5367647058823529,
+      "trend": 0.4338235294117648,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.021358543417366926
+    },
+    {
+      "week": 9,
+      "weekday": "Friday",
+      "day_num": 63,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": 0.4348739495798319,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.0043767507002802075
+    },
+    {
+      "week": 9,
+      "weekday": "Monday",
+      "day_num": 64,
+      "is_fully_occupied": 0.4852941176470588,
+      "trend": 0.430672268907563,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.0042892156862743835
+    },
+    {
+      "week": 9,
+      "weekday": "Saturday",
+      "day_num": 65,
+      "is_fully_occupied": 0.3382352941176471,
+      "trend": 0.43277310924369744,
+      "seasonal": -0.047093837535014005,
+      "residual": -0.04744397759103636
+    },
+    {
+      "week": 9,
+      "weekday": "Sunday",
+      "day_num": 66,
+      "is_fully_occupied": 0.375,
+      "trend": 0.430672268907563,
+      "seasonal": -0.040353641456582656,
+      "residual": -0.015318627450980338
+    },
+    {
+      "week": 9,
+      "weekday": "Thursday",
+      "day_num": 67,
+      "is_fully_occupied": 0.4117647058823529,
+      "trend": 0.4401260504201681,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.002100840336134502
+    },
+    {
+      "week": 9,
+      "weekday": "Tuesday",
+      "day_num": 68,
+      "is_fully_occupied": 0.45588235294117646,
+      "trend": 0.444327731092437,
+      "seasonal": -0.01400560224089642,
+      "residual": 0.025560224089635875
+    },
+    {
+      "week": 9,
+      "weekday": "Wednesday",
+      "day_num": 69,
+      "is_fully_occupied": 0.5220588235294118,
+      "trend": 0.4558823529411765,
+      "seasonal": 0.08158263305322122,
+      "residual": -0.01540616246498594
+    },
+    {
+      "week": 10,
+      "weekday": "Friday",
+      "day_num": 70,
+      "is_fully_occupied": 0.49264705882352944,
+      "trend": 0.46113445378151263,
+      "seasonal": -0.012780112044817993,
+      "residual": 0.0442927170868348
+    },
+    {
+      "week": 10,
+      "weekday": "Monday",
+      "day_num": 71,
+      "is_fully_occupied": 0.5147058823529411,
+      "trend": 0.46638655462184875,
+      "seasonal": 0.05891106442577021,
+      "residual": -0.010591736694677834
+    },
+    {
+      "week": 10,
+      "weekday": "Saturday",
+      "day_num": 72,
+      "is_fully_occupied": 0.41911764705882354,
+      "trend": 0.4600840336134454,
+      "seasonal": -0.047093837535014005,
+      "residual": 0.006127450980392135
+    },
+    {
+      "week": 10,
+      "weekday": "Sunday",
+      "day_num": 73,
+      "is_fully_occupied": 0.4117647058823529,
+      "trend": 0.4674369747899159,
+      "seasonal": -0.040353641456582656,
+      "residual": -0.015318627450980338
+    },
+    {
+      "week": 10,
+      "weekday": "Thursday",
+      "day_num": 74,
+      "is_fully_occupied": 0.4485294117647059,
+      "trend": 0.4590336134453782,
+      "seasonal": -0.02626050420168069,
+      "residual": 0.015756302521008403
+    },
+    {
+      "week": 10,
+      "weekday": "Tuesday",
+      "day_num": 75,
+      "is_fully_occupied": 0.4117647058823529,
+      "trend": 0.4737394957983193,
+      "seasonal": -0.01400560224089642,
+      "residual": -0.04796918767506997
+    },
+    {
+      "week": 10,
+      "weekday": "Wednesday",
+      "day_num": 76,
+      "is_fully_occupied": 0.5735294117647058,
+      "trend": 0.4632352941176471,
+      "seasonal": 0.08158263305322122,
+      "residual": 0.028711484593837544
+    },
+    {
+      "week": 11,
+      "weekday": "Friday",
+      "day_num": 77,
+      "is_fully_occupied": 0.4338235294117647,
+      "trend": 0.47058823529411764,
+      "seasonal": -0.012780112044817993,
+      "residual": -0.02398459383753493
+    },
+    {
+      "week": 11,
+      "weekday": "Monday",
+      "day_num": 78,
+      "is_fully_occupied": 0.6176470588235294,
+      "trend": 0.46743697478991597,
+      "seasonal": 0.05891106442577021,
+      "residual": 0.09129901960784326
+    },
+    {
+      "week": 11,
+      "weekday": "Saturday",
+      "day_num": 79,
+      "is_fully_occupied": 0.34558823529411764,
+      "trend": 0.4695378151260504,
+      "seasonal": -0.047093837535014005,
+      "residual": -0.07685574229691877
+    },
+    {
+      "week": 11,
+      "weekday": "Sunday",
+      "day_num": 80,
+      "is_fully_occupied": 0.4632352941176471,
+      "trend": 0.463235294117647,
+      "seasonal": -0.040353641456582656,
+      "residual": 0.04035364145658271
+    },
+    {
+      "week": 11,
+      "weekday": "Thursday",
+      "day_num": 81,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": NaN,
+      "seasonal": -0.02626050420168069,
+      "residual": -0.004901960784313764
+    },
+    {
+      "week": 11,
+      "weekday": "Tuesday",
+      "day_num": 82,
+      "is_fully_occupied": 0.4264705882352941,
+      "trend": NaN,
+      "seasonal": -0.01400560224089642,
+      "residual": -0.017156862745098034
+    },
+    {
+      "week": 11,
+      "weekday": "Wednesday",
+      "day_num": 83,
+      "is_fully_occupied": 0.5294117647058824,
+      "trend": NaN,
+      "seasonal": 0.08158263305322122,
+      "residual": -0.009803921568627416
+    }
+  ],
+  "summary": {
+    "mean_occupancy": 0.45763305322128855,
+    "trend_range": [
+      0.430672268907563,
+      0.4852941176470588
+    ],
+    "seasonal_variation": 0.08158263305322122,
+    "residual_noise": 0.024522308923569425
+  },
+  "weekday_effects": {
+    "Monday": 0.05891106442577021,
+    "Tuesday": -0.01400560224089642,
+    "Wednesday": 0.08158263305322122,
+    "Thursday": -0.02626050420168069,
+    "Friday": -0.012780112044817993,
+    "Saturday": -0.047093837535014005,
+    "Sunday": -0.040353641456582656
+  }
+}
