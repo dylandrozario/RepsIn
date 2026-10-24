@@ -1,0 +1,41 @@
+{
+  "models_tested": [
+    {
+      "model": "Gradient Boosting",
+      "train_accuracy": 0.7673706094758727,
+      "test_accuracy": 0.7286652078774617,
+      "overfit_gap": 0.03870540159841096
+    },
+    {
+      "model": "Decision Tree",
+      "train_accuracy": 0.7651821862348178,
+      "test_accuracy": 0.7269146608315098,
+      "overfit_gap": 0.03826752540330802
+    },
+    {
+      "model": "Random Forest",
+      "train_accuracy": 0.7673706094758727,
+      "test_accuracy": 0.725164113785558,
+      "overfit_gap": 0.04220649569031465
+    },
+    {
+      "model": "Logistic Regression",
+      "train_accuracy": 0.7257905678958311,
+      "test_accuracy": 0.7216630196936543,
+      "overfit_gap": 0.004127548202176756
+    },
+    {
+      "model": "Naive Bayes",
+      "train_accuracy": 0.6838822628296313,
+      "test_accuracy": 0.6757111597374179,
+      "overfit_gap": 0.008171103092213361
+    }
+  ],
+  "winner": {
+    "model": "Gradient Boosting",
+    "train_accuracy": 0.7673706094758727,
+    "test_accuracy": 0.7286652078774617,
+    "overfit_gap": 0.03870540159841096
+  },
+  "justification": "Gradient Boosting chosen for best balance of accuracy and generalization"
+}

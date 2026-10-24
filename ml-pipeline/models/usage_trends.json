@@ -1,0 +1,176 @@
+{
+  "weekly_data": [
+    {
+      "week": 1,
+      "avg_occupancy": 0.691,
+      "peak_occupancy": 0.95,
+      "off_peak_occupancy": 0.207,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 691
+    },
+    {
+      "week": 2,
+      "avg_occupancy": 0.629,
+      "peak_occupancy": 0.881,
+      "off_peak_occupancy": 0.189,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 629
+    },
+    {
+      "week": 3,
+      "avg_occupancy": 0.664,
+      "peak_occupancy": 0.93,
+      "off_peak_occupancy": 0.199,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 664
+    },
+    {
+      "week": 4,
+      "avg_occupancy": 0.677,
+      "peak_occupancy": 0.948,
+      "off_peak_occupancy": 0.203,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 677
+    },
+    {
+      "week": 5,
+      "avg_occupancy": 0.462,
+      "peak_occupancy": 0.646,
+      "off_peak_occupancy": 0.138,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 461
+    },
+    {
+      "week": 6,
+      "avg_occupancy": 0.535,
+      "peak_occupancy": 0.749,
+      "off_peak_occupancy": 0.161,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 535
+    },
+    {
+      "week": 7,
+      "avg_occupancy": 0.525,
+      "peak_occupancy": 0.735,
+      "off_peak_occupancy": 0.157,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 524
+    },
+    {
+      "week": 8,
+      "avg_occupancy": 0.459,
+      "peak_occupancy": 0.643,
+      "off_peak_occupancy": 0.138,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 459
+    },
+    {
+      "week": 9,
+      "avg_occupancy": 0.455,
+      "peak_occupancy": 0.637,
+      "off_peak_occupancy": 0.137,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 455
+    },
+    {
+      "week": 10,
+      "avg_occupancy": 0.484,
+      "peak_occupancy": 0.678,
+      "off_peak_occupancy": 0.145,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 484
+    },
+    {
+      "week": 11,
+      "avg_occupancy": 0.489,
+      "peak_occupancy": 0.684,
+      "off_peak_occupancy": 0.147,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 488
+    },
+    {
+      "week": 12,
+      "avg_occupancy": 0.492,
+      "peak_occupancy": 0.689,
+      "off_peak_occupancy": 0.148,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 491
+    }
+  ],
+  "monthly_data": [
+    {
+      "month": 1,
+      "name": "January",
+      "weeks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "avg_occupancy": 0.665,
+      "trend": "high",
+      "description": "Peak usage - New Year's resolution effect"
+    },
+    {
+      "month": 2,
+      "name": "February",
+      "weeks": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "avg_occupancy": 0.495,
+      "trend": "declining",
+      "description": "Usage declining as resolutions fade"
+    },
+    {
+      "month": 3,
+      "name": "March",
+      "weeks": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "avg_occupancy": 0.48,
+      "trend": "stable",
+      "description": "Stable core membership usage"
+    }
+  ],
+  "insights": {
+    "highest_usage_week": {
+      "week": 1,
+      "avg_occupancy": 0.691,
+      "peak_occupancy": 0.95,
+      "off_peak_occupancy": 0.207,
+      "busiest_day": "Monday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 691
+    },
+    "lowest_usage_week": {
+      "week": 9,
+      "avg_occupancy": 0.455,
+      "peak_occupancy": 0.637,
+      "off_peak_occupancy": 0.137,
+      "busiest_day": "Wednesday",
+      "quietest_day": "Saturday",
+      "total_visits_estimate": 455
+    },
+    "average_occupancy_12_weeks": 0.547,
+    "trend_direction": "stable",
+    "seasonal_pattern": "New Year peak, then stabilization"
+  }
+}

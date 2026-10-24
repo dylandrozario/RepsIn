@@ -11,11 +11,12 @@ const BAR_PAD = 6;
  * Floating pill tab bar with a sticky, smoothly sliding active indicator.
  * Tabs have variable width (inactive = icon only, active = icon + label), so
  * we measure each tab's layout and slide/resize the purple pill to match.
- * Hidden entirely while the camera tracker is running.
+ * Hidden entirely during full-screen moments (camera tracking, availability,
+ * the best-time reveal) via the nav-visibility store.
  */
 export default function TabBar({ state, descriptors, navigation }) {
   const insets = useSafeAreaInsets();
-  const tracking = useTracking();
+  const hidden = useTracking();
 
   // Measured { x, width } for each tab, relative to the row.
   const [layouts, setLayouts] = useState({});
@@ -42,7 +43,7 @@ export default function TabBar({ state, descriptors, navigation }) {
     ]).start();
   }, [activeLayout, x, w]);
 
-  if (tracking) return null;
+  if (hidden) return null;
 
   const havePill = Boolean(activeLayout);
 
@@ -63,7 +64,11 @@ export default function TabBar({ state, descriptors, navigation }) {
           const focused = state.index === index;
 
           const onPress = () => {
-            const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
             if (!focused && !event.defaultPrevented) navigation.navigate(route.name);
           };
 
@@ -87,9 +92,7 @@ export default function TabBar({ state, descriptors, navigation }) {
               {(() => {
                 const Icon = TAB_ICONS[route.name];
                 const tint = focused ? colors.onPurple : colors.inkSoft;
-                return Icon ? (
-                  <Icon size={21} color={tint} strokeWidth={2} />
-                ) : null;
+                return Icon ? <Icon size={21} color={tint} strokeWidth={2} /> : null;
               })()}
               {focused ? (
                 <Text numberOfLines={1} style={styles.labelActive}>{label}</Text>
@@ -110,6 +113,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     padding: BAR_PAD,
     alignItems: 'center',
+    alignSelf: 'center',
   },
   pill: {
     position: 'absolute',
