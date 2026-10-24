@@ -9,6 +9,7 @@ import {
   InstrumentSerif_400Regular_Italic,
 } from '@expo-google-fonts/instrument-serif';
 import RootNavigator from './src/navigation/RootNavigator';
+import { ThemeProvider } from './src/context/ThemeContext';
 import { colors } from './src/theme/theme';
 
 export default function App() {
@@ -18,14 +19,15 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    // Keep the cream background while fonts load to avoid a flash.
     return <View style={{ flex: 1, backgroundColor: colors.bg }} />;
   }
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" />
-      <RootNavigator />
+      <ThemeProvider>
+        <StatusBar style="dark" />
+        <RootNavigator />
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 }
