@@ -400,7 +400,7 @@ export default function HomeScreen({ navigation, route }) {
 
         <View style={{ marginTop: spacing.lg }}>
           {outlook.map((item, idx) => (
-            <FadeInView key={item.type} delay={stagger(4 + idx)}>
+            <FadeInView key={`${item.type}-${idx}`} delay={stagger(4 + idx)}>
               <View style={styles.equipRow}>
                 <IconTile glyph={item.type.includes('cable') ? 'circle' : 'square'} />
                 <View style={styles.equipMid}>

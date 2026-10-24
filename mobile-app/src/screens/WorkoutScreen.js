@@ -180,7 +180,12 @@ export default function WorkoutScreen({ route, navigation }) {
 
 /** The recommended-workout plan shown when you're not checked into a machine. */
 function PlanView({ prefs, slot, navigation, theme }) {
-  const { floor, plan, ensurePlan, resetPlan, promotePlanSecond } = useSession();
+  const { floor, plan, ensurePlan, resetPlan, promotePlanSecond, completePlanItem } = useSession();
+
+  // Equipment types that don't map to a single queueable machine — the user
+  // just grabs them (free weights / bodyweight), so no check-in or waiting.
+  const NO_MACHINE = ['dumbbells', 'bodyweight', 'kettlebell', 'mat', 'none'];
+  const needsMachine = (equipment) => !NO_MACHINE.includes(equipment);
 
   // Memoize the generated workout on PRIMITIVES so its identity is stable.
   const goal = prefs?.goal, experience = prefs?.experience, duration = prefs?.duration;
@@ -253,19 +258,25 @@ function PlanView({ prefs, slot, navigation, theme }) {
                 <Text style={styles.nextName}>{nextUp.name}</Text>
                 <Text style={[type.small, { marginTop: 4 }]}>{nextUp.display}</Text>
               </View>
-              {/* live availability pill for this exercise's equipment */}
-              <View style={[
-                styles.availPill,
-                { backgroundColor: nextOpen > 0 ? '#DCFCE7' : '#FEE2E2' },
-              ]}>
-                <Text style={[styles.availPillText, { color: nextOpen > 0 ? colors.low : colors.high }]}>
-                  {nextOpen > 0 ? `${nextOpen} open` : 'All taken'}
-                </Text>
-              </View>
+              {/* availability pill — free-weight moves need no machine */}
+              {!needsMachine(nextUp.equipment) ? (
+                <View style={[styles.availPill, { backgroundColor: '#DCFCE7' }]}>
+                  <Text style={[styles.availPillText, { color: colors.low }]}>No machine</Text>
+                </View>
+              ) : (
+                <View style={[
+                  styles.availPill,
+                  { backgroundColor: nextOpen > 0 ? '#DCFCE7' : '#FEE2E2' },
+                ]}>
+                  <Text style={[styles.availPillText, { color: nextOpen > 0 ? colors.low : colors.high }]}>
+                    {nextOpen > 0 ? `${nextOpen} open` : 'All taken'}
+                  </Text>
+                </View>
+              )}
             </View>
 
-            {/* Reorder recommendation when next-up is fully taken */}
-            {recommendSwap && (
+            {/* Reorder recommendation only applies to machine exercises */}
+            {needsMachine(nextUp.equipment) && recommendSwap && (
               <View style={styles.recBox}>
                 <Text style={styles.recTitle}>💡 {nextUp.name} is fully taken</Text>
                 <Text style={styles.recText}>
@@ -278,17 +289,34 @@ function PlanView({ prefs, slot, navigation, theme }) {
               </View>
             )}
 
-            <Pressable
-              style={[styles.completeBtn, { backgroundColor: nextOpen > 0 ? theme.accent : colors.hairline }]}
-              onPress={() => navigation.navigate('Floor')}
-            >
-              <Text style={styles.completeBtnText}>
-                {nextOpen > 0 ? 'Check in on the floor →' : 'See the floor →'}
-              </Text>
-            </Pressable>
-            <Text style={styles.completeHint}>
-              Finish a {nextUp.name} session on the floor to complete this.
-            </Text>
+            {!needsMachine(nextUp.equipment) ? (
+              /* Free weight / bodyweight — just do it, mark complete directly */
+              <>
+                <Pressable
+                  style={[styles.completeBtn, { backgroundColor: theme.accent }]}
+                  onPress={() => completePlanItem(nextUp.uid)}
+                >
+                  <Text style={styles.completeBtnText}>Mark Complete ✓</Text>
+                </Pressable>
+                <Text style={styles.completeHint}>
+                  No machine needed — grab what you need and mark it done when finished.
+                </Text>
+              </>
+            ) : (
+              <>
+                <Pressable
+                  style={[styles.completeBtn, { backgroundColor: nextOpen > 0 ? theme.accent : colors.hairline }]}
+                  onPress={() => navigation.navigate('Floor')}
+                >
+                  <Text style={styles.completeBtnText}>
+                    {nextOpen > 0 ? 'Check in on the floor →' : 'See the floor →'}
+                  </Text>
+                </Pressable>
+                <Text style={styles.completeHint}>
+                  Finish a {nextUp.name} session on the floor to complete this.
+                </Text>
+              </>
+            )}
           </View>
         </>
       ) : (
@@ -307,7 +335,8 @@ function PlanView({ prefs, slot, navigation, theme }) {
         <>
           <Label style={{ marginTop: spacing.xl }}>Coming up</Label>
           {pending.slice(1).map((ex, idx) => {
-            const open = openForEquipment(ex.equipment);
+            const noMachine = !needsMachine(ex.equipment);
+            const open = noMachine ? 1 : openForEquipment(ex.equipment);
             return (
               <View key={ex.uid} style={styles.queueExRow}>
                 <Text style={[styles.exIndex, { color: colors.inkFaint }]}>{String(idx + 2).padStart(2, '0')}</Text>
@@ -316,7 +345,7 @@ function PlanView({ prefs, slot, navigation, theme }) {
                   <Text style={[type.small, { marginTop: 2 }]}>{ex.display}</Text>
                 </View>
                 <Text style={[styles.miniAvail, { color: open > 0 ? colors.low : colors.high }]}>
-                  {open > 0 ? `${open} open` : 'taken'}
+                  {noMachine ? 'no machine' : open > 0 ? `${open} open` : 'taken'}
                 </Text>
               </View>
             );

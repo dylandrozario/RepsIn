@@ -155,6 +155,19 @@ export function SessionProvider({ children }) {
     });
   }, []);
 
+  /** Mark a specific plan exercise (by uid) complete — used for free-weight /
+   *  bodyweight moves that don't need a machine check-in. */
+  const completePlanItem = useCallback((uid) => {
+    setPlan((prev) => {
+      if (!prev) return prev;
+      const idx = prev.findIndex((e) => e.uid === uid && !e.done);
+      if (idx < 0) return prev;
+      const item = prev[idx];
+      const rest = prev.filter((_, i) => i !== idx);
+      return [...rest, { ...item, done: true }];
+    });
+  }, []);
+
   /** Finish your active workout — free your unit AND credit the plan exercise. */
   const finishSession = useCallback(() => {
     const id = activeRef.current;
@@ -320,6 +333,7 @@ export function SessionProvider({ children }) {
     ensurePlan,
     resetPlan,
     promotePlanSecond,
+    completePlanItem,
   };
 
   return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;
