@@ -1,0 +1,1568 @@
+{
+ "source": "synthetic_occupancy_data.csv",
+ "week": 11,
+ "note": "Recorded outcomes for the latest week of the demo dataset. gym = share of equipment types fully occupied.",
+ "data": {
+  "Friday": {
+   "6": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "7": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "8": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "9": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "10": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "11": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "12": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "13": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "14": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "15": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "16": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "17": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "18": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "19": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "20": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "21": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "22": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   }
+  },
+  "Monday": {
+   "6": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "7": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "8": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "9": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "10": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "11": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "12": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "13": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "14": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "15": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "16": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "17": {
+    "gym": 1.0,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "18": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "19": {
+    "gym": 1.0,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "20": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "21": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "22": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   }
+  },
+  "Saturday": {
+   "6": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "7": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "8": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "9": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "10": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "11": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "12": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "13": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "14": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "15": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "16": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "17": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "18": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "19": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "20": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "21": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "22": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   }
+  },
+  "Sunday": {
+   "6": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "7": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "8": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "9": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "10": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "11": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "12": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "13": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "14": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "15": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "16": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "17": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "18": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "19": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "20": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "21": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "22": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   }
+  },
+  "Thursday": {
+   "6": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "7": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "8": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "9": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "10": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "11": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "12": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "13": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "14": {
+    "gym": 1.0,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "15": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "16": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "17": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "18": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "19": {
+    "gym": 1.0,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "20": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "21": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "22": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   }
+  },
+  "Tuesday": {
+   "6": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "7": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "8": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "9": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "10": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "11": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "12": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "13": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "14": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "15": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "16": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "17": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "18": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "19": {
+    "gym": 1.0,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "20": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "21": {
+    "gym": 0.0,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "22": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   }
+  },
+  "Wednesday": {
+   "6": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "7": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "8": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "9": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "10": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "11": {
+    "gym": 0.375,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "12": {
+    "gym": 0.5,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "13": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "14": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "15": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 1
+    }
+   },
+   "16": {
+    "gym": 0.625,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "17": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 0,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "18": {
+    "gym": 0.75,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 1,
+     "cable_machine": 0,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 0
+    }
+   },
+   "19": {
+    "gym": 0.875,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 1,
+     "treadmill": 1,
+     "rowing_machine": 1,
+     "dumbbells": 1,
+     "smith_machine": 1
+    }
+   },
+   "20": {
+    "gym": 0.25,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 1,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "21": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 1,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 0,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   },
+   "22": {
+    "gym": 0.125,
+    "equipment": {
+     "bench_press": 0,
+     "squat_rack": 0,
+     "leg_press": 0,
+     "cable_machine": 0,
+     "treadmill": 0,
+     "rowing_machine": 1,
+     "dumbbells": 0,
+     "smith_machine": 0
+    }
+   }
+  }
+ }
+}
