@@ -1,4 +1,4 @@
-# GymFlow — Complete Feature Roadmap
+#Complete Feature Roadmap
 
 > **Mission:** Reduce friction from going to the gym by helping people find time, anticipate equipment congestion, choose an appropriate workout, and build consistency.
 >
@@ -60,7 +60,7 @@
 | Equipment occupancy predictions | Probability that **all units** of a given equipment type are occupied at a specified time | P0 |
 | Historical equipment usage | Analyze usage patterns by equipment, weekday, and hour | P0 |
 | Interactive time slider | Explore forecasts across the day | P0 |
-| Equipment congestion levels | Low, moderate, high, or unknown | P0 |
+| Equipment congestion levels | Specific number of sets and predictive minutes (highlighted by color) | P0 |
 | Gym-wide congestion prediction | Estimate overall gym busyness | P1 |
 | Peak-hour forecasting | Highlight historically busy times | P1 |
 | Best equipment availability window | Find lower-congestion time windows | P0 |
