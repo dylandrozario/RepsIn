@@ -8,39 +8,46 @@ import HomeScreen from '../screens/HomeScreen';
 import ForecastScreen from '../screens/ForecastScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 import TrackerScreen from '../screens/TrackerScreen';
+import FloorScreen from '../screens/FloorScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import storage from '../services/storageService';
 import { colors } from '../theme/theme';
+import { useTheme } from '../context/ThemeContext';
 
 const Tab = createBottomTabNavigator();
 
-const navTheme = {
-  dark: false,
-  colors: {
-    primary: colors.purple,
-    background: colors.bg,
-    card: colors.bg,
-    text: colors.ink,
-    border: colors.hairline,
-    notification: colors.purple,
-  },
-};
-
 function Tabs({ prefs }) {
+  const { theme } = useTheme();
+
+  const navTheme = {
+    dark: false,
+    colors: {
+      primary: theme.accent,
+      background: colors.bg,
+      card: colors.bg,
+      text: colors.ink,
+      border: colors.hairline,
+      notification: theme.accent,
+    },
+  };
+
   return (
-    <Tab.Navigator
-      tabBar={(props) => <TabBar {...props} />}
-      screenOptions={{ headerShown: false }}
-    >
-      <Tab.Screen name="Home" options={{ title: 'Home' }} initialParams={{ prefs }}>
-        {(props) => <HomeScreen {...props} />}
-      </Tab.Screen>
-      <Tab.Screen name="Forecast" options={{ title: 'Forecast' }} component={ForecastScreen} />
-      <Tab.Screen name="Workout" options={{ title: 'Workout' }} initialParams={{ prefs }}>
-        {(props) => <WorkoutScreen {...props} />}
-      </Tab.Screen>
-      <Tab.Screen name="Tracker" options={{ title: 'Form' }} component={TrackerScreen} />
-    </Tab.Navigator>
+    <NavigationContainer theme={navTheme}>
+      <Tab.Navigator
+        tabBar={(props) => <TabBar {...props} />}
+        screenOptions={{ headerShown: false }}
+      >
+        <Tab.Screen name="Home" options={{ title: 'Home' }} initialParams={{ prefs }}>
+          {(props) => <HomeScreen {...props} />}
+        </Tab.Screen>
+        <Tab.Screen name="Forecast" options={{ title: 'Forecast' }} component={ForecastScreen} />
+        <Tab.Screen name="Floor" options={{ title: 'Floor' }} component={FloorScreen} />
+        <Tab.Screen name="Workout" options={{ title: 'Workout' }} initialParams={{ prefs }}>
+          {(props) => <WorkoutScreen {...props} />}
+        </Tab.Screen>
+        <Tab.Screen name="Tracker" options={{ title: 'Form' }} component={TrackerScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -64,9 +71,13 @@ export default function RootNavigator() {
     );
   }
 
-  return (
-    <NavigationContainer theme={navTheme}>
-      {prefs ? <Tabs prefs={prefs} /> : <OnboardingScreen onDone={setPrefs} />}
-    </NavigationContainer>
-  );
+  if (!prefs) {
+    return (
+      <NavigationContainer>
+        <OnboardingScreen onDone={setPrefs} />
+      </NavigationContainer>
+    );
+  }
+
+  return <Tabs prefs={prefs} />;
 }
