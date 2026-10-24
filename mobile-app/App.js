@@ -10,6 +10,9 @@ import {
 } from '@expo-google-fonts/instrument-serif';
 import RootNavigator from './src/navigation/RootNavigator';
 import { ThemeProvider } from './src/context/ThemeContext';
+import { GymProvider } from './src/context/GymContext';
+import { ProfileProvider } from './src/context/ProfileContext';
+import { SessionProvider } from './src/context/SessionContext';
 import { colors } from './src/theme/theme';
 
 export default function App() {
@@ -25,8 +28,14 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider>
-        <StatusBar style="dark" />
-        <RootNavigator />
+        <GymProvider>
+          <ProfileProvider>
+            <SessionProvider>
+              <StatusBar style="dark" />
+              <RootNavigator />
+            </SessionProvider>
+          </ProfileProvider>
+        </GymProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );

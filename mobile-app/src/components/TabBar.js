@@ -5,12 +5,11 @@ import { colors, radius, shadow } from '../theme/theme';
 import { useTheme } from '../context/ThemeContext';
 
 const GLYPHS = {
-  Home:     '⌂',
-  Forecast: '▦',
-  Floor:    '◫',
-  Workout:  '▤',
-  Tracker:  '◉',
-  Form:     '◉',
+  Home:         '⌂',
+  Availability: '▦',
+  Workout:      '▤',
+  Tracker:      '◉',
+  Form:         '◉',
 };
 
 export default function TabBar({ state, descriptors, navigation }) {
