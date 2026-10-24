@@ -152,10 +152,22 @@ const BC_GYM = {
 
 // ─── Final gym list ───────────────────────────────────────────────────────────
 // Boston gyms (with a derived floor) + the curated BC gym.
-export const GYMS = [
+// The seed data can contain duplicate ids (e.g. two "Beacon Hill Athletic
+// Clubs"), so we dedupe by id — keeping the first occurrence — to guarantee
+// unique keys for every list that renders gyms.
+function dedupeById(list) {
+  const seen = new Set();
+  return list.filter((g) => {
+    if (seen.has(g.id)) return false;
+    seen.add(g.id);
+    return true;
+  });
+}
+
+export const GYMS = dedupeById([
   ...bostonGyms.map((g) => ({ ...g, floor: g.floor || deriveFloor(g.equipment) })),
   BC_GYM,
-];
+]);
 
 export const DEMO_GYM = GYMS[0];
 
