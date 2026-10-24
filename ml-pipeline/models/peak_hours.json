@@ -1,0 +1,417 @@
+{
+  "Monday": {
+    "peak_hours": [
+      17,
+      19,
+      18
+    ],
+    "peak_details": [
+      {
+        "hour": 17,
+        "probability": 0.907,
+        "level": "high",
+        "percent_full": 91.0
+      },
+      {
+        "hour": 19,
+        "probability": 0.88,
+        "level": "high",
+        "percent_full": 88.0
+      },
+      {
+        "hour": 18,
+        "probability": 0.868,
+        "level": "high",
+        "percent_full": 87.0
+      }
+    ],
+    "quiet_hours": [
+      20,
+      22,
+      21
+    ],
+    "quiet_details": [
+      {
+        "hour": 20,
+        "probability": 0.167,
+        "level": "low",
+        "percent_full": 17.0
+      },
+      {
+        "hour": 22,
+        "probability": 0.211,
+        "level": "low",
+        "percent_full": 21.0
+      },
+      {
+        "hour": 21,
+        "probability": 0.244,
+        "level": "low",
+        "percent_full": 24.0
+      }
+    ],
+    "best_time": 20,
+    "best_time_percent": 17.0,
+    "worst_time": 17,
+    "worst_time_percent": 91.0,
+    "avoid_message": "Avoid 17:00 (91% full)",
+    "suggestion": "Come at 20:00 instead (17% full)"
+  },
+  "Tuesday": {
+    "peak_hours": [
+      19,
+      18,
+      17
+    ],
+    "peak_details": [
+      {
+        "hour": 19,
+        "probability": 0.878,
+        "level": "high",
+        "percent_full": 88.0
+      },
+      {
+        "hour": 18,
+        "probability": 0.818,
+        "level": "high",
+        "percent_full": 82.0
+      },
+      {
+        "hour": 17,
+        "probability": 0.811,
+        "level": "high",
+        "percent_full": 81.0
+      }
+    ],
+    "quiet_hours": [
+      22,
+      21,
+      6
+    ],
+    "quiet_details": [
+      {
+        "hour": 22,
+        "probability": 0.172,
+        "level": "low",
+        "percent_full": 17.0
+      },
+      {
+        "hour": 21,
+        "probability": 0.19,
+        "level": "low",
+        "percent_full": 19.0
+      },
+      {
+        "hour": 6,
+        "probability": 0.213,
+        "level": "low",
+        "percent_full": 21.0
+      }
+    ],
+    "best_time": 22,
+    "best_time_percent": 17.0,
+    "worst_time": 19,
+    "worst_time_percent": 88.0,
+    "avoid_message": "Avoid 19:00 (88% full)",
+    "suggestion": "Come at 22:00 instead (17% full)"
+  },
+  "Wednesday": {
+    "peak_hours": [
+      17,
+      19,
+      18
+    ],
+    "peak_details": [
+      {
+        "hour": 17,
+        "probability": 0.899,
+        "level": "high",
+        "percent_full": 90.0
+      },
+      {
+        "hour": 19,
+        "probability": 0.885,
+        "level": "high",
+        "percent_full": 89.0
+      },
+      {
+        "hour": 18,
+        "probability": 0.882,
+        "level": "high",
+        "percent_full": 88.0
+      }
+    ],
+    "quiet_hours": [
+      21,
+      22,
+      6
+    ],
+    "quiet_details": [
+      {
+        "hour": 21,
+        "probability": 0.246,
+        "level": "low",
+        "percent_full": 25.0
+      },
+      {
+        "hour": 22,
+        "probability": 0.25,
+        "level": "low",
+        "percent_full": 25.0
+      },
+      {
+        "hour": 6,
+        "probability": 0.254,
+        "level": "low",
+        "percent_full": 25.0
+      }
+    ],
+    "best_time": 21,
+    "best_time_percent": 25.0,
+    "worst_time": 17,
+    "worst_time_percent": 90.0,
+    "avoid_message": "Avoid 17:00 (90% full)",
+    "suggestion": "Come at 21:00 instead (25% full)"
+  },
+  "Thursday": {
+    "peak_hours": [
+      19,
+      18,
+      17
+    ],
+    "peak_details": [
+      {
+        "hour": 19,
+        "probability": 0.819,
+        "level": "high",
+        "percent_full": 82.0
+      },
+      {
+        "hour": 18,
+        "probability": 0.776,
+        "level": "high",
+        "percent_full": 78.0
+      },
+      {
+        "hour": 17,
+        "probability": 0.764,
+        "level": "high",
+        "percent_full": 76.0
+      }
+    ],
+    "quiet_hours": [
+      20,
+      22,
+      8
+    ],
+    "quiet_details": [
+      {
+        "hour": 20,
+        "probability": 0.126,
+        "level": "low",
+        "percent_full": 13.0
+      },
+      {
+        "hour": 22,
+        "probability": 0.146,
+        "level": "low",
+        "percent_full": 15.0
+      },
+      {
+        "hour": 8,
+        "probability": 0.189,
+        "level": "low",
+        "percent_full": 19.0
+      }
+    ],
+    "best_time": 20,
+    "best_time_percent": 13.0,
+    "worst_time": 19,
+    "worst_time_percent": 82.0,
+    "avoid_message": "Avoid 19:00 (82% full)",
+    "suggestion": "Come at 20:00 instead (13% full)"
+  },
+  "Friday": {
+    "peak_hours": [
+      17,
+      13,
+      18
+    ],
+    "peak_details": [
+      {
+        "hour": 17,
+        "probability": 0.871,
+        "level": "high",
+        "percent_full": 87.0
+      },
+      {
+        "hour": 13,
+        "probability": 0.742,
+        "level": "high",
+        "percent_full": 74.0
+      },
+      {
+        "hour": 18,
+        "probability": 0.704,
+        "level": "high",
+        "percent_full": 70.0
+      }
+    ],
+    "quiet_hours": [
+      20,
+      21,
+      22
+    ],
+    "quiet_details": [
+      {
+        "hour": 20,
+        "probability": 0.076,
+        "level": "low",
+        "percent_full": 8.0
+      },
+      {
+        "hour": 21,
+        "probability": 0.115,
+        "level": "low",
+        "percent_full": 11.0
+      },
+      {
+        "hour": 22,
+        "probability": 0.158,
+        "level": "low",
+        "percent_full": 16.0
+      }
+    ],
+    "best_time": 20,
+    "best_time_percent": 8.0,
+    "worst_time": 17,
+    "worst_time_percent": 87.0,
+    "avoid_message": "Avoid 17:00 (87% full)",
+    "suggestion": "Come at 20:00 instead (8% full)"
+  },
+  "Saturday": {
+    "peak_hours": [
+      18,
+      12,
+      19
+    ],
+    "peak_details": [
+      {
+        "hour": 18,
+        "probability": 0.643,
+        "level": "high",
+        "percent_full": 64.0
+      },
+      {
+        "hour": 12,
+        "probability": 0.632,
+        "level": "high",
+        "percent_full": 63.0
+      },
+      {
+        "hour": 19,
+        "probability": 0.597,
+        "level": "moderate",
+        "percent_full": 60.0
+      }
+    ],
+    "quiet_hours": [
+      21,
+      22,
+      20
+    ],
+    "quiet_details": [
+      {
+        "hour": 21,
+        "probability": 0.036,
+        "level": "low",
+        "percent_full": 4.0
+      },
+      {
+        "hour": 22,
+        "probability": 0.091,
+        "level": "low",
+        "percent_full": 9.0
+      },
+      {
+        "hour": 20,
+        "probability": 0.129,
+        "level": "low",
+        "percent_full": 13.0
+      }
+    ],
+    "best_time": 21,
+    "best_time_percent": 4.0,
+    "worst_time": 18,
+    "worst_time_percent": 64.0,
+    "avoid_message": "Avoid 18:00 (64% full)",
+    "suggestion": "Come at 21:00 instead (4% full)"
+  },
+  "Sunday": {
+    "peak_hours": [
+      17,
+      19,
+      18
+    ],
+    "peak_details": [
+      {
+        "hour": 17,
+        "probability": 0.641,
+        "level": "high",
+        "percent_full": 64.0
+      },
+      {
+        "hour": 19,
+        "probability": 0.636,
+        "level": "high",
+        "percent_full": 64.0
+      },
+      {
+        "hour": 18,
+        "probability": 0.631,
+        "level": "high",
+        "percent_full": 63.0
+      }
+    ],
+    "quiet_hours": [
+      21,
+      22,
+      20
+    ],
+    "quiet_details": [
+      {
+        "hour": 21,
+        "probability": 0.082,
+        "level": "low",
+        "percent_full": 8.0
+      },
+      {
+        "hour": 22,
+        "probability": 0.097,
+        "level": "low",
+        "percent_full": 10.0
+      },
+      {
+        "hour": 20,
+        "probability": 0.113,
+        "level": "low",
+        "percent_full": 11.0
+      }
+    ],
+    "best_time": 21,
+    "best_time_percent": 8.0,
+    "worst_time": 17,
+    "worst_time_percent": 64.0,
+    "avoid_message": "Avoid 17:00 (64% full)",
+    "suggestion": "Come at 21:00 instead (8% full)"
+  },
+  "weekly_insights": {
+    "busiest_overall": {
+      "weekday": "Monday",
+      "hour": 17,
+      "percent": 91.0
+    },
+    "quietest_day": "Saturday",
+    "busiest_day": "Monday"
+  }
+}

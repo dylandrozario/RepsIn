@@ -1,0 +1,128 @@
+{
+  "features": [
+    {
+      "feature": "hour_squared",
+      "importance": 0.16199070963162704
+    },
+    {
+      "feature": "hour",
+      "importance": 0.15922949273461773
+    },
+    {
+      "feature": "equipment_units_interaction",
+      "importance": 0.12332394512169116
+    },
+    {
+      "feature": "is_peak_hour",
+      "importance": 0.09937113755276263
+    },
+    {
+      "feature": "num_units",
+      "importance": 0.07899169649772189
+    },
+    {
+      "feature": "equip_squat_rack",
+      "importance": 0.036481520400780794
+    },
+    {
+      "feature": "is_evening",
+      "importance": 0.032148873518705635
+    },
+    {
+      "feature": "is_lunch_hour",
+      "importance": 0.02953125002693805
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.028876785378192524
+    },
+    {
+      "feature": "equip_smith_machine",
+      "importance": 0.027420680065238952
+    },
+    {
+      "feature": "is_morning",
+      "importance": 0.02471970400111446
+    },
+    {
+      "feature": "day_Wednesday",
+      "importance": 0.021913166949350547
+    },
+    {
+      "feature": "day_Monday",
+      "importance": 0.020557139505128334
+    },
+    {
+      "feature": "day_Thursday",
+      "importance": 0.019675589238038547
+    },
+    {
+      "feature": "day_Tuesday",
+      "importance": 0.018929498520510873
+    },
+    {
+      "feature": "day_Friday",
+      "importance": 0.01887807018871897
+    },
+    {
+      "feature": "day_Saturday",
+      "importance": 0.01795503143451521
+    },
+    {
+      "feature": "day_Sunday",
+      "importance": 0.016620666253699665
+    },
+    {
+      "feature": "equip_rowing_machine",
+      "importance": 0.015288877519694283
+    },
+    {
+      "feature": "equip_leg_press",
+      "importance": 0.01132289216935631
+    },
+    {
+      "feature": "equip_bench_press",
+      "importance": 0.010965747232724907
+    },
+    {
+      "feature": "equip_treadmill",
+      "importance": 0.009675623996561362
+    },
+    {
+      "feature": "equip_dumbbells",
+      "importance": 0.009099523727897001
+    },
+    {
+      "feature": "equip_cable_machine",
+      "importance": 0.007032378334413084
+    }
+  ],
+  "top_5": [
+    {
+      "feature": "hour_squared",
+      "importance": 0.16199070963162704
+    },
+    {
+      "feature": "hour",
+      "importance": 0.15922949273461773
+    },
+    {
+      "feature": "equipment_units_interaction",
+      "importance": 0.12332394512169116
+    },
+    {
+      "feature": "is_peak_hour",
+      "importance": 0.09937113755276263
+    },
+    {
+      "feature": "num_units",
+      "importance": 0.07899169649772189
+    }
+  ],
+  "summary": {
+    "most_important": "hour_squared",
+    "importance_score": 0.16199070963162704,
+    "top_3_contribute": 0.4445441474879359,
+    "top_5_contribute": 0.6229069815384204
+  }
+}

@@ -1,0 +1,691 @@
+{
+  "busy_professional": {
+    "persona": {
+      "name": "Busy Professional",
+      "description": "Works 9-5, prefers early morning or late evening",
+      "goals": [
+        "muscle_building",
+        "strength"
+      ],
+      "experience": "intermediate",
+      "duration": 60,
+      "availability": [
+        {
+          "day": "Monday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Monday",
+          "start": 19,
+          "end": 21
+        },
+        {
+          "day": "Wednesday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Wednesday",
+          "start": 19,
+          "end": 21
+        },
+        {
+          "day": "Friday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Friday",
+          "start": 19,
+          "end": 21
+        }
+      ],
+      "preferred_equipment": [
+        "bench_press",
+        "squat_rack",
+        "dumbbells"
+      ],
+      "time_preference_weights": {
+        "morning": 1.2,
+        "evening": 1.0,
+        "afternoon": 0.5
+      }
+    },
+    "ranked_slots": [
+      {
+        "day": "Friday",
+        "hour": 20,
+        "score": 85.8,
+        "congestion_percent": 8.0,
+        "congestion_level": "low",
+        "time_of_day": "evening",
+        "equipment_availability": 93.4,
+        "reasoning": "Gym is quiet, preferred equipment available"
+      },
+      {
+        "day": "Monday",
+        "hour": 20,
+        "score": 75.7,
+        "congestion_percent": 17.0,
+        "congestion_level": "low",
+        "time_of_day": "evening",
+        "equipment_availability": 71.6,
+        "reasoning": "Gym is quiet"
+      },
+      {
+        "day": "Wednesday",
+        "hour": 6,
+        "score": 71.3,
+        "congestion_percent": 25.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 67.0,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Friday",
+        "hour": 6,
+        "score": 67.5,
+        "congestion_percent": 33.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 65.0,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 6,
+        "score": 67.4,
+        "congestion_percent": 29.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 59.2,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Wednesday",
+        "hour": 20,
+        "score": 67.3,
+        "congestion_percent": 28.0,
+        "congestion_level": "low",
+        "time_of_day": "evening",
+        "equipment_availability": 58.4,
+        "reasoning": "Gym is quiet"
+      },
+      {
+        "day": "Wednesday",
+        "hour": 7,
+        "score": 64.3,
+        "congestion_percent": 36.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 58.3,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Friday",
+        "hour": 7,
+        "score": 63.5,
+        "congestion_percent": 34.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 53.1,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 7,
+        "score": 59.2,
+        "congestion_percent": 42.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 49.4,
+        "reasoning": "Moderate crowd, matches your morning preference"
+      },
+      {
+        "day": "Friday",
+        "hour": 19,
+        "score": 39.7,
+        "congestion_percent": 70.0,
+        "congestion_level": "high",
+        "time_of_day": "evening",
+        "equipment_availability": 22.5,
+        "reasoning": "Moderate crowd, preferred equipment likely occupied"
+      },
+      {
+        "day": "Monday",
+        "hour": 19,
+        "score": 28.4,
+        "congestion_percent": 88.0,
+        "congestion_level": "high",
+        "time_of_day": "evening",
+        "equipment_availability": 8.8,
+        "reasoning": "Gym is busy, preferred equipment likely occupied"
+      },
+      {
+        "day": "Wednesday",
+        "hour": 19,
+        "score": 26.5,
+        "congestion_percent": 89.0,
+        "congestion_level": "high",
+        "time_of_day": "evening",
+        "equipment_availability": 3.7,
+        "reasoning": "Gym is busy, preferred equipment likely occupied"
+      }
+    ],
+    "best_time": {
+      "day": "Friday",
+      "hour": 20,
+      "score": 85.8,
+      "congestion_percent": 8.0,
+      "congestion_level": "low",
+      "time_of_day": "evening",
+      "equipment_availability": 93.4,
+      "reasoning": "Gym is quiet, preferred equipment available"
+    },
+    "worst_time": {
+      "day": "Wednesday",
+      "hour": 19,
+      "score": 26.5,
+      "congestion_percent": 89.0,
+      "congestion_level": "high",
+      "time_of_day": "evening",
+      "equipment_availability": 3.7,
+      "reasoning": "Gym is busy, preferred equipment likely occupied"
+    },
+    "summary": {
+      "total_available_slots": 12,
+      "low_congestion_slots": 8,
+      "high_congestion_slots": 2,
+      "best_days": [
+        {
+          "day": "Friday",
+          "avg_score": 64.1
+        },
+        {
+          "day": "Monday",
+          "avg_score": 57.7
+        },
+        {
+          "day": "Wednesday",
+          "avg_score": 57.3
+        }
+      ]
+    }
+  },
+  "flexible_student": {
+    "persona": {
+      "name": "Flexible Student",
+      "description": "Variable schedule, prefers afternoon",
+      "goals": [
+        "general_fitness",
+        "endurance"
+      ],
+      "experience": "beginner",
+      "duration": 45,
+      "availability": [
+        {
+          "day": "Monday",
+          "start": 10,
+          "end": 16
+        },
+        {
+          "day": "Tuesday",
+          "start": 12,
+          "end": 18
+        },
+        {
+          "day": "Thursday",
+          "start": 10,
+          "end": 16
+        },
+        {
+          "day": "Saturday",
+          "start": 9,
+          "end": 15
+        }
+      ],
+      "preferred_equipment": [
+        "treadmill",
+        "rowing_machine",
+        "cable_machine"
+      ],
+      "time_preference_weights": {
+        "morning": 0.8,
+        "afternoon": 1.2,
+        "evening": 0.9
+      }
+    },
+    "ranked_slots": [
+      {
+        "day": "Thursday",
+        "hour": 11,
+        "score": 75.9,
+        "congestion_percent": 29.0,
+        "congestion_level": "low",
+        "time_of_day": "afternoon",
+        "equipment_availability": 87.7,
+        "reasoning": "Gym is quiet, preferred equipment available, matches your afternoon preference"
+      },
+      {
+        "day": "Thursday",
+        "hour": 10,
+        "score": 74.8,
+        "congestion_percent": 30.0,
+        "congestion_level": "low",
+        "time_of_day": "afternoon",
+        "equipment_availability": 85.3,
+        "reasoning": "Gym is quiet, preferred equipment available, matches your afternoon preference"
+      },
+      {
+        "day": "Tuesday",
+        "hour": 15,
+        "score": 66.1,
+        "congestion_percent": 42.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 72.4,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 10,
+        "score": 64.8,
+        "congestion_percent": 42.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 68.0,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 11,
+        "score": 63.3,
+        "congestion_percent": 42.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 62.9,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Thursday",
+        "hour": 15,
+        "score": 63.3,
+        "congestion_percent": 47.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 69.7,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 15,
+        "score": 62.1,
+        "congestion_percent": 45.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 63.1,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Tuesday",
+        "hour": 16,
+        "score": 61.6,
+        "congestion_percent": 46.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 62.7,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Saturday",
+        "hour": 10,
+        "score": 59.4,
+        "congestion_percent": 47.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 56.5,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Saturday",
+        "hour": 11,
+        "score": 57.0,
+        "congestion_percent": 53.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 56.5,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Saturday",
+        "hour": 14,
+        "score": 55.7,
+        "congestion_percent": 55.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 54.9,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Saturday",
+        "hour": 9,
+        "score": 54.3,
+        "congestion_percent": 53.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 49.1,
+        "reasoning": "Moderate crowd"
+      },
+      {
+        "day": "Thursday",
+        "hour": 13,
+        "score": 54.0,
+        "congestion_percent": 61.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 57.3,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Saturday",
+        "hour": 13,
+        "score": 52.8,
+        "congestion_percent": 58.0,
+        "congestion_level": "moderate",
+        "time_of_day": "afternoon",
+        "equipment_availability": 49.4,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Tuesday",
+        "hour": 14,
+        "score": 50.9,
+        "congestion_percent": 63.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 49.6,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Saturday",
+        "hour": 12,
+        "score": 50.4,
+        "congestion_percent": 63.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 48.1,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Thursday",
+        "hour": 12,
+        "score": 49.3,
+        "congestion_percent": 63.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 44.5,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Thursday",
+        "hour": 14,
+        "score": 48.6,
+        "congestion_percent": 68.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 48.6,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 12,
+        "score": 48.4,
+        "congestion_percent": 67.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 46.5,
+        "reasoning": "Moderate crowd, matches your afternoon preference"
+      },
+      {
+        "day": "Tuesday",
+        "hour": 13,
+        "score": 47.1,
+        "congestion_percent": 65.0,
+        "congestion_level": "high",
+        "time_of_day": "afternoon",
+        "equipment_availability": 39.6,
+        "reasoning": "Moderate crowd, preferred equipment likely occupied, matches your afternoon preference"
+      }
+    ],
+    "best_time": {
+      "day": "Thursday",
+      "hour": 11,
+      "score": 75.9,
+      "congestion_percent": 29.0,
+      "congestion_level": "low",
+      "time_of_day": "afternoon",
+      "equipment_availability": 87.7,
+      "reasoning": "Gym is quiet, preferred equipment available, matches your afternoon preference"
+    },
+    "worst_time": {
+      "day": "Tuesday",
+      "hour": 17,
+      "score": 36.5,
+      "congestion_percent": 81.0,
+      "congestion_level": "high",
+      "time_of_day": "evening",
+      "equipment_availability": 26.6,
+      "reasoning": "Gym is busy, preferred equipment likely occupied"
+    },
+    "summary": {
+      "total_available_slots": 24,
+      "low_congestion_slots": 2,
+      "high_congestion_slots": 3,
+      "best_days": [
+        {
+          "day": "Thursday",
+          "avg_score": 61.0
+        },
+        {
+          "day": "Saturday",
+          "avg_score": 54.9
+        },
+        {
+          "day": "Monday",
+          "avg_score": 53.1
+        }
+      ]
+    }
+  },
+  "early_bird": {
+    "persona": {
+      "name": "Early Bird",
+      "description": "Morning person, gym before work",
+      "goals": [
+        "weight_management",
+        "cardio"
+      ],
+      "experience": "advanced",
+      "duration": 30,
+      "availability": [
+        {
+          "day": "Monday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Tuesday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Wednesday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Thursday",
+          "start": 6,
+          "end": 8
+        },
+        {
+          "day": "Friday",
+          "start": 6,
+          "end": 8
+        }
+      ],
+      "preferred_equipment": [
+        "treadmill",
+        "rowing_machine"
+      ],
+      "time_preference_weights": {
+        "morning": 1.5,
+        "afternoon": 0.3,
+        "evening": 0.2
+      }
+    },
+    "ranked_slots": [
+      {
+        "day": "Thursday",
+        "hour": 6,
+        "score": 76.6,
+        "congestion_percent": 22.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 79.8,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Tuesday",
+        "hour": 6,
+        "score": 75.2,
+        "congestion_percent": 21.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 73.7,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Wednesday",
+        "hour": 6,
+        "score": 74.8,
+        "congestion_percent": 25.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 77.8,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 6,
+        "score": 72.9,
+        "congestion_percent": 29.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 76.8,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Friday",
+        "hour": 7,
+        "score": 72.4,
+        "congestion_percent": 34.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 81.7,
+        "reasoning": "Gym is quiet, preferred equipment available, matches your morning preference"
+      },
+      {
+        "day": "Tuesday",
+        "hour": 7,
+        "score": 69.1,
+        "congestion_percent": 29.0,
+        "congestion_level": "low",
+        "time_of_day": "morning",
+        "equipment_availability": 64.0,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Thursday",
+        "hour": 7,
+        "score": 68.9,
+        "congestion_percent": 37.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 74.2,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Friday",
+        "hour": 6,
+        "score": 67.8,
+        "congestion_percent": 33.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 65.0,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Wednesday",
+        "hour": 7,
+        "score": 66.4,
+        "congestion_percent": 36.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 64.2,
+        "reasoning": "Gym is quiet, matches your morning preference"
+      },
+      {
+        "day": "Monday",
+        "hour": 7,
+        "score": 65.1,
+        "congestion_percent": 42.0,
+        "congestion_level": "moderate",
+        "time_of_day": "morning",
+        "equipment_availability": 68.0,
+        "reasoning": "Moderate crowd, matches your morning preference"
+      }
+    ],
+    "best_time": {
+      "day": "Thursday",
+      "hour": 6,
+      "score": 76.6,
+      "congestion_percent": 22.0,
+      "congestion_level": "low",
+      "time_of_day": "morning",
+      "equipment_availability": 79.8,
+      "reasoning": "Gym is quiet, matches your morning preference"
+    },
+    "worst_time": {
+      "day": "Monday",
+      "hour": 7,
+      "score": 65.1,
+      "congestion_percent": 42.0,
+      "congestion_level": "moderate",
+      "time_of_day": "morning",
+      "equipment_availability": 68.0,
+      "reasoning": "Moderate crowd, matches your morning preference"
+    },
+    "summary": {
+      "total_available_slots": 10,
+      "low_congestion_slots": 9,
+      "high_congestion_slots": 0,
+      "best_days": [
+        {
+          "day": "Thursday",
+          "avg_score": 72.8
+        },
+        {
+          "day": "Tuesday",
+          "avg_score": 72.2
+        },
+        {
+          "day": "Wednesday",
+          "avg_score": 70.6
+        }
+      ]
+    }
+  }
+}

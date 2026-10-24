@@ -1,0 +1,26 @@
+{
+  "algorithm": "ML-Powered Personalized Time Slot Ranking",
+  "version": "1.0",
+  "description": "Combines user schedule, ML predictions, and preferences to answer: 'When should I go?'",
+  "inputs": [
+    "User availability windows (day + time range)",
+    "ML congestion predictions (952 time slots)",
+    "User preferences (equipment, goals, duration)",
+    "Time-of-day preferences"
+  ],
+  "scoring_formula": {
+    "total_score": "weighted_sum(congestion_score, equipment_score, duration_score, time_preference)",
+    "weights": {
+      "congestion": 0.4,
+      "equipment_availability": 0.3,
+      "duration_feasibility": 0.2,
+      "time_preference": 0.1
+    },
+    "congestion_score": "100 - percent_full (lower congestion = higher score)",
+    "equipment_score": "average((1 - prob) * 100) for preferred equipment",
+    "duration_score": "100 if workout fits, else 50",
+    "time_preference": "user_weight * 10 based on morning/afternoon/evening"
+  },
+  "output": "Ranked list of time slots with scores and reasoning",
+  "personalization": "Each user gets different rankings based on their schedule and preferences"
+}

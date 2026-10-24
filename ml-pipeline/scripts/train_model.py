@@ -1,18 +1,14 @@
 """
 Train ML model to predict equipment occupancy.
-
-For hackathon speed, we use a simple approach:
-- Logistic regression with scikit-learn
-- Export predictions as JSON lookup table
-- Fast on-device inference without ML runtime
+IMPROVED VERSION - Using Random Forest for better accuracy.
 """
 
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report
 import json
 import pickle
 
@@ -33,14 +29,22 @@ def prepare_features(df):
     weekday_encoder = LabelEncoder()
     df['weekday_encoded'] = weekday_encoder.fit_transform(df['weekday'])
     
-    # Features: equipment type, weekday, hour, num_units
-    X = df[['equipment_encoded', 'weekday_encoded', 'hour', 'num_units']].values
+    # Add derived features for better accuracy
+    df['is_peak_hour'] = ((df['hour'] >= 17) & (df['hour'] <= 19)).astype(int)
+    df['is_lunch_hour'] = ((df['hour'] >= 12) & (df['hour'] <= 14)).astype(int)
+    df['is_weekend'] = df['weekday'].isin(['Saturday', 'Sunday']).astype(int)
+    df['is_morning'] = (df['hour'] <= 9).astype(int)
+    df['is_evening'] = (df['hour'] >= 20).astype(int)
+    
+    # Features: equipment, weekday, hour, units, + derived features
+    X = df[['equipment_encoded', 'weekday_encoded', 'hour', 'num_units', 
+            'is_peak_hour', 'is_lunch_hour', 'is_weekend', 'is_morning', 'is_evening']].values
     y = df['is_fully_occupied'].values
     
     return X, y, equipment_encoder, weekday_encoder
 
 def train_model(X, y):
-    """Train logistic regression model."""
+    """Train Random Forest classifier."""
     
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
@@ -49,8 +53,14 @@ def train_model(X, y):
     
     print(f"\n📊 Training on {len(X_train)} examples, testing on {len(X_test)} examples")
     
-    # Train model
-    model = LogisticRegression(max_iter=1000, random_state=42)
+    # Train Random Forest (better for non-linear patterns)
+    model = RandomForestClassifier(
+        n_estimators=100,
+        max_depth=10,
+        min_samples_split=20,
+        random_state=42,
+        n_jobs=-1
+    )
     model.fit(X_train, y_train)
     
     # Evaluate
@@ -62,15 +72,18 @@ def train_model(X, y):
     print("\nClassification Report:")
     print(classification_report(y_test, y_pred, target_names=['Available', 'Fully Occupied']))
     
+    # Feature importance
+    feature_names = ['equipment', 'weekday', 'hour', 'units', 'peak_hour', 'lunch', 'weekend', 'morning', 'evening']
+    importances = model.feature_importances_
+    print("\n🎯 Feature Importance:")
+    for name, imp in sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True)[:5]:
+        print(f"   {name}: {imp:.3f}")
+    
     return model, X_test, y_test
 
-def export_as_lookup_table(df, equipment_encoder, weekday_encoder, output_path='../models/occupancy_predictions.json'):
-    """
-    Export pre-computed predictions as JSON lookup table.
-    This is the FASTEST approach for hackathon - no ML runtime needed!
-    """
+def export_as_lookup_table(df, equipment_encoder, weekday_encoder, model, output_path='../models/occupancy_predictions.json'):
+    """Export pre-computed predictions as JSON lookup table."""
     
-    # Generate predictions for all combinations
     predictions = {}
     
     for equipment_type in df['equipment_type'].unique():
@@ -83,19 +96,20 @@ def export_as_lookup_table(df, equipment_encoder, weekday_encoder, output_path='
             predictions[equipment_type][weekday] = {}
             
             weekday_encoded = weekday_encoder.transform([weekday])[0]
+            is_weekend = 1 if weekday in ['Saturday', 'Sunday'] else 0
             
-            for hour in range(6, 23):  # 6am to 11pm
-                # Calculate probability using the synthetic data mean
-                matching_rows = df[
-                    (df['equipment_type'] == equipment_type) &
-                    (df['weekday'] == weekday) &
-                    (df['hour'] == hour)
-                ]
+            for hour in range(6, 23):
+                # Create feature vector
+                is_peak = 1 if 17 <= hour <= 19 else 0
+                is_lunch = 1 if 12 <= hour <= 14 else 0
+                is_morning = 1 if hour <= 9 else 0
+                is_evening = 1 if hour >= 20 else 0
                 
-                if len(matching_rows) > 0:
-                    prob = matching_rows['occupancy_probability'].mean()
-                else:
-                    prob = 0.5  # Default
+                features = np.array([[equipment_encoded, weekday_encoded, hour, num_units,
+                                     is_peak, is_lunch, is_weekend, is_morning, is_evening]])
+                
+                # Get probability from model
+                prob = model.predict_proba(features)[0][1]  # Probability of "Fully Occupied"
                 
                 # Categorize congestion level
                 if prob < 0.3:
@@ -119,7 +133,7 @@ def export_as_lookup_table(df, equipment_encoder, weekday_encoder, output_path='
     return predictions
 
 def save_model(model, equipment_encoder, weekday_encoder, output_path='../models/occupancy_model.pkl'):
-    """Save trained model and encoders (optional - for reference)."""
+    """Save trained model and encoders."""
     
     model_artifacts = {
         'model': model,
@@ -133,7 +147,7 @@ def save_model(model, equipment_encoder, weekday_encoder, output_path='../models
     print(f"\n✅ Saved model artifacts to {output_path}")
 
 if __name__ == '__main__':
-    print("🤖 Training equipment occupancy predictor...\n")
+    print("🤖 Training IMPROVED equipment occupancy predictor...\n")
     
     # Load data
     df = load_data()
@@ -141,13 +155,13 @@ if __name__ == '__main__':
     # Prepare features
     X, y, equipment_encoder, weekday_encoder = prepare_features(df)
     
-    # Train model
+    # Train model (Random Forest for better accuracy)
     model, X_test, y_test = train_model(X, y)
     
-    # Export as lookup table (RECOMMENDED for hackathon)
-    predictions = export_as_lookup_table(df, equipment_encoder, weekday_encoder)
+    # Export as lookup table
+    predictions = export_as_lookup_table(df, equipment_encoder, weekday_encoder, model)
     
-    # Save model (optional)
+    # Save model
     save_model(model, equipment_encoder, weekday_encoder)
     
     print("\n✅ Training complete!")

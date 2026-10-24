@@ -1,0 +1,115 @@
+========================================
+🎬 REPSIN HACKATHON DEMO - CHEAT SHEET
+========================================
+
+📍 SETUP (Do this ONCE before demo):
+cd /Users/dylandrozario/repos/RepsIn/ml-pipeline/scripts
+source ../venv/bin/activate
+
+========================================
+🎯 THE 3-SCENARIO DEMO (90 seconds)
+========================================
+
+1️⃣ REAL-TIME (Current moment):
+python demo_current_time.py
+
+Say: "This is what the gym looks like RIGHT NOW..."
+
+---
+
+2️⃣ PEAK HOUR HELL (Monday 5pm):
+python demo_current_time.py --time 17 --day monday
+
+Say: "This is the problem - 5pm on Monday is PACKED..."
+Point to: "91% full 🔴" and "0/8 equipment available"
+
+---
+
+3️⃣ SWEET SPOT (Saturday 9pm):
+python demo_current_time.py --time 21 --day saturday
+
+Say: "But RepsIn recommends times like THIS..."
+Point to: "4% full 🟢" and "8/8 equipment available"
+
+---
+
+🎤 CLOSING LINE:
+"Same gym, 87% difference. That's the power of 
+personalized ML predictions."
+
+========================================
+📊 STATS TO MEMORIZE
+========================================
+✅ 73% model accuracy (cross-validated)
+✅ 11,424 training examples
+✅ 19 JSON files generated (~765 KB)
+✅ 13/13 tests passing
+✅ 7 React Native components
+✅ Peak vs Off-Peak: 91% → 4% (87% difference!)
+
+========================================
+❓ EXPECTED QUESTIONS & ANSWERS
+========================================
+
+Q: "Is this real gym data?"
+A: "Synthetic demo data - but pipeline is 
+    production-ready for real IoT sensors."
+
+Q: "How accurate is 73%?"
+A: "Industry standard for occupancy classification.
+    We also provide confidence intervals."
+
+Q: "What makes this different from Google?"
+A: "1) Equipment-level, not gym-level
+    2) Personalized to YOUR schedule
+    3) Proactive recommendations"
+
+Q: "Can it scale?"
+A: "Yes - predictions are JSON lookups (84KB).
+    No API calls. Works offline."
+
+========================================
+🔥 THE KILLER FEATURE
+========================================
+
+Point to "PERSONALIZED RECOMMENDATIONS" section:
+
+💼 Busy Professional → Friday 8pm (8% full)
+🎓 Flexible Student → Thursday 11am (29% full)
+
+Say: "SAME GYM, DIFFERENT RECOMMENDATIONS.
+      That's personalization in action."
+
+========================================
+🐛 IF SOMETHING BREAKS
+========================================
+
+Clear terminal: CMD+K
+Restart Python env: source ../venv/bin/activate
+Re-run predictions: python train_model.py
+
+========================================
+💡 PRO TIPS
+========================================
+
+✅ Keep terminal font size BIG (judges in back)
+✅ Point at colors as they appear
+✅ Pause after each scenario (let it sink in)
+✅ Use hand gestures: "91% HERE... 4% HERE"
+✅ Smile - you built something cool!
+
+========================================
+⏱️ TIMING
+========================================
+
+Setup: 10 seconds
+Scenario 1 (Real-time): 20 seconds
+Scenario 2 (Peak): 20 seconds  
+Scenario 3 (Sweet Spot): 20 seconds
+Closing + Questions: 30 seconds
+
+Total: 90 seconds of pure demo power
+
+========================================
+🚀 GOOD LUCK!
+========================================

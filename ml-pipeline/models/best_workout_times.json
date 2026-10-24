@@ -1,0 +1,240 @@
+{
+  "top_10_best": [
+    {
+      "rank": 1,
+      "day": "Saturday",
+      "hour": 21,
+      "time_label": "Saturday 21:00",
+      "percent_full": 4.0,
+      "congestion_level": "low",
+      "score": 106.0,
+      "busiest_equipment": "Leg Press",
+      "quietest_equipment": "Rowing Machine",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 2,
+      "day": "Sunday",
+      "hour": 21,
+      "time_label": "Sunday 21:00",
+      "percent_full": 8.0,
+      "congestion_level": "low",
+      "score": 102.0,
+      "busiest_equipment": "Squat Rack",
+      "quietest_equipment": "Rowing Machine",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 3,
+      "day": "Sunday",
+      "hour": 20,
+      "time_label": "Sunday 20:00",
+      "percent_full": 11.0,
+      "congestion_level": "low",
+      "score": 99.0,
+      "busiest_equipment": "Bench Press",
+      "quietest_equipment": "Treadmill",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 4,
+      "day": "Friday",
+      "hour": 20,
+      "time_label": "Friday 20:00",
+      "percent_full": 8.0,
+      "congestion_level": "low",
+      "score": 97.0,
+      "busiest_equipment": "Cable Machine",
+      "quietest_equipment": "Dumbbells",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 5,
+      "day": "Saturday",
+      "hour": 20,
+      "time_label": "Saturday 20:00",
+      "percent_full": 13.0,
+      "congestion_level": "low",
+      "score": 97.0,
+      "busiest_equipment": "Bench Press",
+      "quietest_equipment": "Treadmill",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 6,
+      "day": "Saturday",
+      "hour": 22,
+      "time_label": "Saturday 22:00",
+      "percent_full": 9.0,
+      "congestion_level": "low",
+      "score": 96.0,
+      "busiest_equipment": "Squat Rack",
+      "quietest_equipment": "Rowing Machine",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 7,
+      "day": "Sunday",
+      "hour": 22,
+      "time_label": "Sunday 22:00",
+      "percent_full": 10.0,
+      "congestion_level": "low",
+      "score": 95.0,
+      "busiest_equipment": "Leg Press",
+      "quietest_equipment": "Cable Machine",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 8,
+      "day": "Friday",
+      "hour": 21,
+      "time_label": "Friday 21:00",
+      "percent_full": 11.0,
+      "congestion_level": "low",
+      "score": 94.0,
+      "busiest_equipment": "Bench Press",
+      "quietest_equipment": "Treadmill",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    },
+    {
+      "rank": 9,
+      "day": "Saturday",
+      "hour": 16,
+      "time_label": "Saturday 16:00",
+      "percent_full": 22.0,
+      "congestion_level": "low",
+      "score": 93.0,
+      "busiest_equipment": "Leg Press",
+      "quietest_equipment": "Treadmill",
+      "recommendation": "Great choice - minimal waits, Treadmill wide open"
+    },
+    {
+      "rank": 10,
+      "day": "Thursday",
+      "hour": 20,
+      "time_label": "Thursday 20:00",
+      "percent_full": 13.0,
+      "congestion_level": "low",
+      "score": 92.0,
+      "busiest_equipment": "Squat Rack",
+      "quietest_equipment": "Smith Machine",
+      "recommendation": "Excellent time! Gym is nearly empty - all equipment available"
+    }
+  ],
+  "worst_10_times": [
+    {
+      "rank": 119,
+      "day": "Monday",
+      "hour": 17,
+      "time_label": "Monday 17:00",
+      "percent_full": 91.0,
+      "congestion_level": "high",
+      "score": 9.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Squat Rack"
+    },
+    {
+      "rank": 118,
+      "day": "Wednesday",
+      "hour": 17,
+      "time_label": "Wednesday 17:00",
+      "percent_full": 90.0,
+      "congestion_level": "high",
+      "score": 10.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Bench Press"
+    },
+    {
+      "rank": 117,
+      "day": "Wednesday",
+      "hour": 19,
+      "time_label": "Wednesday 19:00",
+      "percent_full": 89.0,
+      "congestion_level": "high",
+      "score": 11.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Bench Press"
+    },
+    {
+      "rank": 116,
+      "day": "Wednesday",
+      "hour": 18,
+      "time_label": "Wednesday 18:00",
+      "percent_full": 88.0,
+      "congestion_level": "high",
+      "score": 12.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Squat Rack"
+    },
+    {
+      "rank": 115,
+      "day": "Tuesday",
+      "hour": 19,
+      "time_label": "Tuesday 19:00",
+      "percent_full": 88.0,
+      "congestion_level": "high",
+      "score": 12.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Bench Press"
+    },
+    {
+      "rank": 114,
+      "day": "Monday",
+      "hour": 19,
+      "time_label": "Monday 19:00",
+      "percent_full": 88.0,
+      "congestion_level": "high",
+      "score": 12.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Leg Press"
+    },
+    {
+      "rank": 113,
+      "day": "Friday",
+      "hour": 17,
+      "time_label": "Friday 17:00",
+      "percent_full": 87.0,
+      "congestion_level": "high",
+      "score": 13.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Squat Rack"
+    },
+    {
+      "rank": 112,
+      "day": "Monday",
+      "hour": 18,
+      "time_label": "Monday 18:00",
+      "percent_full": 87.0,
+      "congestion_level": "high",
+      "score": 13.0,
+      "avoid_reason": "Peak congestion - expect long waits, especially for Bench Press"
+    },
+    {
+      "rank": 111,
+      "day": "Thursday",
+      "hour": 19,
+      "time_label": "Thursday 19:00",
+      "percent_full": 82.0,
+      "congestion_level": "high",
+      "score": 18.0,
+      "avoid_reason": "Very busy - Leg Press likely occupied"
+    },
+    {
+      "rank": 110,
+      "day": "Tuesday",
+      "hour": 18,
+      "time_label": "Tuesday 18:00",
+      "percent_full": 82.0,
+      "congestion_level": "high",
+      "score": 18.0,
+      "avoid_reason": "Very busy - Bench Press likely occupied"
+    }
+  ],
+  "summary": {
+    "best_overall": {
+      "time": "Saturday 21:00",
+      "percent_full": 4.0,
+      "level": "low"
+    },
+    "worst_overall": {
+      "time": "Monday 17:00",
+      "percent_full": 91.0,
+      "level": "high"
+    },
+    "average_congestion": 45.6,
+    "total_time_slots": 119
+  }
+}

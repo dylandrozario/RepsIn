@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "generated_at": "2026-10-24T14:07:43.120124",
+    "source": "RepsIn Real-Time Data Aggregator",
+    "note": "Most UK gym APIs require authentication. This data uses realistic patterns based on typical UK gym occupancy."
+  },
+  "public_api_data": [
+    {
+      "provider": "EVO Fitness Austria",
+      "data": {
+        "gyms": [
+          {
+            "id": "e2e53529-fea4-449b-9488-fff4188f1a2f",
+            "name": "EVO Bel & Main",
+            "location": null,
+            "capacity": 60,
+            "latitude": 48.18586175087153,
+            "longitude": 16.382664170474065,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "fe69d0f8-0220-4e55-8831-3cf12df56537",
+            "name": "EVO Berggasse",
+            "location": null,
+            "capacity": 80,
+            "latitude": 48.2188947435192,
+            "longitude": 16.363613716976122,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "ba765872-0969-4eeb-9a24-5384d78c97b1",
+            "name": "EVO Bruno-Marek-Allee",
+            "location": null,
+            "capacity": 80,
+            "latitude": 48.22739937623138,
+            "longitude": 16.39196060630906,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "e7b326e3-87e5-43a4-ad03-f10197721c46",
+            "name": "EVO Franz-Josefs-Bahnhof",
+            "location": null,
+            "capacity": 80,
+            "latitude": null,
+            "longitude": null,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "df9539b6-4973-4f0f-9051-93ad5e75928d",
+            "name": "EVO Graz Hans-Sachs-Gasse",
+            "location": null,
+            "capacity": 90,
+            "latitude": null,
+            "longitude": null,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "d4b6c877-9990-44c3-bd08-34c2142503a9",
+            "name": "EVO Linzer Stra\u00dfe",
+            "location": null,
+            "capacity": 90,
+            "latitude": 48.19398463571663,
+            "longitude": 16.30154586352209,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "380f8361-b28c-4d49-a9f7-5e9583cb7193",
+            "name": "EVO Mariahilfer Stra\u00dfe",
+            "location": null,
+            "capacity": 90,
+            "latitude": 48.199515170597365,
+            "longitude": 16.352466125344037,
+            "last_updated": "2026-10-24T03:01:27.927Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "fdd68a36-785f-491b-977d-dfe365ea2f6e",
+            "name": "EVO Modecenterstra\u00dfe",
+            "location": null,
+            "capacity": 80,
+            "latitude": 48.18493599596623,
+            "longitude": 16.413000711926344,
+            "last_updated": "2026-10-23T23:16:27.842Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "3aa05c42-a03d-4cb0-82ba-8d4fad3a5494",
+            "name": "EVO Praterstra\u00dfe",
+            "location": null,
+            "capacity": 90,
+            "latitude": null,
+            "longitude": null,
+            "last_updated": "2026-10-23T23:16:27.842Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          },
+          {
+            "id": "de01f4fd-9ad1-46cb-9c5d-d0ec4862cc13",
+            "name": "EVO Schleifm\u00fchlgasse",
+            "location": null,
+            "capacity": 80,
+            "latitude": 48.196820090204255,
+            "longitude": 16.365852421243854,
+            "last_updated": "2026-10-23T23:16:27.842Z",
+            "country": "AT",
+            "current_occupancy": 0,
+            "past_occupancy": 0,
+            "utilization_percent": 0,
+            "velocity": "stable"
+          }
+        ],
+        "count": 10
+      },
+      "timestamp": "2026-10-24T14:07:43.119892"
+    }
+  ],
+  "uk_gyms_realtime": [
+    {
+      "gym_name": "PureGym London Bridge",
+      "chain": "PureGym",
+      "location": "London, UK",
+      "capacity": 150,
+      "current_occupancy": 27,
+      "occupancy_percent": 18.0,
+      "status": "quiet",
+      "emoji": "\ud83d\udfe2",
+      "timestamp": "2026-10-24T14:07:43.119990",
+      "day_of_week": "Saturday",
+      "hour": 14,
+      "source": "Real-time estimation (UK gym patterns)"
+    },
+    {
+      "gym_name": "The Gym Group Manchester",
+      "chain": "The Gym Group",
+      "location": "Manchester, UK",
+      "capacity": 120,
+      "current_occupancy": 23,
+      "occupancy_percent": 19.8,
+      "status": "quiet",
+      "emoji": "\ud83d\udfe2",
+      "timestamp": "2026-10-24T14:07:43.119990",
+      "day_of_week": "Saturday",
+      "hour": 14,
+      "source": "Real-time estimation (UK gym patterns)"
+    },
+    {
+      "gym_name": "Fitness First Birmingham",
+      "chain": "Fitness First",
+      "location": "Birmingham, UK",
+      "capacity": 180,
+      "current_occupancy": 39,
+      "occupancy_percent": 22.0,
+      "status": "quiet",
+      "emoji": "\ud83d\udfe2",
+      "timestamp": "2026-10-24T14:07:43.119990",
+      "day_of_week": "Saturday",
+      "hour": 14,
+      "source": "Real-time estimation (UK gym patterns)"
+    },
+    {
+      "gym_name": "David Lloyd Leeds",
+      "chain": "David Lloyd",
+      "location": "Leeds, UK",
+      "capacity": 200,
+      "current_occupancy": 34,
+      "occupancy_percent": 17.0,
+      "status": "quiet",
+      "emoji": "\ud83d\udfe2",
+      "timestamp": "2026-10-24T14:07:43.119990",
+      "day_of_week": "Saturday",
+      "hour": 14,
+      "source": "Real-time estimation (UK gym patterns)"
+    },
+    {
+      "gym_name": "Nuffield Health Bristol",
+      "chain": "Nuffield Health",
+      "location": "Bristol, UK",
+      "capacity": 140,
+      "current_occupancy": 43,
+      "occupancy_percent": 30.8,
+      "status": "moderate",
+      "emoji": "\ud83d\udfe1",
+      "timestamp": "2026-10-24T14:07:43.119990",
+      "day_of_week": "Saturday",
+      "hour": 14,
+      "source": "Real-time estimation (UK gym patterns)"
+    }
+  ],
+  "summary": {
+    "total_gyms": 5,
+    "avg_occupancy": 21.52,
+    "busiest_gym": "Nuffield Health Bristol",
+    "quietest_gym": "David Lloyd Leeds"
+  }
+}
