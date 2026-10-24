@@ -5,12 +5,25 @@
  * No ML runtime required - just JSON data!
  */
 
-// This will be populated from occupancy_predictions.json after ML training
+// Real Boston-gym foot-traffic data, keyed by gymId → equipment → weekday → hour
+// (seeded from BestTime; see ml-pipeline/scripts/seed_boston_gyms.py).
 import occupancyData from '../data/occupancyPredictions.json';
 
 class OccupancyPredictor {
   constructor() {
-    this.predictions = occupancyData;
+    this.byGym = occupancyData;
+    this.gymIds = Object.keys(occupancyData);
+    this.currentGymId = this.gymIds[0] || null;
+    // Active gym's prediction slice (equipment → weekday → hour).
+    this.predictions = this.currentGymId ? occupancyData[this.currentGymId] : {};
+  }
+
+  /** Switch which gym's data the predictor reads. */
+  setGym(gymId) {
+    if (gymId && this.byGym[gymId]) {
+      this.currentGymId = gymId;
+      this.predictions = this.byGym[gymId];
+    }
   }
 
   /**

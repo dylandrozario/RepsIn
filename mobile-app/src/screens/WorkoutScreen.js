@@ -2,8 +2,11 @@ import React, { useMemo, useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import Screen from '../components/Screen';
 import { Label, Divider, Chip } from '../components/UI';
+import { ClockIcon } from '../components/Icons';
 import { colors, type, fonts, spacing, radius } from '../theme/theme';
 import { generateWorkout } from '../services/workoutGenerator';
+import { FadeInView, PressableScale } from '../motion/AnimatedComponents';
+import { stagger } from '../motion/motion';
 
 const DOW_FULL = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const CAP = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -35,7 +38,7 @@ export default function WorkoutScreen({ route }) {
           <Text style={[type.h1, { marginTop: 6 }]}>{workout.templateName}</Text>
         </View>
         <View style={styles.durRing}>
-          <Text style={styles.durClock}>🕐</Text>
+          <ClockIcon size={13} color={colors.purple} strokeWidth={2} />
           <Text style={styles.durNum}>{workout.duration}</Text>
           <Text style={styles.durUnit}>MIN</Text>
         </View>
@@ -56,7 +59,7 @@ export default function WorkoutScreen({ route }) {
 
       {/* exercise list */}
       {exercises.map((ex, idx) => (
-        <View key={ex.id + idx}>
+        <FadeInView key={ex.id + idx} delay={stagger(idx)}>
           <View style={styles.exRow}>
             <Text style={styles.exIndex}>{String(idx + 1).padStart(2, '0')}</Text>
             <View style={{ flex: 1 }}>
@@ -65,12 +68,12 @@ export default function WorkoutScreen({ route }) {
             </View>
           </View>
           <Divider style={{ marginVertical: spacing.lg }} />
-        </View>
+        </FadeInView>
       ))}
 
       {/* swap suggestion */}
       {workout.swap ? (
-        <View style={styles.swapRow}>
+        <FadeInView delay={stagger(exercises.length)} style={styles.swapRow}>
           <View style={styles.swapIcon}>
             <Text style={styles.swapGlyph}>↗</Text>
           </View>
@@ -85,11 +88,11 @@ export default function WorkoutScreen({ route }) {
             </Text>
           </View>
           {!applied ? (
-            <Pressable onPress={() => setApplied(true)}>
+            <PressableScale onPress={() => setApplied(true)}>
               <Text style={styles.swapLink}>Use swap</Text>
-            </Pressable>
+            </PressableScale>
           ) : null}
-        </View>
+        </FadeInView>
       ) : null}
     </Screen>
   );

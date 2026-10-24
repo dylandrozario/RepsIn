@@ -3,8 +3,22 @@
  * Ranks workout time slots inside the user's availability and gym hours by
  * predicted equipment congestion.
  */
-import { DEMO_GYM, WEEKDAYS } from '../data/gymData';
+import { DEMO_GYM, WEEKDAYS, getGymById } from '../data/gymData';
 import predictor from './occupancyPredictor';
+
+// The gym the recommendation is built for. Defaults to the first real gym;
+// set via setActiveGym when the user picks a different one.
+let activeGym = DEMO_GYM;
+
+export function setActiveGym(gymId) {
+  activeGym = getGymById(gymId);
+  predictor.setGym(activeGym.id);
+  return activeGym;
+}
+
+export function getActiveGym() {
+  return activeGym;
+}
 
 // Average congestion across all equipment at a given weekday + hour.
 export function averageCongestion(weekday, hour) {
@@ -20,8 +34,8 @@ export function congestionLevelFor(p) {
 }
 
 function hoursOpen(weekday) {
-  const h = DEMO_GYM.operatingHours[weekday];
-  return h ? { open: h.open, close: h.close } : null;
+  const h = activeGym?.operatingHours?.[weekday];
+  return h ? { open: h.open, close: h.close } : { open: 6, close: 22 };
 }
 
 /**
@@ -42,10 +56,12 @@ export function getRecommendations(availability, scheduled, count = 5) {
     if (!hrs) continue;
     const start = Math.max(w.start, hrs.open);
     const end = Math.min(w.end, hrs.close);
-    for (let hour = start; hour < end; hour++) {
+    // Step in half-hour increments. The occupancy model is hourly, so a half
+    // hour looks up its containing hour but is offered as a distinct slot.
+    for (let hour = start; hour < end; hour += 0.5) {
       const conflict = sched.some((s) => s.weekday === w.weekday && s.hour === hour);
       if (conflict) continue;
-      const avg = averageCongestion(w.weekday, hour);
+      const avg = averageCongestion(w.weekday, Math.floor(hour));
       slots.push({
         weekday: w.weekday,
         hour,
@@ -63,6 +79,25 @@ export function getRecommendations(availability, scheduled, count = 5) {
 export function getBestSlot(availability, scheduled) {
   const recs = getRecommendations(availability, scheduled, 1);
   return recs[0] || null;
+}
+
+/**
+ * Build a human explanation of why a slot was chosen — combines the user's
+ * availability and the predicted congestion. Used on the recommendation card.
+ */
+export function explainSlot(slot, availabilityDays) {
+  if (!slot) return '';
+  const level = slot.level;
+  const crowd =
+    level === 'low'
+      ? 'lower predicted congestion'
+      : level === 'moderate'
+      ? 'moderate predicted congestion'
+      : 'the least congestion available in your window';
+  const fitsSchedule = availabilityDays?.length
+    ? `It fits the time you said you're free on ${slot.weekday}`
+    : `It lands in a typical free window on ${slot.weekday}`;
+  return `${fitsSchedule}, and has ${crowd}.`;
 }
 
 // Reasonable defaults so the demo always shows something.

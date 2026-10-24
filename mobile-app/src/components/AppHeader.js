@@ -12,7 +12,6 @@ export default function AppHeader({ initials = 'AM' }) {
         <View style={styles.logo}>
           <Text style={styles.bolt}>⚡</Text>
         </View>
-        <Text style={styles.word}>RepsIn</Text>
       </View>
       <View style={styles.avatar}>
         <Text style={styles.avatarText}>{initials}</Text>

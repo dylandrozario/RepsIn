@@ -4,6 +4,7 @@
     "slug": "mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "repsin",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
@@ -33,7 +34,8 @@
         {
           "cameraPermission": "RepsIn uses your camera to film your set. Frames are sent to your own laptop for analysis and are never stored or uploaded to the cloud."
         }
-      ]
+      ],
+      "expo-web-browser"
     ]
   }
 }
