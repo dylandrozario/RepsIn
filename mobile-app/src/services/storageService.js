@@ -11,6 +11,7 @@ const KEYS = {
   SCHEDULED_WORKOUTS: '@repsin:scheduledWorkouts',
   COMPLETED_WORKOUTS: '@repsin:completedWorkouts',
   SELECTED_GYM: '@repsin:selectedGym',
+  SERVER_URL: '@repsin:poseServerUrl',
 };
 
 class StorageService {
@@ -115,6 +116,26 @@ class StorageService {
       return data ? JSON.parse(data) : null;
     } catch (error) {
       console.error('Error loading gym:', error);
+      return null;
+    }
+  }
+
+  // Pose server URL (laptop LAN address)
+  async saveServerUrl(url) {
+    try {
+      await AsyncStorage.setItem(KEYS.SERVER_URL, url);
+      return true;
+    } catch (error) {
+      console.error('Error saving server URL:', error);
+      return false;
+    }
+  }
+
+  async getServerUrl() {
+    try {
+      return await AsyncStorage.getItem(KEYS.SERVER_URL);
+    } catch (error) {
+      console.error('Error loading server URL:', error);
       return null;
     }
   }

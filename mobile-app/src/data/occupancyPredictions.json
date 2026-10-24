@@ -1,10 +1,3937 @@
 {
-  "_comment": "This file will be populated after running ml-pipeline/scripts/train_model.py",
   "bench_press": {
     "Monday": {
+      "6": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.9,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.67,
+        "congestion_level": "high"
+      },
+      "10": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
       "17": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.95,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.96,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.95,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.96,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.92,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.91,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.92,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "11": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.81,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.63,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.87,
+        "congestion_level": "high"
+      },
+      "11": {
+        "probability": 0.88,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.82,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.63,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "squat_rack": {
+    "Monday": {
+      "6": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.84,
+        "congestion_level": "high"
+      },
+      "8": {
         "probability": 0.85,
         "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.92,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.88,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.87,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.15,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.57,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.85,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.9,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.88,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.84,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.95,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.86,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.85,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.19,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.82,
+        "congestion_level": "high"
+      },
+      "11": {
+        "probability": 0.84,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.8,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.8,
+        "congestion_level": "high"
+      },
+      "11": {
+        "probability": 0.89,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.76,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "leg_press": {
+    "Monday": {
+      "6": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.68,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.7,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.73,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.8,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.67,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.67,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.73,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.87,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.7,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.73,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.72,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.88,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.74,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.66,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.69,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.85,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.68,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.63,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.69,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.82,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.69,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.1,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.15,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.66,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.67,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.68,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.63,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "cable_machine": {
+    "Monday": {
+      "6": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.71,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.78,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.63,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.15,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.69,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.8,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.7,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.71,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.69,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.79,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.71,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.84,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.7,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.66,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.77,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.63,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.67,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.1,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.67,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "treadmill": {
+    "Monday": {
+      "6": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.75,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.66,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.73,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.57,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.72,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.15,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.58,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "rowing_machine": {
+    "Monday": {
+      "6": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.29,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.15,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.19,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.19,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.15,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.16,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "8": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.23,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.19,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "18": {
+        "probability": 0.57,
+        "congestion_level": "moderate"
+      },
+      "19": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "20": {
+        "probability": 0.22,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.08,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.12,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "10": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.43,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.19,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "dumbbells": {
+    "Monday": {
+      "6": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.75,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.75,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "13": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.78,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.78,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.76,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.77,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.46,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.34,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.25,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.74,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.79,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.11,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.79,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.73,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.24,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.83,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.74,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.72,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.81,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.28,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.3,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.79,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.81,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.78,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.8,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "11": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.32,
+        "congestion_level": "low"
+      },
+      "14": {
+        "probability": 0.31,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.79,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.74,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.71,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.72,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.11,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.26,
+        "congestion_level": "low"
+      },
+      "9": {
+        "probability": 0.57,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.65,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.74,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.72,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.47,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.27,
+        "congestion_level": "low"
+      },
+      "15": {
+        "probability": 0.1,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.07,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    }
+  },
+  "smith_machine": {
+    "Monday": {
+      "6": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.91,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.66,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.95,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.17,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Tuesday": {
+      "6": {
+        "probability": 0.54,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.44,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.41,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.95,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.55,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.19,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Wednesday": {
+      "6": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.51,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.37,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.42,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.57,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Thursday": {
+      "6": {
+        "probability": 0.52,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.92,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.33,
+        "congestion_level": "low"
+      },
+      "12": {
+        "probability": 0.49,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.62,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.96,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.56,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.14,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.06,
+        "congestion_level": "low"
+      }
+    },
+    "Friday": {
+      "6": {
+        "probability": 0.53,
+        "congestion_level": "moderate"
+      },
+      "7": {
+        "probability": 0.94,
+        "congestion_level": "high"
+      },
+      "8": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "9": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.38,
+        "congestion_level": "moderate"
+      },
+      "11": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "12": {
+        "probability": 0.48,
+        "congestion_level": "moderate"
+      },
+      "13": {
+        "probability": 0.5,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.36,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.39,
+        "congestion_level": "moderate"
+      },
+      "16": {
+        "probability": 0.61,
+        "congestion_level": "moderate"
+      },
+      "17": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "18": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "19": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "20": {
+        "probability": 0.57,
+        "congestion_level": "moderate"
+      },
+      "21": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Saturday": {
+      "6": {
+        "probability": 0.09,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.21,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.45,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.64,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.9,
+        "congestion_level": "high"
+      },
+      "11": {
+        "probability": 0.97,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.88,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.6,
+        "congestion_level": "moderate"
+      },
+      "14": {
+        "probability": 0.4,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.2,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.05,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      }
+    },
+    "Sunday": {
+      "6": {
+        "probability": 0.04,
+        "congestion_level": "low"
+      },
+      "7": {
+        "probability": 0.13,
+        "congestion_level": "low"
+      },
+      "8": {
+        "probability": 0.34,
+        "congestion_level": "moderate"
+      },
+      "9": {
+        "probability": 0.59,
+        "congestion_level": "moderate"
+      },
+      "10": {
+        "probability": 0.91,
+        "congestion_level": "high"
+      },
+      "11": {
+        "probability": 0.93,
+        "congestion_level": "high"
+      },
+      "12": {
+        "probability": 0.9,
+        "congestion_level": "high"
+      },
+      "13": {
+        "probability": 0.69,
+        "congestion_level": "high"
+      },
+      "14": {
+        "probability": 0.35,
+        "congestion_level": "moderate"
+      },
+      "15": {
+        "probability": 0.18,
+        "congestion_level": "low"
+      },
+      "16": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "17": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "18": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "19": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "20": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "21": {
+        "probability": 0.03,
+        "congestion_level": "low"
+      },
+      "22": {
+        "probability": 0.03,
+        "congestion_level": "low"
       }
     }
   }

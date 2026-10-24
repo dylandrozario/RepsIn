@@ -7,7 +7,11 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "RepsIn uses the camera to count your reps and check your form. Video is processed on-device and never leaves your phone."
+      },
+      "bundleIdentifier": "com.akioohmoto.mobile-app"
     },
     "android": {
       "adaptiveIcon": {
@@ -15,10 +19,21 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "RepsIn uses your camera to film your set. Frames are sent to your own laptop for analysis and are never stored or uploaded to the cloud."
+        }
+      ]
+    ]
   }
 }
