@@ -1,21 +1,62 @@
-import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, Pressable, StyleSheet, Animated, Easing } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, radius, shadow } from '../theme/theme';
+import { useTracking } from '../tracker/trackingState';
+import { TAB_ICONS } from './Icons';
 
-const GLYPHS = {
-  Home: '⌂',
-  Forecast: '▦',
-  Workout: '▤',
-  Tracker: '◉',
-};
+const BAR_PAD = 6;
 
-/** Floating pill tab bar; active tab becomes a filled purple pill. */
+/**
+ * Floating pill tab bar with a sticky, smoothly sliding active indicator.
+ * Tabs have variable width (inactive = icon only, active = icon + label), so
+ * we measure each tab's layout and slide/resize the purple pill to match.
+ * Hidden entirely while the camera tracker is running.
+ */
 export default function TabBar({ state, descriptors, navigation }) {
   const insets = useSafeAreaInsets();
+  const tracking = useTracking();
+
+  // Measured { x, width } for each tab, relative to the row.
+  const [layouts, setLayouts] = useState({});
+  const x = useRef(new Animated.Value(0)).current;
+  const w = useRef(new Animated.Value(0)).current;
+
+  const activeLayout = layouts[state.index];
+
+  useEffect(() => {
+    if (!activeLayout) return;
+    Animated.parallel([
+      Animated.timing(x, {
+        toValue: activeLayout.x,
+        duration: 280,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: false,
+      }),
+      Animated.timing(w, {
+        toValue: activeLayout.width,
+        duration: 280,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: false,
+      }),
+    ]).start();
+  }, [activeLayout, x, w]);
+
+  if (tracking) return null;
+
+  const havePill = Boolean(activeLayout);
+
   return (
     <View style={[styles.wrap, { bottom: insets.bottom + 10 }]} pointerEvents="box-none">
       <View style={[styles.bar, shadow.float]}>
+        {/* sliding + resizing purple pill behind the active tab */}
+        {havePill ? (
+          <Animated.View
+            pointerEvents="none"
+            style={[styles.pill, { transform: [{ translateX: x }], width: w }]}
+          />
+        ) : null}
+
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
           const label = options.title ?? route.name;
@@ -30,10 +71,29 @@ export default function TabBar({ state, descriptors, navigation }) {
             <Pressable
               key={route.key}
               onPress={onPress}
-              style={[styles.tab, focused && styles.tabActive]}
+              onLayout={(e) => {
+                const { x: lx, width } = e.nativeEvent.layout;
+                setLayouts((prev) => {
+                  const cur = prev[index];
+                  if (cur && Math.abs(cur.x - lx) < 0.5 && Math.abs(cur.width - width) < 0.5) return prev;
+                  return { ...prev, [index]: { x: lx, width } };
+                });
+              }}
+              style={styles.tab}
+              accessibilityRole="button"
+              accessibilityLabel={label}
+              accessibilityState={{ selected: focused }}
             >
-              <Text style={[styles.glyph, focused && styles.glyphActive]}>{GLYPHS[route.name] || '•'}</Text>
-              <Text style={[styles.label, focused && styles.labelActive]}>{label}</Text>
+              {(() => {
+                const Icon = TAB_ICONS[route.name];
+                const tint = focused ? colors.onPurple : colors.inkSoft;
+                return Icon ? (
+                  <Icon size={21} color={tint} strokeWidth={2} />
+                ) : null;
+              })()}
+              {focused ? (
+                <Text numberOfLines={1} style={styles.labelActive}>{label}</Text>
+              ) : null}
             </Pressable>
           );
         })}
@@ -43,25 +103,29 @@ export default function TabBar({ state, descriptors, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  wrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
+  wrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', paddingHorizontal: 12 },
   bar: {
     flexDirection: 'row',
     backgroundColor: colors.card,
     borderRadius: radius.pill,
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    padding: BAR_PAD,
     alignItems: 'center',
+  },
+  pill: {
+    position: 'absolute',
+    left: 0,
+    top: BAR_PAD,
+    bottom: BAR_PAD,
+    borderRadius: radius.pill,
+    backgroundColor: colors.purple,
   },
   tab: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 12,
-    paddingHorizontal: 18,
+    paddingHorizontal: 14,
     borderRadius: radius.pill,
   },
-  tabActive: { backgroundColor: colors.purple },
-  glyph: { fontSize: 17, color: colors.inkSoft, marginRight: 8 },
-  glyphActive: { color: colors.onPurple },
-  label: { fontSize: 15, color: colors.inkSoft, fontWeight: '600' },
-  labelActive: { color: colors.onPurple, fontWeight: '700' },
+  labelActive: { color: colors.onPurple, fontWeight: '700', fontSize: 13, marginLeft: 7 },
 });

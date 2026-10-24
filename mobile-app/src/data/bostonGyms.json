@@ -1,0 +1,1282 @@
+[
+  {
+    "id": "gym-planet-fitness",
+    "name": "Planet Fitness \u2014 Downtown",
+    "address": "17 Winter St Boston, MA 02108 United States",
+    "lat": 42.3559586,
+    "lng": -71.0611921,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 22
+      },
+      "Friday": {
+        "open": 0,
+        "close": 22
+      },
+      "Saturday": {
+        "open": 6,
+        "close": 22
+      },
+      "Sunday": {
+        "open": 6,
+        "close": 22
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-equinox-dartmouth",
+    "name": "Equinox Dartmouth",
+    "address": "131 Dartmouth St Boston MA 02116",
+    "lat": 42.3470414,
+    "lng": -71.0753582,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 22
+      },
+      "Friday": {
+        "open": 5,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 20
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 20
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-sowa-health---wellness",
+    "name": "SoWa Health + Wellness",
+    "address": "560 Harrison Ave Boston, MA 02118 United States",
+    "lat": 42.3405485,
+    "lng": -71.0671673,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 22
+      },
+      "Friday": {
+        "open": 6,
+        "close": 22
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-lynx-fitness-club",
+    "name": "Lynx Fitness Club",
+    "address": "64 Arlington St Boston, MA 02116 United States",
+    "lat": 42.3508485,
+    "lng": -71.069876,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 21
+      },
+      "Friday": {
+        "open": 5,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-equinox-sports-club-boston",
+    "name": "Equinox Sports Club Boston",
+    "address": "4 Avery St Boston, MA 02111 United States",
+    "lat": 42.353014,
+    "lng": -71.063256,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 22
+      },
+      "Friday": {
+        "open": 5,
+        "close": 20
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-mike-s-fitness-jp",
+    "name": "Mike's Fitness JP",
+    "address": "284 Amory St #2 Jamaica Plain, MA 02130 United States",
+    "lat": 42.3145167,
+    "lng": -71.1038972,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 22
+      },
+      "Friday": {
+        "open": 6,
+        "close": 22
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 20
+      },
+      "Sunday": {
+        "open": 8,
+        "close": 20
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-equinox-seaport",
+    "name": "Equinox Seaport",
+    "address": "27 Northern Ave Boston, MA 02210 United States",
+    "lat": 42.3533219,
+    "lng": -71.0476806,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 22
+      },
+      "Friday": {
+        "open": 5,
+        "close": 20
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-republic-fitness",
+    "name": "Republic Fitness",
+    "address": "Two International Place International Pl Boston, MA 02110 United States",
+    "lat": 42.3565309,
+    "lng": -71.0523636,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 21
+      },
+      "Friday": {
+        "open": 5,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 8,
+        "close": 16
+      },
+      "Sunday": {
+        "open": 8,
+        "close": 16
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-commonwealth-sports-club",
+    "name": "Commonwealth Sports Club",
+    "address": "1079 Commonwealth Ave Boston, MA 02215 United States",
+    "lat": 42.3525311,
+    "lng": -71.1243076,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 21
+      },
+      "Friday": {
+        "open": 6,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 8,
+        "close": 18
+      },
+      "Sunday": {
+        "open": 8,
+        "close": 18
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-beacon-hill-athletic-clubs",
+    "name": "Beacon Hill Athletic Clubs",
+    "address": "261 Friend St Boston, MA 02114 United States",
+    "lat": 42.3649355,
+    "lng": -71.0614394,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 21
+      },
+      "Friday": {
+        "open": 6,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 8,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 8,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-healthworks-fitness-back-bay",
+    "name": "Healthworks Fitness Back Bay",
+    "address": "441 Stuart St Boston, MA 02116 United States",
+    "lat": 42.3486374,
+    "lng": -71.0758921,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 21
+      },
+      "Friday": {
+        "open": 5,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 20
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 20
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-south-end-fitness-center",
+    "name": "South End Fitness Center",
+    "address": "785 Albany St 4th floor Boston, MA 02118 United States",
+    "lat": 42.3333574,
+    "lng": -71.0742098,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 21
+      },
+      "Friday": {
+        "open": 6,
+        "close": 20
+      },
+      "Saturday": {
+        "open": 8,
+        "close": 18
+      },
+      "Sunday": {
+        "open": 8,
+        "close": 15
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-beacon-hill-athletic-clubs",
+    "name": "Beacon Hill Athletic Clubs",
+    "address": "3 Hancock St Boston, MA 02114 United States",
+    "lat": 42.360964,
+    "lng": -71.0646189,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 21
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 21
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 21
+      },
+      "Friday": {
+        "open": 6,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 8,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 8,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-planet-fitness---boston",
+    "name": "Planet Fitness \u2014 Jamaica Plain",
+    "address": "3525 Washington St Boston, MA 02130 United States",
+    "lat": 42.30523,
+    "lng": -71.10904,
+    "operatingHours": {
+      "Monday": {
+        "open": 5,
+        "close": 23
+      },
+      "Tuesday": {
+        "open": 5,
+        "close": 23
+      },
+      "Wednesday": {
+        "open": 5,
+        "close": 23
+      },
+      "Thursday": {
+        "open": 5,
+        "close": 23
+      },
+      "Friday": {
+        "open": 5,
+        "close": 22
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-planet-fitness---quincy",
+    "name": "Planet Fitness \u2014 Quincy",
+    "address": "50 Adams St Quincy, MA 02169 United States",
+    "lat": 42.254811,
+    "lng": -71.007296,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 22
+      },
+      "Friday": {
+        "open": 0,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  },
+  {
+    "id": "gym-planet-fitness---boston",
+    "name": "Planet Fitness \u2014 East Boston",
+    "address": "175 William F McClellan Hwy East Boston, MA 02128 United States",
+    "lat": 42.385471,
+    "lng": -71.015763,
+    "operatingHours": {
+      "Monday": {
+        "open": 6,
+        "close": 22
+      },
+      "Tuesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Wednesday": {
+        "open": 6,
+        "close": 22
+      },
+      "Thursday": {
+        "open": 6,
+        "close": 22
+      },
+      "Friday": {
+        "open": 0,
+        "close": 21
+      },
+      "Saturday": {
+        "open": 7,
+        "close": 19
+      },
+      "Sunday": {
+        "open": 7,
+        "close": 19
+      }
+    },
+    "equipment": [
+      {
+        "type": "bench_press",
+        "name": "Bench Press",
+        "units": 3
+      },
+      {
+        "type": "squat_rack",
+        "name": "Squat Rack",
+        "units": 2
+      },
+      {
+        "type": "leg_press",
+        "name": "Leg Press",
+        "units": 2
+      },
+      {
+        "type": "cable_machine",
+        "name": "Cable Machine",
+        "units": 4
+      },
+      {
+        "type": "treadmill",
+        "name": "Treadmill",
+        "units": 10
+      },
+      {
+        "type": "rowing_machine",
+        "name": "Rowing Machine",
+        "units": 5
+      },
+      {
+        "type": "dumbbells",
+        "name": "Dumbbell Area",
+        "units": 15
+      },
+      {
+        "type": "smith_machine",
+        "name": "Smith Machine",
+        "units": 1
+      }
+    ],
+    "source": "BestTime foot-traffic data"
+  }
+]

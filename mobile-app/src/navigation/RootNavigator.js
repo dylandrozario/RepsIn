@@ -8,8 +8,11 @@ import HomeScreen from '../screens/HomeScreen';
 import ForecastScreen from '../screens/ForecastScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 import TrackerScreen from '../screens/TrackerScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
+import LoginScreen from '../screens/LoginScreen';
 import storage from '../services/storageService';
+import { useAuth } from '../auth/AuthContext';
 import { colors } from '../theme/theme';
 
 const Tab = createBottomTabNavigator();
@@ -40,33 +43,59 @@ function Tabs({ prefs }) {
         {(props) => <WorkoutScreen {...props} />}
       </Tab.Screen>
       <Tab.Screen name="Tracker" options={{ title: 'Form' }} component={TrackerScreen} />
+      <Tab.Screen name="Profile" options={{ title: 'You' }} component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
 
+function Loading() {
+  return (
+    <View style={{ flex: 1, backgroundColor: colors.bg, alignItems: 'center', justifyContent: 'center' }}>
+      <ActivityIndicator color={colors.purple} />
+    </View>
+  );
+}
+
 export default function RootNavigator() {
-  const [loading, setLoading] = useState(true);
+  const { session, initializing } = useAuth();
+  const [loadingPrefs, setLoadingPrefs] = useState(true);
   const [prefs, setPrefs] = useState(null);
 
+  // Load onboarding prefs once we know who the user is.
   useEffect(() => {
+    let mounted = true;
+    if (!session) {
+      setPrefs(null);
+      setLoadingPrefs(false);
+      return undefined;
+    }
+    setLoadingPrefs(true);
     (async () => {
       const saved = await storage.getUserPreferences();
-      if (saved) setPrefs(saved);
-      setLoading(false);
+      if (mounted) {
+        setPrefs(saved);
+        setLoadingPrefs(false);
+      }
     })();
-  }, []);
+    return () => {
+      mounted = false;
+    };
+  }, [session]);
 
-  if (loading) {
-    return (
-      <View style={{ flex: 1, backgroundColor: colors.bg, alignItems: 'center', justifyContent: 'center' }}>
-        <ActivityIndicator color={colors.purple} />
-      </View>
-    );
-  }
+  // Still restoring the auth session.
+  if (initializing) return <Loading />;
 
   return (
     <NavigationContainer theme={navTheme}>
-      {prefs ? <Tabs prefs={prefs} /> : <OnboardingScreen onDone={setPrefs} />}
+      {!session ? (
+        <LoginScreen />
+      ) : loadingPrefs ? (
+        <Loading />
+      ) : prefs ? (
+        <Tabs prefs={prefs} />
+      ) : (
+        <OnboardingScreen onDone={setPrefs} />
+      )}
     </NavigationContainer>
   );
 }
