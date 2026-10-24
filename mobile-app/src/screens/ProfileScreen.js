@@ -13,7 +13,7 @@ import {
   nextDateForWeekday,
 } from '../services/workoutStore';
 
-export default function ProfileScreen() {
+export default function ProfileScreen({ navigation }) {
   const { profile, user, signOut } = useAuth();
   const [week, setWeek] = useState({ goal: 3, completed: 0 });
   const [streak, setStreak] = useState(0);
@@ -69,6 +69,15 @@ export default function ProfileScreen() {
           <Text style={type.small} numberOfLines={1}>{profile?.email || '—'}</Text>
         </View>
       </FadeInView>
+
+      {/* Edit profile → preferences, gym, and app theme color */}
+      <View style={{ marginTop: spacing.md }}>
+        <Button
+          label="Edit profile & preferences"
+          variant="light"
+          onPress={() => navigation.navigate('EditProfile')}
+        />
+      </View>
 
       {/* consistency stats */}
       <FadeInView delay={stagger(1)} style={styles.statsRow}>

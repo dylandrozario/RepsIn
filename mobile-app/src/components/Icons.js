@@ -101,6 +101,18 @@ export function ProfileIcon({ size = 24, color = '#000', strokeWidth = 2 }) {
   );
 }
 
+export function FloorIcon({ size = 24, color = '#000', strokeWidth = 2 }) {
+  // Gym floor plan — a 2×2 grid of equipment stations.
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Rect x="3.5" y="3.5" width="7" height="7" rx="1.5" stroke={color} strokeWidth={strokeWidth} />
+      <Rect x="13.5" y="3.5" width="7" height="7" rx="1.5" stroke={color} strokeWidth={strokeWidth} />
+      <Rect x="3.5" y="13.5" width="7" height="7" rx="1.5" stroke={color} strokeWidth={strokeWidth} />
+      <Rect x="13.5" y="13.5" width="7" height="7" rx="1.5" stroke={color} strokeWidth={strokeWidth} />
+    </Svg>
+  );
+}
+
 export function ClockIcon({ size = 24, color = '#000', strokeWidth = 2 }) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
@@ -133,6 +145,7 @@ export function PinIcon({ size = 24, color = '#000' }) {
 export const TAB_ICONS = {
   Home: HomeIcon,
   Forecast: ForecastIcon,
+  Floor: FloorIcon,
   Workout: WorkoutIcon,
   Tracker: TrackerIcon,
   Profile: ProfileIcon,

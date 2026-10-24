@@ -148,7 +148,7 @@ export default function ForecastScreen() {
 
       {/* per-equipment rows */}
       {rows.map((r, idx) => (
-        <View key={r.type}>
+        <View key={`${r.type}-${idx}`}>
           <View style={styles.eqRow}>
             <View style={styles.eqLeft}>
               <Text style={type.h3}>{r.name}</Text>

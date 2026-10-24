@@ -3,11 +3,10 @@ import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Alert, Activit
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import HeroCard from '../components/HeroCard';
-import { Label, Divider, IconTile, Button } from '../components/UI';
+import { Label, Divider, Button } from '../components/UI';
 import GymDropdown from '../components/GymDropdown';
-import { colors, type, fonts, spacing, radius, shadow, waitMinutes, congestionColor, waitLevelLabel } from '../theme/theme';
+import { colors, type, fonts, spacing, radius, shadow, waitMinutes } from '../theme/theme';
 import { DEMO_GYM, getGymById } from '../data/gymData';
-import predictor from '../services/occupancyPredictor';
 import { getBestSlot, formatHour, explainSlot, setActiveGym } from '../services/recommendationEngine';
 import storage from '../services/storageService';
 import {

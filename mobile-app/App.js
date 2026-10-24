@@ -11,6 +11,10 @@ import {
 } from '@expo-google-fonts/instrument-serif';
 import RootNavigator from './src/navigation/RootNavigator';
 import { AuthProvider } from './src/auth/AuthContext';
+import { ThemeProvider } from './src/context/ThemeContext';
+import { GymProvider } from './src/context/GymContext';
+import { ProfileProvider } from './src/context/ProfileContext';
+import { SessionProvider } from './src/context/SessionContext';
 import { colors } from './src/theme/theme';
 
 export default function App() {
@@ -28,7 +32,15 @@ export default function App() {
       <SafeAreaProvider>
         <StatusBar style="dark" />
         <AuthProvider>
-          <RootNavigator />
+          <ThemeProvider>
+            <GymProvider>
+              <ProfileProvider>
+                <SessionProvider>
+                  <RootNavigator />
+                </SessionProvider>
+              </ProfileProvider>
+            </GymProvider>
+          </ThemeProvider>
         </AuthProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>

@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import TabBar from '../components/TabBar';
 import HomeScreen from '../screens/HomeScreen';
 import ForecastScreen from '../screens/ForecastScreen';
+import FloorScreen from '../screens/FloorScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 import TrackerScreen from '../screens/TrackerScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import LandingScreen from '../screens/LandingScreen';
@@ -17,6 +20,7 @@ import { useAuth } from '../auth/AuthContext';
 import { colors } from '../theme/theme';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const navTheme = {
   dark: false,
@@ -40,12 +44,29 @@ function Tabs({ prefs }) {
         {(props) => <HomeScreen {...props} />}
       </Tab.Screen>
       <Tab.Screen name="Forecast" options={{ title: 'Forecast' }} component={ForecastScreen} />
+      <Tab.Screen name="Floor" options={{ title: 'Floor' }} component={FloorScreen} />
       <Tab.Screen name="Workout" options={{ title: 'Workout' }} initialParams={{ prefs }}>
         {(props) => <WorkoutScreen {...props} />}
       </Tab.Screen>
       <Tab.Screen name="Tracker" options={{ title: 'Train' }} component={TrackerScreen} />
       <Tab.Screen name="Profile" options={{ title: 'Profile' }} component={ProfileScreen} />
     </Tab.Navigator>
+  );
+}
+
+/** Root stack wraps the tabs so EditProfile can be pushed as a modal. */
+function MainStack({ prefs }) {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Tabs">
+        {(props) => <Tabs {...props} prefs={prefs} />}
+      </Stack.Screen>
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
+        options={{ presentation: 'modal' }}
+      />
+    </Stack.Navigator>
   );
 }
 
@@ -103,7 +124,7 @@ export default function RootNavigator() {
       ) : loadingPrefs ? (
         <Loading />
       ) : prefs ? (
-        <Tabs prefs={prefs} />
+        <MainStack prefs={prefs} />
       ) : (
         <OnboardingScreen onDone={setPrefs} />
       )}
