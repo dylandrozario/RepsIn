@@ -280,7 +280,7 @@ function PlanView({ prefs, slot, navigation, theme }) {
 
             <Pressable
               style={[styles.completeBtn, { backgroundColor: nextOpen > 0 ? theme.accent : colors.hairline }]}
-              onPress={() => navigation.navigate('Availability')}
+              onPress={() => navigation.navigate('Floor')}
             >
               <Text style={styles.completeBtnText}>
                 {nextOpen > 0 ? 'Check in on the floor →' : 'See the floor →'}
@@ -337,7 +337,7 @@ function PlanView({ prefs, slot, navigation, theme }) {
         </>
       )}
 
-      <Pressable style={[styles.startBtn, { backgroundColor: theme.accent }]} onPress={() => navigation.navigate('Availability')}>
+      <Pressable style={[styles.startBtn, { backgroundColor: theme.accent }]} onPress={() => navigation.navigate('Floor')}>
         <Text style={styles.startBtnText}>Go to Live Floor →</Text>
       </Pressable>
     </Screen>

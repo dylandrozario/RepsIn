@@ -20,7 +20,6 @@ export default function AppHeader({ onAvatarPress }) {
         <View style={[styles.logo, { backgroundColor: theme.accent }]}>
           <Text style={styles.bolt}>⚡</Text>
         </View>
-        <Text style={styles.word}>RepsIn</Text>
       </View>
 
       <Pressable

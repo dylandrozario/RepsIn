@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
@@ -9,6 +10,7 @@ import {
   InstrumentSerif_400Regular_Italic,
 } from '@expo-google-fonts/instrument-serif';
 import RootNavigator from './src/navigation/RootNavigator';
+import { AuthProvider } from './src/auth/AuthContext';
 import { ThemeProvider } from './src/context/ThemeContext';
 import { GymProvider } from './src/context/GymContext';
 import { ProfileProvider } from './src/context/ProfileContext';
@@ -26,17 +28,21 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <ThemeProvider>
-        <GymProvider>
-          <ProfileProvider>
-            <SessionProvider>
-              <StatusBar style="dark" />
-              <RootNavigator />
-            </SessionProvider>
-          </ProfileProvider>
-        </GymProvider>
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <StatusBar style="dark" />
+        <AuthProvider>
+          <ThemeProvider>
+            <GymProvider>
+              <ProfileProvider>
+                <SessionProvider>
+                  <RootNavigator />
+                </SessionProvider>
+              </ProfileProvider>
+            </GymProvider>
+          </ThemeProvider>
+        </AuthProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }

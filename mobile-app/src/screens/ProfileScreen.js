@@ -1,155 +1,190 @@
-import React from 'react';
-import { View, Text, Image, Pressable, ScrollView, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, { useCallback, useState } from 'react';
+import { View, Text, Image, StyleSheet, Alert } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import Screen from '../components/Screen';
+import { Label, Divider, Button } from '../components/UI';
+import { PressableScale, FadeInView } from '../motion/AnimatedComponents';
+import { stagger } from '../motion/motion';
+import { useAuth } from '../auth/AuthContext';
 import { colors, type, fonts, spacing, radius, shadow } from '../theme/theme';
-import { useTheme } from '../context/ThemeContext';
-import { useProfile } from '../context/ProfileContext';
-import { useGym } from '../context/GymContext';
-import { FITNESS_GOALS, EXPERIENCE_LEVELS } from '../data/gymData';
+import { formatHour } from '../services/recommendationEngine';
+import {
+  getWeekSummary, getStreak, getHistory, getScheduled, rescheduleWorkout,
+  nextDateForWeekday,
+} from '../services/workoutStore';
 
-function labelFor(list, id, fallback) {
-  const found = list.find((x) => x.id === id);
-  return found ? found.label : fallback;
-}
+export default function ProfileScreen({ navigation }) {
+  const { profile, user, signOut } = useAuth();
+  const [week, setWeek] = useState({ goal: 3, completed: 0 });
+  const [streak, setStreak] = useState(0);
+  const [history, setHistory] = useState([]);
+  const [missed, setMissed] = useState([]);
 
-function Row({ label, value }) {
+  const reload = useCallback(async () => {
+    const [summary, stk, hist, scheduled] = await Promise.all([
+      getWeekSummary(), getStreak(), getHistory(), getScheduled(),
+    ]);
+    setWeek(summary);
+    setStreak(stk);
+    setHistory(hist.slice(0, 10));
+    setMissed(scheduled.filter((s) => s.status === 'missed'));
+  }, []);
+
+  useFocusEffect(useCallback(() => { reload(); }, [reload]));
+
+  const confirmSignOut = () => {
+    Alert.alert('Sign out', 'Sign out of RepsIn?', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Sign out', style: 'destructive', onPress: signOut },
+    ]);
+  };
+
+  const rebook = useCallback(async (w) => {
+    // Push the missed workout to its next occurrence this/next week.
+    const date = nextDateForWeekday(w.weekday, new Date());
+    await rescheduleWorkout(w.id, { date, weekday: w.weekday, hour: w.hour });
+    await reload();
+    Alert.alert('Rescheduled', `Moved to ${w.weekday} at ${formatHour(w.hour)}. No worries — life happens.`);
+  }, [reload]);
+
+  const initials = (profile?.name || 'A')
+    .split(' ').map((p) => p[0]).slice(0, 2).join('').toUpperCase();
+
   return (
-    <View style={styles.row}>
-      <Text style={styles.rowLabel}>{label}</Text>
-      <Text style={styles.rowValue}>{value}</Text>
-    </View>
+    <Screen>
+      <View style={{ height: spacing.xl }} />
+      <Label>Your account</Label>
+      <Text style={[type.h1, { marginTop: 6 }]}>Profile</Text>
+
+      <FadeInView delay={stagger(0)} style={styles.card}>
+        {profile?.avatarUrl ? (
+          <Image source={{ uri: profile.avatarUrl }} style={styles.avatar} />
+        ) : (
+          <View style={styles.avatarFallback}>
+            <Text style={styles.avatarInitials}>{initials}</Text>
+          </View>
+        )}
+        <View style={{ flex: 1, marginLeft: spacing.lg }}>
+          <Text style={type.h3} numberOfLines={1}>{profile?.name || 'Athlete'}</Text>
+          <Text style={type.small} numberOfLines={1}>{profile?.email || '—'}</Text>
+        </View>
+      </FadeInView>
+
+      {/* Edit profile → preferences, gym, and app theme color */}
+      <View style={{ marginTop: spacing.md }}>
+        <Button
+          label="Edit profile & preferences"
+          variant="light"
+          onPress={() => navigation.navigate('EditProfile')}
+        />
+      </View>
+
+      {/* consistency stats */}
+      <FadeInView delay={stagger(1)} style={styles.statsRow}>
+        <Stat value={`🔥 ${streak}`} label="week streak" />
+        <Stat value={`${week.completed}/${week.goal}`} label="this week" />
+        <Stat value={`${history.length}`} label="recent" />
+      </FadeInView>
+
+      {/* missed → reschedule */}
+      {missed.length ? (
+        <FadeInView delay={stagger(2)}>
+          <Divider />
+          <Label muted>Missed — reschedule anytime</Label>
+          {missed.slice(0, 3).map((w) => (
+            <View key={w.id} style={styles.missedRow}>
+              <View style={{ flex: 1 }}>
+                <Text style={type.bodyInk}>{w.templateName}</Text>
+                <Text style={type.small}>was {w.weekday} · {formatHour(w.hour)}</Text>
+              </View>
+              <PressableScale onPress={() => rebook(w)} style={styles.rebookBtn}>
+                <Text style={styles.rebookText}>Reschedule</Text>
+              </PressableScale>
+            </View>
+          ))}
+        </FadeInView>
+      ) : null}
+
+      {/* history */}
+      <FadeInView delay={stagger(3)}>
+        <Divider />
+        <Label muted>Workout history</Label>
+        {history.length === 0 ? (
+          <Text style={[type.small, { marginTop: spacing.md }]}>
+            No completed workouts yet. Plan one from Home and mark it done to start your streak.
+          </Text>
+        ) : (
+          <View style={{ marginTop: spacing.md }}>
+            {history.map((w, idx) => (
+              <View key={w.id || idx}>
+                <View style={styles.histRow}>
+                  <View style={styles.histDot} />
+                  <View style={{ flex: 1 }}>
+                    <Text style={type.bodyInk}>{w.templateName}</Text>
+                    <Text style={type.small}>
+                      {new Date(w.completedAt || w.date).toLocaleDateString('en-US', {
+                        weekday: 'short', month: 'short', day: 'numeric',
+                      })} · {w.duration} min
+                    </Text>
+                  </View>
+                  <Text style={styles.histDone}>Done</Text>
+                </View>
+                {idx < history.length - 1 ? <Divider style={{ marginVertical: spacing.md }} /> : null}
+              </View>
+            ))}
+          </View>
+        )}
+      </FadeInView>
+
+      <Divider />
+      <Label muted>Signed in via</Label>
+      <Text style={[type.bodyInk, { marginTop: 6 }]}>Google / Email</Text>
+
+      <View style={{ height: spacing.xxl }} />
+      <Button label="Sign out" variant="light" onPress={confirmSignOut} />
+      <View style={{ height: spacing.xl }} />
+    </Screen>
   );
 }
 
-export default function ProfileScreen({ navigation }) {
-  const insets = useSafeAreaInsets();
-  const { theme } = useTheme();
-  const { profile, initials } = useProfile();
-  const { gym } = useGym();
-
+function Stat({ value, label }) {
   return (
-    <View style={{ flex: 1, backgroundColor: colors.bg }}>
-      {/* Nav bar */}
-      <View style={[styles.navBar, { paddingTop: insets.top + 6 }]}>
-        <Pressable onPress={() => navigation.goBack()} hitSlop={10} style={styles.navBtn}>
-          <Text style={styles.navBtnText}>‹</Text>
-        </Pressable>
-        <Text style={styles.navTitle}>Profile</Text>
-        <Pressable onPress={() => navigation.navigate('EditProfile')} hitSlop={10}>
-          <Text style={[styles.editText, { color: theme.accent }]}>Edit</Text>
-        </Pressable>
-      </View>
-
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: spacing.xl, paddingBottom: insets.bottom + 40 }}
-      >
-        {/* Hero */}
-        <View style={styles.hero}>
-          <View style={[styles.avatar, { borderColor: theme.accent }]}>
-            {profile.avatarUri ? (
-              <Image source={{ uri: profile.avatarUri }} style={styles.avatarImg} />
-            ) : (
-              <View style={[styles.avatarFill, { backgroundColor: theme.accent }]}>
-                <Text style={styles.avatarInitials}>{initials}</Text>
-              </View>
-            )}
-          </View>
-          <View style={{ flex: 1, marginLeft: spacing.lg }}>
-            <Text style={styles.name}>{profile.name}</Text>
-            <Text style={styles.handle}>@{profile.username}</Text>
-          </View>
-        </View>
-
-        {/* This week stats */}
-        <View style={styles.statsRow}>
-          <View style={[styles.statBox, shadow.card]}>
-            <Text style={[styles.statVal, { color: theme.accent }]}>4</Text>
-            <Text style={styles.statLabel}>Sessions</Text>
-          </View>
-          <View style={[styles.statBox, shadow.card]}>
-            <Text style={[styles.statVal, { color: theme.accent }]}>67</Text>
-            <Text style={styles.statLabel}>Sets</Text>
-          </View>
-          <View style={[styles.statBox, shadow.card]}>
-            <Text style={[styles.statVal, { color: theme.accent }]}>3h 2m</Text>
-            <Text style={styles.statLabel}>Time</Text>
-          </View>
-        </View>
-
-        {/* Gym */}
-        <Text style={styles.section}>Current gym</Text>
-        <View style={[styles.card, shadow.card]}>
-          <Text style={styles.gymName}>{gym.name}</Text>
-          <Text style={styles.gymAddr}>{gym.address}</Text>
-        </View>
-
-        {/* Goals & prefs */}
-        <Text style={styles.section}>Goals & preferences</Text>
-        <View style={[styles.card, shadow.card]}>
-          <Row label="Goal" value={labelFor(FITNESS_GOALS, profile.goal, 'Strength')} />
-          <Row label="Experience" value={labelFor(EXPERIENCE_LEVELS, profile.experience, 'Intermediate')} />
-          <Row label="Session length" value={`${profile.duration} min`} />
-          <Row label="Weekly goal" value={`${profile.weeklyTarget}×/week`} />
-        </View>
-
-        {/* Edit CTA */}
-        <Pressable
-          onPress={() => navigation.navigate('EditProfile')}
-          style={[styles.editBtn, { backgroundColor: theme.accent }]}
-        >
-          <Text style={styles.editBtnText}>Edit Profile</Text>
-        </Pressable>
-      </ScrollView>
+    <View style={styles.stat}>
+      <Text style={styles.statValue}>{value}</Text>
+      <Text style={styles.statLabel}>{label}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  navBar: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: spacing.xl, paddingBottom: 12,
-    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.hairline,
+  card: {
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: colors.card, borderRadius: radius.lg,
+    padding: spacing.lg, marginTop: spacing.lg, ...shadow.card,
   },
-  navBtn: { width: 36, height: 36, alignItems: 'flex-start', justifyContent: 'center' },
-  navBtnText: { fontSize: 32, color: colors.ink, lineHeight: 34 },
-  navTitle: { fontSize: 17, fontWeight: '700', color: colors.ink },
-  editText: { fontSize: 16, fontWeight: '700' },
-
-  hero: { flexDirection: 'row', alignItems: 'center', marginBottom: spacing.xl },
-  avatar: {
-    width: 68, height: 68, borderRadius: 34, borderWidth: 2.5,
-    overflow: 'hidden', alignItems: 'center', justifyContent: 'center',
+  avatar: { width: 60, height: 60, borderRadius: 30, backgroundColor: colors.cardSunken },
+  avatarFallback: {
+    width: 60, height: 60, borderRadius: 30, backgroundColor: colors.purple,
+    alignItems: 'center', justifyContent: 'center',
   },
-  avatarImg: { width: '100%', height: '100%' },
-  avatarFill: { width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' },
-  avatarInitials: { fontSize: 26, fontWeight: '800', color: '#fff' },
-  name: { fontSize: 22, fontWeight: '800', color: colors.ink, fontFamily: fonts.serif },
-  handle: { fontSize: 14, color: colors.inkSoft, marginTop: 2 },
+  avatarInitials: { color: '#fff', fontSize: 20, fontWeight: '700', fontFamily: fonts.serif },
 
-  statsRow: { flexDirection: 'row', gap: spacing.md, marginBottom: spacing.lg },
-  statBox: {
+  statsRow: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.lg },
+  stat: {
     flex: 1, backgroundColor: colors.card, borderRadius: radius.md,
-    paddingVertical: spacing.md, alignItems: 'center',
+    paddingVertical: spacing.lg, alignItems: 'center', ...shadow.card,
   },
-  statVal: { fontSize: 22, fontWeight: '800' },
-  statLabel: { fontSize: 10, color: colors.inkSoft, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.5, marginTop: 2 },
+  statValue: { fontFamily: fonts.serif, fontSize: 24, color: colors.ink },
+  statLabel: { fontSize: 11, color: colors.inkSoft, fontWeight: '600', marginTop: 2 },
 
-  section: {
-    fontSize: 11.5, fontWeight: '700', letterSpacing: 1.1, color: colors.inkFaint,
-    textTransform: 'uppercase', marginBottom: spacing.sm, marginTop: spacing.lg,
+  missedRow: { flexDirection: 'row', alignItems: 'center', marginTop: spacing.md, gap: spacing.md },
+  rebookBtn: {
+    backgroundColor: colors.purpleSoft, borderRadius: radius.pill,
+    paddingHorizontal: 16, paddingVertical: 9,
   },
-  card: { backgroundColor: colors.card, borderRadius: radius.md, padding: 14, borderWidth: 1, borderColor: colors.hairline },
-  gymName: { fontSize: 15, fontWeight: '700', color: colors.ink },
-  gymAddr: { fontSize: 12, color: colors.inkSoft, marginTop: 2 },
+  rebookText: { color: colors.purple, fontWeight: '700', fontSize: 13 },
 
-  row: {
-    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    paddingVertical: 9, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.hairlineSoft,
-  },
-  rowLabel: { fontSize: 13, color: colors.inkSoft },
-  rowValue: { fontSize: 13, fontWeight: '700', color: colors.ink },
-
-  editBtn: { marginTop: spacing.xl, borderRadius: radius.pill, paddingVertical: 15, alignItems: 'center' },
-  editBtnText: { color: '#fff', fontSize: 16, fontWeight: '700' },
+  histRow: { flexDirection: 'row', alignItems: 'center' },
+  histDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.low, marginRight: spacing.md },
+  histDone: { color: colors.low, fontWeight: '700', fontSize: 13 },
 });

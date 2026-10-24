@@ -114,3 +114,33 @@ export function congestionLabel(level) {
     default: return 'Unknown';
   }
 }
+
+// --- Wait time --------------------------------------------------------------
+// Convert an occupancy probability (0..1, chance all units are busy) into an
+// estimated wait in minutes. Low occupancy ~ no wait; high ~ a line forms.
+// Caps at ~20 min so the number stays believable for a gym.
+const MAX_WAIT_MIN = 20;
+
+export function waitMinutes(probability) {
+  const p = Math.max(0, Math.min(1, probability ?? 0.5));
+  // Non-linear: waits stay near zero until the gym is quite full, then climb.
+  const mins = Math.round(Math.pow(p, 2.2) * MAX_WAIT_MIN);
+  return mins;
+}
+
+// Short label like "No wait" / "~5 min wait".
+export function waitLabel(probability) {
+  const m = waitMinutes(probability);
+  if (m <= 1) return 'No wait';
+  return `~${m} min wait`;
+}
+
+// Level phrasing in wait terms (keeps the same color buckets).
+export function waitLevelLabel(level) {
+  switch (level) {
+    case 'low': return 'Walk right on';
+    case 'moderate': return 'Short wait';
+    case 'high': return 'Expect a wait';
+    default: return 'Unknown';
+  }
+}

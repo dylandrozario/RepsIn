@@ -6,8 +6,21 @@
  */
 import Constants from 'expo-constants';
 import storage from '../services/storageService';
+import { supabase } from '../lib/supabase';
 
 const SESSION_ID = `phone-${Math.random().toString(36).slice(2, 8)}`;
+
+// Attach the Supabase access token so the server can scope the session to the
+// authenticated user (optional — anonymous tracking still works without it).
+async function authHeaders() {
+  try {
+    const { data } = await supabase.auth.getSession();
+    const token = data?.session?.access_token;
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  } catch {
+    return {};
+  }
+}
 
 // The pose server runs on the SAME laptop as the Expo dev server, just on a
 // different port. So we can derive its URL from Expo's host automatically —
@@ -84,7 +97,7 @@ export async function analyzeFrame(base64, exercise, reset = false) {
   if (!_baseUrl) throw new Error('No server URL set');
   const res = await fetch(`${_baseUrl}/analyze`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
     body: JSON.stringify({
       image: base64,
       exercise,

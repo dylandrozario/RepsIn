@@ -1,44 +1,66 @@
-import React from 'react';
-import { View, Text, Pressable, StyleSheet, useWindowDimensions } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, Pressable, StyleSheet, Animated, Easing } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, radius, shadow } from '../theme/theme';
-import { useTheme } from '../context/ThemeContext';
+import { useTracking } from '../tracker/trackingState';
+import { TAB_ICONS } from './Icons';
 
-const GLYPHS = {
-  Home:         '⌂',
-  Availability: '▦',
-  Workout:      '▤',
-  Tracker:      '◉',
-  Form:         '◉',
-};
+const BAR_PAD = 6;
 
+/**
+ * Floating pill tab bar with a sticky, smoothly sliding active indicator.
+ * Tabs have variable width (inactive = icon only, active = icon + label), so
+ * we measure each tab's layout and slide/resize the purple pill to match.
+ * Hidden entirely during full-screen moments (camera tracking, availability,
+ * the best-time reveal) via the nav-visibility store.
+ */
 export default function TabBar({ state, descriptors, navigation }) {
-  const insets  = useSafeAreaInsets();
-  const { theme } = useTheme();
-  const { width } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const hidden = useTracking();
 
-  const tabCount  = state.routes.length;
+  // Measured { x, width } for each tab, relative to the row.
+  const [layouts, setLayouts] = useState({});
+  const x = useRef(new Animated.Value(0)).current;
+  const w = useRef(new Animated.Value(0)).current;
 
-  // Each tab gets an equal share of the bar width.
-  // Cap tab width so labels never overflow on narrow phones.
-  const maxBarWidth = Math.min(width - 32, 480); // 16px margin each side
-  const tabWidth    = Math.floor(maxBarWidth / tabCount);
+  const activeLayout = layouts[state.index];
 
-  // Scale text so it always fits regardless of screen width or tab count
-  const labelSize = tabWidth < 72 ? 11 : tabWidth < 86 ? 12 : 13;
-  const glyphSize = tabWidth < 72 ? 13 : 15;
+  useEffect(() => {
+    if (!activeLayout) return;
+    Animated.parallel([
+      Animated.timing(x, {
+        toValue: activeLayout.x,
+        duration: 280,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: false,
+      }),
+      Animated.timing(w, {
+        toValue: activeLayout.width,
+        duration: 280,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: false,
+      }),
+    ]).start();
+  }, [activeLayout, x, w]);
+
+  if (hidden) return null;
+
+  const havePill = Boolean(activeLayout);
 
   return (
-    // The outer View sits above the home indicator via insets.bottom.
-    // pointerEvents="box-none" lets taps pass through the transparent gap.
-    <View
-      style={[styles.wrap, { bottom: insets.bottom + 8 }]}
-      pointerEvents="box-none"
-    >
-      <View style={[styles.bar, { width: maxBarWidth }, shadow.float]}>
+    <View style={[styles.wrap, { bottom: insets.bottom + 10 }]} pointerEvents="box-none">
+      <View style={[styles.bar, shadow.float]}>
+        {/* sliding + resizing purple pill behind the active tab */}
+        {havePill ? (
+          <Animated.View
+            pointerEvents="none"
+            style={[styles.pill, { transform: [{ translateX: x }], width: w }]}
+          />
+        ) : null}
+
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
-          const label   = options.title ?? route.name;
+          const label = options.title ?? route.name;
           const focused = state.index === index;
 
           const onPress = () => {
@@ -54,21 +76,27 @@ export default function TabBar({ state, descriptors, navigation }) {
             <Pressable
               key={route.key}
               onPress={onPress}
-              style={[
-                styles.tab,
-                { width: tabWidth },
-                focused && { backgroundColor: theme.accent },
-              ]}
+              onLayout={(e) => {
+                const { x: lx, width } = e.nativeEvent.layout;
+                setLayouts((prev) => {
+                  const cur = prev[index];
+                  if (cur && Math.abs(cur.x - lx) < 0.5 && Math.abs(cur.width - width) < 0.5) return prev;
+                  return { ...prev, [index]: { x: lx, width } };
+                });
+              }}
+              style={styles.tab}
+              accessibilityRole="button"
+              accessibilityLabel={label}
+              accessibilityState={{ selected: focused }}
             >
-              <Text style={[styles.glyph, { fontSize: glyphSize }, focused && styles.glyphActive]}>
-                {GLYPHS[route.name] || '•'}
-              </Text>
-              <Text
-                style={[styles.label, { fontSize: labelSize }, focused && styles.labelActive]}
-                numberOfLines={1}
-              >
-                {label}
-              </Text>
+              {(() => {
+                const Icon = TAB_ICONS[route.name];
+                const tint = focused ? colors.onPurple : colors.inkSoft;
+                return Icon ? <Icon size={21} color={tint} strokeWidth={2} /> : null;
+              })()}
+              {focused ? (
+                <Text numberOfLines={1} style={styles.labelActive}>{label}</Text>
+              ) : null}
             </Pressable>
           );
         })}
@@ -78,32 +106,30 @@ export default function TabBar({ state, descriptors, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  wrap: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    alignItems: 'center',
-    // Do not set a fixed width here — let the inner bar control it
-  },
+  wrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', paddingHorizontal: 12 },
   bar: {
     flexDirection: 'row',
     backgroundColor: colors.card,
     borderRadius: radius.pill,
-    paddingVertical: 6,
-    paddingHorizontal: 4,
+    padding: BAR_PAD,
     alignItems: 'center',
     alignSelf: 'center',
+  },
+  pill: {
+    position: 'absolute',
+    left: 0,
+    top: BAR_PAD,
+    bottom: BAR_PAD,
+    borderRadius: radius.pill,
+    backgroundColor: colors.purple,
   },
   tab: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 11,
-    paddingHorizontal: 6,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
     borderRadius: radius.pill,
   },
-  glyph:       { color: colors.inkSoft, marginRight: 5 },
-  glyphActive: { color: colors.onPurple },
-  label:       { color: colors.inkSoft, fontWeight: '600' },
-  labelActive: { color: colors.onPurple, fontWeight: '700' },
+  labelActive: { color: colors.onPurple, fontWeight: '700', fontSize: 13, marginLeft: 7 },
 });

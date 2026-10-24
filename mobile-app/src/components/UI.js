@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, type, spacing, radius, shadow, gradients } from '../theme/theme';
+import { PressableScale } from '../motion/AnimatedComponents';
 
 /** Small uppercase tracking label. */
 export function Label({ children, muted, style }) {
@@ -18,14 +19,13 @@ export function Button({ label, onPress, variant = 'solid', icon, style }) {
   const solid = variant === 'solid';
   const light = variant === 'light';
   return (
-    <Pressable
+    <PressableScale
       onPress={onPress}
-      style={({ pressed }) => [
+      style={[
         styles.btn,
         solid && styles.btnSolid,
         light && styles.btnLight,
         variant === 'ghost' && styles.btnGhost,
-        pressed && { opacity: 0.85 },
         style,
       ]}
     >
@@ -40,7 +40,7 @@ export function Button({ label, onPress, variant = 'solid', icon, style }) {
         {label}
       </Text>
       {icon ? <Text style={[styles.btnIcon, light && { color: colors.purple }, solid && { color: colors.onPurple }]}>{icon}</Text> : null}
-    </Pressable>
+    </PressableScale>
   );
 }
 

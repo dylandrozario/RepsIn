@@ -20,9 +20,17 @@ import threading
 import time
 from typing import Dict, Optional
 
+# Load server/.env (for SUPABASE_JWT_SECRET etc.) BEFORE importing auth, which
+# reads those env vars at import time.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
+except Exception:
+    pass
+
 import cv2
 import numpy as np
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -31,6 +39,7 @@ from mediapipe.tasks import python as mp_python
 from mediapipe.tasks.python import vision as mp_vision
 
 from pose_logic import make_tracker, ExerciseTracker
+from auth import require_user, optional_user, is_auth_configured
 
 app = FastAPI(title="RepsIn Pose Server")
 app.add_middleware(
@@ -106,11 +115,13 @@ def _landmarks_to_list(result):
 
 @app.get("/health")
 def health():
-    return {"ok": True, "service": "repsin-pose", "time": time.time()}
+    return {"ok": True, "service": "repsin-pose", "time": time.time(), "authConfigured": is_auth_configured()}
 
 
 @app.post("/analyze")
-def analyze(req: AnalyzeRequest):
+def analyze(req: AnalyzeRequest, user: Optional[dict] = Depends(optional_user)):
+    # Auth is OPTIONAL here so anonymous demo tracking still works. If a valid
+    # token is present we scope the session to the authenticated user id.
     t0 = time.time()
     img = _decode_image(req.image)
     if img is None:
@@ -124,14 +135,25 @@ def analyze(req: AnalyzeRequest):
 
     landmarks = _landmarks_to_list(results)
 
-    tracker = _tracker_for(req.sessionId, req.exercise, req.reset)
+    # Namespace the tracker key by the verified user id when available, so two
+    # signed-in users never share rep state even with the same sessionId.
+    scope = user["id"] if user else req.sessionId
+    tracker = _tracker_for(scope, req.exercise, req.reset)
     result = tracker.update(landmarks)
 
     payload = result.to_dict()
     payload["exercise"] = req.exercise
     payload["landmarks"] = landmarks       # for the phone's skeleton overlay
     payload["latencyMs"] = round((time.time() - t0) * 1000)
+    payload["authenticated"] = bool(user)
     return payload
+
+
+@app.get("/me")
+def me(user: dict = Depends(require_user)):
+    """Protected: returns the verified user identity from the JWT. Proves the
+    client cannot spoof a user id — only a valid Supabase token works."""
+    return {"userId": user["id"], "email": user.get("email")}
 
 
 @app.post("/reset")

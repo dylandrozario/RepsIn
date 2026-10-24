@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { View, Text, Pressable, StyleSheet, ScrollView, TextInput, Alert } from 'react-native';
+import { View, Text, Pressable, StyleSheet, ScrollView, TextInput, Alert, Animated, Easing, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 
 import { Label, Button } from '../components/UI';
 import SkeletonOverlay from '../tracker/SkeletonOverlay';
 import { EXERCISE_LIST } from '../tracker/exercises';
+import { setTracking } from '../tracker/trackingState';
+import { Pulse, PressableScale } from '../motion/AnimatedComponents';
+import RepFlash from '../tracker/RepFlash';
 import {
   analyzeFrame,
   resetSession,
@@ -22,12 +25,16 @@ const CAPTURE_INTERVAL = 280;
 
 export default function TrackerScreen() {
   const insets = useSafeAreaInsets();
+  const { height: screenH } = useWindowDimensions();
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef(null);
 
   const [exerciseId, setExerciseId] = useState('squat');
   const [active, setActive] = useState(false);
   const [ready, setReady] = useState(false);
+
+  // Drives the pull-down: 0 = hidden above the screen, 1 = fully covering.
+  const slide = useRef(new Animated.Value(0)).current;
   const [viewSize, setViewSize] = useState({ width: 1, height: 1 });
 
   const [serverUrl, setServerUrlState] = useState('');
@@ -132,17 +139,41 @@ export default function TrackerScreen() {
     }
     await resetSession(exerciseRef.current);
     setStatus({ reps: 0, goodReps: 0, state: 'unknown', formOk: true, cues: [], primaryAngle: null, poseDetected: false });
-    loopRef.current.running = true;
+
+    // Reveal the camera by sliding the setup sheet down off-screen.
     setActive(true);
-    tick();
-  }, [serverOk, serverUrl, tick]);
+    setTracking(true);   // hide the nav
+    Animated.timing(slide, {
+      toValue: 1,
+      duration: 480,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start(() => {
+      // Start the capture loop once the sheet is fully out of the way.
+      loopRef.current.running = true;
+      tick();
+    });
+  }, [serverOk, serverUrl, tick, slide]);
 
   const stop = useCallback(() => {
     loopRef.current.running = false;
-    setActive(false);
-  }, []);
+    // Slide the setup sheet back up over the camera.
+    Animated.timing(slide, {
+      toValue: 0,
+      duration: 380,
+      easing: Easing.in(Easing.cubic),
+      useNativeDriver: true,
+    }).start(() => {
+      setActive(false);
+      setTracking(false);
+    });
+  }, [slide]);
 
-  useEffect(() => () => { loopRef.current.running = false; }, []);
+  // Make sure the nav is restored if we leave the screen while tracking.
+  useEffect(() => () => {
+    loopRef.current.running = false;
+    setTracking(false);
+  }, []);
 
   const onChangeExercise = useCallback(async (id) => {
     setExerciseId(id);
@@ -167,10 +198,18 @@ export default function TrackerScreen() {
     );
   }
 
+  // The setup sheet slides DOWN off-screen to reveal the camera underneath.
+  // slide: 0 = sheet covering, 1 = sheet gone (camera revealed).
+  const sheetTranslateY = slide.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, screenH],
+  });
+
   return (
     <View style={styles.root}>
+      {/* BASE LAYER: the live camera, always mounted */}
       <View
-        style={styles.stage}
+        style={StyleSheet.absoluteFill}
         onLayout={(e) => setViewSize({ width: e.nativeEvent.layout.width, height: e.nativeEvent.layout.height })}
       >
         <CameraView
@@ -190,100 +229,127 @@ export default function TrackerScreen() {
           />
         ) : null}
 
-        {/* top overlay */}
-        <View style={[styles.topOverlay, { paddingTop: insets.top + 8 }]}>
-          <View>
-            <Text style={styles.overlayKicker}>{active ? 'TRACKING' : ready ? 'READY' : 'STARTING…'}</Text>
-            <Text style={styles.overlayExercise}>{current?.label}</Text>
-          </View>
-          <View style={styles.repBadge}>
-            <Text style={styles.repNum}>{status.reps}</Text>
-            <Text style={styles.repLabel}>REPS</Text>
-          </View>
-        </View>
+        {active ? <RepFlash reps={status.reps} goodForm={status.formOk} /> : null}
 
-        {/* bottom cue */}
+        {/* tracking HUD — only while active */}
         {active ? (
-          <View style={styles.cueWrap}>
-            {!status.poseDetected ? (
-              <CuePill text="Step into frame" tone="warn" />
-            ) : status.cues.length > 0 ? (
-              status.cues.map((c) => <CuePill key={c} text={c} tone="warn" />)
-            ) : (
-              <CuePill text="Good form" tone="ok" />
-            )}
-            {latency != null ? <Text style={styles.latency}>{latency} ms</Text> : null}
-          </View>
+          <>
+            <View style={[styles.topOverlay, { paddingTop: insets.top + 8 }]}>
+              <View>
+                <Text style={styles.overlayKicker}>TRACKING</Text>
+                <Text style={styles.overlayExercise}>{current?.label}</Text>
+              </View>
+              <Pulse trigger={status.reps} intensity={1.18} style={styles.repBadge}>
+                <Text style={styles.repNum}>{status.reps}</Text>
+                <Text style={styles.repLabel}>REPS</Text>
+              </Pulse>
+            </View>
+
+            <View style={[styles.cueWrap, { top: insets.top + 86 }]}>
+              {!status.poseDetected ? (
+                <CuePill text="Step fully into frame" tone="warn" />
+              ) : status.cues.length > 0 ? (
+                status.cues.map((c) => <CuePill key={c} text={c} tone="warn" />)
+              ) : (
+                <CuePill text="Good form" tone="ok" />
+              )}
+              {latency != null ? <Text style={styles.latency}>{latency} ms</Text> : null}
+            </View>
+
+            <View style={[styles.floatControls, { bottom: insets.bottom + 90 }]}>
+              <Pressable onPress={stop} style={styles.stopBtn}>
+                <Text style={styles.stopText}>Stop</Text>
+              </Pressable>
+              <Pressable onPress={() => setShowSkeleton((s) => !s)} style={styles.floatToggle}>
+                <Text style={styles.floatToggleText}>{showSkeleton ? 'Skeleton on' : 'Skeleton off'}</Text>
+              </Pressable>
+            </View>
+          </>
         ) : null}
       </View>
 
-      {/* controls */}
-      <ScrollView
-        style={styles.sheet}
-        contentContainerStyle={{ paddingBottom: insets.bottom + 100 }}
-        showsVerticalScrollIndicator={false}
+      {/* SETUP SHEET: slides down off-screen on Start, revealing the camera */}
+      <Animated.View
+        style={[styles.setupSheet, { transform: [{ translateY: sheetTranslateY }] }]}
+        pointerEvents={active ? 'none' : 'auto'}
       >
-        {/* server connection */}
-        <Label>Laptop server</Label>
-        <View style={styles.serverRow}>
-          <TextInput
-            value={serverUrl}
-            onChangeText={setServerUrlState}
-            placeholder="http://192.168.x.x:8000"
-            placeholderTextColor={colors.inkFaint}
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="url"
-            style={styles.input}
-          />
-          <Pressable onPress={saveServer} style={styles.connectBtn}>
-            <Text style={styles.connectText}>Connect</Text>
-          </Pressable>
-        </View>
-        <View style={styles.statusLine}>
-          <View style={[styles.statusDot, serverOk === true ? styles.dotOk : serverOk === false ? styles.dotBad : styles.dotIdle]} />
-          <Text style={[type.small, { flex: 1 }]}>
-            {serverOk === true
-              ? 'Connected'
-              : serverOk === false
-              ? 'Not reachable — make sure the server is running on your laptop'
-              : 'Auto-detecting your laptop…'}
-          </Text>
-          <Pressable onPress={autoDetect} hitSlop={8}>
-            <Text style={styles.autoLink}>Auto-detect</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.divider} />
-
-        <Label>Choose an exercise</Label>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pickRow} style={{ marginTop: spacing.md, marginBottom: spacing.lg }}>
-          {EXERCISE_LIST.map((ex) => {
-            const sel = ex.id === exerciseId;
-            return (
-              <Pressable key={ex.id} onPress={() => onChangeExercise(ex.id)} style={[styles.pick, sel && styles.pickSel]}>
-                <Text style={[styles.pickLabel, sel && styles.pickLabelSel]}>{ex.label}</Text>
-                <Text style={[styles.pickTarget, sel && { color: 'rgba(255,255,255,0.8)' }]}>{ex.target}</Text>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
-
-        <View style={styles.statsRow}>
-          <Stat label="Reps" value={status.reps} />
-          <Stat label="Good form" value={status.goodReps} />
-          <Stat label="Angle" value={status.primaryAngle != null ? `${Math.round(status.primaryAngle)}°` : '—'} />
-        </View>
-
-        <View style={styles.btnRow}>
-          <View style={{ flex: 1 }}>
-            <Button label={active ? 'Stop' : 'Start tracking'} variant={active ? 'light' : 'solid'} onPress={active ? stop : start} />
+        {/* small live preview at the top */}
+        <View style={styles.stage}>
+          <View style={[styles.topOverlay, { paddingTop: insets.top + 8 }]}>
+            <View>
+              <Text style={styles.overlayKicker}>{ready ? 'READY' : 'STARTING…'}</Text>
+              <Text style={styles.overlayExercise}>{current?.label}</Text>
+            </View>
           </View>
-          <Pressable onPress={() => setShowSkeleton((s) => !s)} style={styles.toggleBtn}>
-            <Text style={styles.toggleText}>{showSkeleton ? 'Skeleton on' : 'Skeleton off'}</Text>
-          </Pressable>
         </View>
-      </ScrollView>
+
+        {/* controls */}
+        <ScrollView
+          style={styles.sheet}
+          contentContainerStyle={{ paddingBottom: insets.bottom + 100 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <Label>Laptop server</Label>
+          <View style={styles.serverRow}>
+            <TextInput
+              value={serverUrl}
+              onChangeText={setServerUrlState}
+              placeholder="http://192.168.x.x:8000"
+              placeholderTextColor={colors.inkFaint}
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="url"
+              style={styles.input}
+            />
+            <Pressable onPress={saveServer} style={styles.connectBtn}>
+              <Text style={styles.connectText}>Connect</Text>
+            </Pressable>
+          </View>
+          <View style={styles.statusLine}>
+            <View style={[styles.statusDot, serverOk === true ? styles.dotOk : serverOk === false ? styles.dotBad : styles.dotIdle]} />
+            <Text style={[type.small, { flex: 1 }]}>
+              {serverOk === true
+                ? 'Connected'
+                : serverOk === false
+                ? 'Not reachable — make sure the server is running on your laptop'
+                : 'Auto-detecting your laptop…'}
+            </Text>
+            <Pressable onPress={autoDetect} hitSlop={8}>
+              <Text style={styles.autoLink}>Auto-detect</Text>
+            </Pressable>
+          </View>
+
+          <View style={styles.divider} />
+
+          <Label>Choose an exercise</Label>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pickRow} style={{ marginTop: spacing.md, marginBottom: spacing.lg }}>
+            {EXERCISE_LIST.map((ex) => {
+              const sel = ex.id === exerciseId;
+              return (
+                <PressableScale key={ex.id} onPress={() => onChangeExercise(ex.id)} style={[styles.pick, sel && styles.pickSel]}>
+                  <Text style={[styles.pickLabel, sel && styles.pickLabelSel]}>{ex.label}</Text>
+                  <Text style={[styles.pickTarget, sel && { color: 'rgba(255,255,255,0.8)' }]}>{ex.target}</Text>
+                </PressableScale>
+              );
+            })}
+          </ScrollView>
+
+          <View style={styles.statsRow}>
+            <Stat label="Reps" value={status.reps} />
+            <Stat label="Good form" value={status.goodReps} />
+            <Stat label="Angle" value={status.primaryAngle != null ? `${Math.round(status.primaryAngle)}°` : '—'} />
+          </View>
+
+          <View style={styles.btnRow}>
+            <View style={{ flex: 1 }}>
+              <Button label="Start tracking" variant="solid" onPress={start} />
+            </View>
+            <Pressable onPress={() => setShowSkeleton((s) => !s)} style={styles.toggleBtn}>
+              <Text style={styles.toggleText}>{showSkeleton ? 'Skeleton on' : 'Skeleton off'}</Text>
+            </Pressable>
+          </View>
+        </ScrollView>
+      </Animated.View>
     </View>
   );
 }
@@ -310,6 +376,32 @@ const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.bg },
   gate: { flex: 1, backgroundColor: colors.bg, alignItems: 'center', paddingHorizontal: spacing.xl },
 
+  // Full-screen tracking stage.
+  fullscreen: { flex: 1, backgroundColor: '#000' },
+  // The setup sheet is a full-screen layer that slides down to reveal the camera.
+  setupSheet: {
+    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: colors.bg,
+    zIndex: 50,
+  },
+  floatControls: {
+    position: 'absolute', left: 0, right: 0,
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12,
+    paddingHorizontal: spacing.xl,
+  },
+  stopBtn: {
+    backgroundColor: colors.high, borderRadius: radius.pill,
+    paddingVertical: 16, paddingHorizontal: 44,
+    ...shadow.float,
+  },
+  stopText: { color: '#fff', fontSize: 17, fontWeight: '700' },
+  floatToggle: {
+    backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: radius.pill,
+    paddingVertical: 14, paddingHorizontal: 20,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.3)',
+  },
+  floatToggleText: { color: '#fff', fontSize: 13, fontWeight: '700' },
+
   stage: { flex: 1, backgroundColor: '#15121F', overflow: 'hidden' },
 
   topOverlay: {
@@ -323,7 +415,7 @@ const styles = StyleSheet.create({
   repNum: { fontFamily: fonts.serif, color: '#fff', fontSize: 34, lineHeight: 36 },
   repLabel: { color: 'rgba(255,255,255,0.85)', fontSize: 9, letterSpacing: 1.5, fontWeight: '700' },
 
-  cueWrap: { position: 'absolute', bottom: 18, left: 0, right: 0, alignItems: 'center', gap: 8 },
+  cueWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', gap: 8 },
   cuePill: { paddingHorizontal: 18, paddingVertical: 10, borderRadius: radius.pill },
   cueOk: { backgroundColor: colors.low },
   cueWarn: { backgroundColor: colors.high },
