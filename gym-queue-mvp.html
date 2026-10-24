@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>RepsIn</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Theme tokens — light mode, accent swappable ── */
+    :root {
+      --bg:      #f5f7fa;
+      --surface: #ffffff;
+      --s2:      #f0f2f6;
+      --border:  #e2e6ed;
+      --text:    #111318;
+      --muted:   #7a8499;
+      --shadow:  0 1px 4px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.06);
+      --r:       14px;
+      --yellow:  #f59e0b;
+      --red:     #ef4444;
+      /* accent — user-swappable */
+      --accent:        #38bdf8;
+      --accent-dark:   #0ea5e9;
+      --accent-faint:  rgba(56,189,248,.12);
+      --accent-border: rgba(56,189,248,.35);
+    }
+
+    body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; display:flex; justify-content:center; min-height:100vh; }
+    #app { width:100%; max-width:430px; min-height:100vh; display:flex; flex-direction:column; position:relative; }
+
+    /* ── Screens ── */
+    .screen { display:none; flex:1; overflow-y:auto; padding:24px 16px 96px; flex-direction:column; }
+    .screen.on { display:flex; }
+    .screen::-webkit-scrollbar { display:none; }
+
+    /* ── Nav ── */
+    .nav { display:flex; align-items:center; gap:10px; margin-bottom:24px; }
+    .back-btn { width:36px; height:36px; border-radius:50%; background:var(--s2); border:1px solid var(--border); color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .nav-title { font-size:17px; font-weight:700; }
+    .step-dots { display:flex; gap:5px; margin-left:auto; }
+    .sdot { width:6px; height:6px; border-radius:50%; background:var(--border); }
+    .sdot.on { background:var(--accent); width:18px; border-radius:3px; }
+
+    /* ── Tab bar ── */
+    .tabbar { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:430px; background:var(--surface); border-top:1px solid var(--border); display:none; z-index:99; box-shadow:0 -2px 12px rgba(0,0,0,.06); }
+    .tabbar.on { display:flex; }
+    .tab { flex:1; padding:10px 0 13px; display:flex; flex-direction:column; align-items:center; gap:3px; border:none; background:none; color:var(--muted); font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; }
+    .tab svg { width:21px; height:21px; }
+    .tab.on { color:var(--accent); }
+
+    /* ── Typography ── */
+    .h2 { font-size:22px; font-weight:800; margin-bottom:4px; }
+    .h3 { font-size:15px; font-weight:700; margin-bottom:2px; }
+    .sub { font-size:14px; color:var(--muted); line-height:1.5; }
+    .sec { font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; }
+    .label { font-size:13px; font-weight:600; margin-bottom:8px; color:var(--text); }
+
+    /* ── Logo ── */
+    .logo-wrap { display:flex; align-items:center; gap:6px; }
+    .logo-text { font-size:22px; font-weight:800; letter-spacing:-.5px; color:var(--text); }
+    .logo-text span { color:var(--accent); }
+
+    /* ── Cards ── */
+    .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:16px; margin-bottom:12px; box-shadow:var(--shadow); }
+    .card-sm { padding:12px 14px; }
+    .card-row { display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border); }
+    .card-row:last-child { border-bottom:none; }
+
+    /* ── Opts ── */
+    .opt-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+    .opt { padding:9px 16px; border-radius:20px; background:var(--s2); border:1.5px solid var(--border); font-size:13px; font-weight:600; cursor:pointer; user-select:none; transition:all .15s; color:var(--text); }
+    .opt.on { background:var(--accent-faint); border-color:var(--accent); color:var(--accent-dark); }
+
+    /* ── Day picker ── */
+    .day-row { display:flex; gap:6px; margin-bottom:18px; }
+    .day { width:40px; height:40px; border-radius:50%; background:var(--s2); border:1.5px solid var(--border); font-size:12px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; user-select:none; color:var(--text); }
+    .day.on { background:var(--accent-faint); border-color:var(--accent); color:var(--accent-dark); }
+
+    /* ── Buttons ── */
+    .btn { border:none; border-radius:12px; font-size:15px; font-weight:700; padding:14px 20px; cursor:pointer; transition:all .15s; display:flex; align-items:center; justify-content:center; gap:8px; }
+    .btn:active { opacity:.8; transform:scale(.98); }
+    .btn-a { background:var(--accent); color:#fff; }
+    .btn-ghost { background:var(--s2); color:var(--text); border:1px solid var(--border); }
+    .btn-full { width:100%; }
+    .btn-sm { padding:8px 14px; font-size:13px; border-radius:10px; }
+    .btn-row { display:flex; gap:10px; margin-top:12px; }
+    .btn-danger { background:#fef2f2; color:var(--red); border:1px solid #fecaca; }
+
+    /* ── Progress bar ── */
+    .pbar-wrap { height:4px; background:var(--s2); border-radius:2px; margin-bottom:24px; overflow:hidden; }
+    .pbar-fill { height:100%; background:var(--accent); border-radius:2px; transition:width .3s ease; }
+
+    /* ── Stats strip ── */
+    .stats3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
+    .stat { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 6px; text-align:center; box-shadow:var(--shadow); }
+    .stat-n { font-size:22px; font-weight:800; }
+    .stat-l { font-size:10px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.04em; margin-top:2px; }
+
+    /* ── Time slider ── */
+    .slider-wrap { margin:12px 0 18px; }
+    input[type=range] { width:100%; accent-color:var(--accent); height:6px; cursor:pointer; }
+    .slider-labels { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:6px; }
+    .time-display { text-align:center; font-size:34px; font-weight:800; color:var(--accent-dark); margin-bottom:2px; }
+    .time-day { text-align:center; font-size:13px; color:var(--muted); margin-bottom:8px; }
+
+    /* ── Congestion bars ── */
+    .machine-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .machine-label { font-size:12px; font-weight:600; width:120px; flex-shrink:0; }
+    .cbar-wrap { flex:1; height:8px; background:var(--s2); border-radius:4px; overflow:hidden; }
+    .cbar { height:100%; border-radius:4px; transition:width .4s ease; }
+    .clevel { font-size:11px; font-weight:700; width:44px; text-align:right; flex-shrink:0; }
+    .c-low  { background:#22c55e; }
+    .c-mid  { background:var(--yellow); }
+    .c-high { background:var(--red); }
+
+    /* ── Rec cards ── */
+    .rec-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r); padding:16px; margin-bottom:10px; cursor:pointer; transition:all .15s; box-shadow:var(--shadow); }
+    .rec-card:active { transform:scale(.98); }
+    .rec-card.best { border-color:var(--accent); background:var(--accent-faint); }
+    .rec-badge { font-size:10px; font-weight:700; padding:3px 9px; border-radius:20px; display:inline-flex; align-items:center; gap:4px; margin-bottom:8px; }
+    .rec-badge.best { background:var(--accent-faint); color:var(--accent-dark); border:1px solid var(--accent-border); }
+    .rec-badge.good { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
+    .rec-badge.ok   { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+    .rec-time { font-size:20px; font-weight:800; margin-bottom:2px; }
+    .rec-meta { font-size:12px; color:var(--muted); }
+    .rec-pills { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
+    .rpill { font-size:11px; font-weight:600; padding:3px 9px; border-radius:20px; background:var(--s2); color:var(--muted); }
+    .rpill.g { background:#f0fdf4; color:#16a34a; }
+    .rpill.y { background:#fffbeb; color:#d97706; }
+    .rpill.r { background:#fef2f2; color:var(--red); }
+
+    /* ── Workout list ── */
+    .ex-item { display:flex; gap:14px; align-items:center; padding:12px 14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--r); margin-bottom:8px; box-shadow:var(--shadow); }
+    .ex-num { width:30px; height:30px; border-radius:50%; background:var(--s2); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--muted); flex-shrink:0; border:1px solid var(--border); }
+    .ex-num.done { background:var(--accent-faint); color:var(--accent-dark); border-color:var(--accent-border); }
+    .ex-name { font-size:14px; font-weight:600; }
+    .ex-meta { font-size:11px; color:var(--muted); margin-top:2px; }
+    .ex-tag  { font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; margin-left:auto; flex-shrink:0; }
+    .ex-tag.low  { background:#f0fdf4; color:#16a34a; }
+    .ex-tag.mid  { background:#fffbeb; color:#d97706; }
+    .ex-tag.high { background:#fef2f2; color:var(--red); }
+
+    /* ── Active workout ── */
+    .active-ex { background:var(--accent-faint); border:1.5px solid var(--accent-border); border-radius:var(--r); padding:22px; margin-bottom:14px; text-align:center; }
+    .active-name { font-size:22px; font-weight:800; margin-bottom:4px; color:var(--text); }
+    .active-meta { font-size:14px; color:var(--muted); margin-bottom:20px; }
+    .set-row { display:flex; justify-content:center; gap:10px; margin-bottom:16px; }
+    .set-dot { width:14px; height:14px; border-radius:50%; border:2px solid var(--border); background:var(--s2); }
+    .set-dot.done { background:var(--accent); border-color:var(--accent); }
+    .set-dot.cur { border-color:var(--accent); background:#fff; }
+    .rest-timer { font-size:42px; font-weight:800; color:var(--yellow); margin:10px 0 4px; }
+    .rest-label { font-size:12px; color:var(--muted); }
+
+    /* ── Complete ── */
+    .complete-hero { text-align:center; padding:30px 0 16px; }
+    .trophy { font-size:64px; margin-bottom:12px; }
+    .complete-title { font-size:26px; font-weight:800; margin-bottom:6px; }
+    .complete-sub { font-size:14px; color:var(--muted); }
+    .progress-ring { width:100px; height:100px; margin:20px auto; }
+    .ring-bg { fill:none; stroke:var(--s2); stroke-width:8; }
+    .ring-fg { fill:none; stroke:var(--accent); stroke-width:8; stroke-linecap:round; stroke-dasharray:251; transition:stroke-dashoffset .6s ease; transform:rotate(-90deg); transform-origin:50% 50%; }
+
+    /* ── AI box ── */
+    .ai-box { background:var(--accent-faint); border:1px solid var(--accent-border); border-radius:var(--r); padding:14px; margin-bottom:14px; display:flex; gap:12px; }
+    .ai-ico { width:36px; height:36px; border-radius:10px; background:var(--accent); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+    .ai-title { font-size:13px; font-weight:700; color:var(--accent-dark); margin-bottom:3px; }
+    .ai-text { font-size:12px; color:var(--muted); line-height:1.5; }
+
+    /* ── Synthetic label ── */
+    .synthetic-label { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:700; color:#d97706; background:#fffbeb; border:1px solid #fde68a; padding:3px 10px; border-radius:20px; margin-bottom:14px; }
+
+    /* ── Home dashboard ── */
+    .next-card { background:var(--accent); border-radius:var(--r); padding:18px; margin-bottom:16px; color:#fff; box-shadow:0 4px 16px var(--accent-border); }
+    .next-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; opacity:.85; }
+    .next-time { font-size:26px; font-weight:800; margin-bottom:2px; }
+    .next-sub { font-size:13px; opacity:.8; }
+    .week-row { display:flex; gap:6px; margin-bottom:16px; }
+    .wday { flex:1; border-radius:10px; padding:10px 4px; background:var(--surface); border:1px solid var(--border); text-align:center; box-shadow:var(--shadow); }
+    .wday.done { background:var(--accent-faint); border-color:var(--accent-border); }
+    .wday.today { border-color:var(--accent); border-width:2px; }
+    .wday-name { font-size:10px; color:var(--muted); font-weight:600; }
+    .wday-dot { width:7px; height:7px; border-radius:50%; background:var(--border); margin:5px auto 0; }
+    .wday.done .wday-dot { background:var(--accent); }
+    .wday.today .wday-dot { background:var(--accent); box-shadow:0 0 5px var(--accent); }
+
+    /* ── Chips ── */
+    .chips { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+    .chip { font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px; background:var(--surface); border:1.5px solid var(--border); color:var(--muted); cursor:pointer; user-select:none; transition:all .15s; box-shadow:var(--shadow); }
+    .chip.on { background:var(--accent-faint); color:var(--accent-dark); border-color:var(--accent); }
+
+    /* ── Floor / Live ── */
+    .floor-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px; }
+
+    /* Machine cards — photo style */
+    .mach-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:4px; }
+    .mach-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r); overflow:hidden; cursor:pointer; transition:transform .1s; box-shadow:var(--shadow); }
+    .mach-card:active { transform:scale(.97); }
+    .mach-card.free   { border-color:#22c55e; }
+    .mach-card.almost { border-color:var(--yellow); }
+    .mach-card.busy   { border-color:var(--red); }
+    .mach-photo { width:100%; height:90px; position:relative; overflow:hidden; }
+    .mach-photo-img { width:100%; height:100%; object-fit:cover; display:block; }
+    /* SVG illustration fallback for each machine type */
+    .mach-photo-svg { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .mach-photo-label { position:absolute; bottom:0; left:0; right:0; padding:4px 8px; background:linear-gradient(transparent, rgba(0,0,0,.55)); color:#fff; font-size:11px; font-weight:700; }
+    .mach-body { padding:9px 10px 11px; }
+    .mach-name { font-size:12px; font-weight:700; margin-bottom:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .mach-user { font-size:10px; color:var(--muted); margin-bottom:5px; min-height:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .mach-pill { font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; display:inline-block; }
+    .mach-pill.free   { background:#f0fdf4; color:#16a34a; }
+    .mach-pill.almost { background:#fffbeb; color:#d97706; }
+    .mach-pill.busy   { background:#fef2f2; color:var(--red); }
+    .mach-wait { font-size:10px; color:var(--muted); margin-left:3px; }
+    .mach-bar  { height:3px; background:var(--s2); border-radius:2px; margin-top:7px; overflow:hidden; }
+    .mach-fill { height:100%; border-radius:2px; }
+
+    /* Status dot */
+    .sdot-live { width:8px; height:8px; border-radius:50%; display:inline-block; flex-shrink:0; }
+    .sdot-live.free   { background:#22c55e; box-shadow:0 0 5px #22c55e; }
+    .sdot-live.almost { background:var(--yellow); }
+    .sdot-live.busy   { background:var(--red); }
+
+    /* Queue inside sheet */
+    .q-item { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--s2); border-radius:10px; margin-bottom:6px; }
+    .q-ava { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#fff; flex-shrink:0; }
+    .q-name { font-size:13px; font-weight:600; }
+    .q-sub  { font-size:11px; color:var(--muted); }
+    .workin-badge { font-size:11px; color:var(--accent-dark); font-weight:600; margin-left:auto; flex-shrink:0; }
+
+    /* ── Theme picker ── */
+    .theme-swatches { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+    .swatch { width:38px; height:38px; border-radius:50%; cursor:pointer; border:3px solid transparent; transition:all .15s; }
+    .swatch.active { border-color:var(--text); transform:scale(1.15); }
+
+    /* ── Welcome ── */
+    .welcome-hero { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+
+    /* ── Misc ── */
+    .between { display:flex; align-items:center; justify-content:space-between; }
+    .ml-auto { margin-left:auto; }
+    .divider { height:1px; background:var(--border); margin:14px 0; }
+    .mt8 { margin-top:8px; } .mt16 { margin-top:16px; }
+    .center { text-align:center; }
+    .bold { font-weight:700; } .muted { color:var(--muted); }
+
+    /* ── Toast ── */
+    .toast { display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); background:var(--surface); border:1px solid var(--accent-border); border-radius:12px; padding:11px 18px; font-size:13px; font-weight:600; z-index:400; box-shadow:0 4px 20px rgba(0,0,0,.15); white-space:nowrap; color:var(--text); }
+    .toast.on { display:block; animation:fdin .2s ease; }
+    @keyframes fdin { from{opacity:0;transform:translateX(-50%) translateY(-8px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+
+    /* ── Sheet ── */
+    .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:200; align-items:flex-end; justify-content:center; }
+    .overlay.on { display:flex; }
+    .sheet { width:100%; max-width:430px; background:var(--surface); border-radius:20px 20px 0 0; padding:20px 20px 44px; animation:sheetup .22s ease; max-height:88vh; overflow-y:auto; }
+    @keyframes sheetup { from{transform:translateY(50%);opacity:.2} to{transform:translateY(0);opacity:1} }
+    .sheet-handle { width:36px; height:4px; background:var(--border); border-radius:2px; margin:0 auto 18px; }
+
+    /* ── Profile avatar ── */
+    .prof-ava { width:64px; height:64px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800; color:#fff; flex-shrink:0; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ════════════════════════════════ SCREEN 0 — Welcome ══ -->
+  <div class="screen on" id="s-welcome" style="justify-content:space-between">
+    <div></div>
+    <div class="welcome-hero">
+      <!-- SVG Logo mark -->
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="80" height="80" rx="22" fill="var(--accent)"/>
+        <!-- dumbbell shape -->
+        <rect x="14" y="35" width="52" height="10" rx="5" fill="white"/>
+        <rect x="10" y="28" width="12" height="24" rx="6" fill="white"/>
+        <rect x="58" y="28" width="12" height="24" rx="6" fill="white"/>
+        <rect x="8"  y="32" width="8"  height="16" rx="4" fill="white" opacity=".6"/>
+        <rect x="64" y="32" width="8"  height="16" rx="4" fill="white" opacity=".6"/>
+      </svg>
+      <!-- wordmark -->
+      <div style="font-size:34px;font-weight:900;letter-spacing:-.5px;color:var(--text)">
+        Reps<span style="color:var(--accent)">In</span>
+      </div>
+      <div class="sub center" style="max-width:270px;margin:0 auto;font-size:15px">
+        Find your best time to train — before the crowds arrive.
+      </div>
+    </div>
+    <div style="width:100%">
+      <button class="btn btn-a btn-full" style="margin-bottom:10px" onclick="go('s-ob1')">Get Started</button>
+      <button class="btn btn-ghost btn-full" onclick="skipToHome()">I already have an account</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 1 — Gym ══ -->
+  <div class="screen" id="s-ob1">
+    <div class="nav">
+      <button class="back-btn" onclick="go('s-welcome')">←</button>
+      <span class="nav-title">Choose your gym</span>
+      <div class="step-dots"><div class="sdot on"></div><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div>
+    </div>
+    <div class="pbar-wrap"><div class="pbar-fill" style="width:25%"></div></div>
+    <div class="h2">Which gym do you go to?</div>
+    <div class="sub" style="margin-bottom:22px">We'll load its equipment and hours.</div>
+    <div id="gym-list">
+      <div class="card card-sm" style="margin-bottom:8px;cursor:pointer;border-color:var(--accent)" onclick="selectGym(this)">
+        <div class="between"><div><div class="h3">Planet Fitness – Midtown</div><div style="font-size:12px;color:var(--muted);margin-top:2px">5th Ave · Open 5am–11pm · 0.3 mi</div></div><span id="gym-check-1" style="font-size:18px;color:var(--accent)">✓</span></div>
+      </div>
+      <div class="card card-sm" style="margin-bottom:8px;cursor:pointer" onclick="selectGym(this)">
+        <div class="between"><div><div class="h3">YMCA – Downtown</div><div style="font-size:12px;color:var(--muted);margin-top:2px">Broadway · Open 6am–10pm · 0.7 mi</div></div><span style="font-size:18px;color:var(--border)">○</span></div>
+      </div>
+      <div class="card card-sm" style="margin-bottom:8px;cursor:pointer" onclick="selectGym(this)">
+        <div class="between"><div><div class="h3">Equinox – Flatiron</div><div style="font-size:12px;color:var(--muted);margin-top:2px">23rd St · Open 5am–12am · 1.1 mi</div></div><span style="font-size:18px;color:var(--border)">○</span></div>
+      </div>
+    </div>
+    <button class="btn btn-a btn-full mt16" onclick="go('s-ob2')">Continue</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 2 — Goals ══ -->
+  <div class="screen" id="s-ob2">
+    <div class="nav">
+      <button class="back-btn" onclick="go('s-ob1')">←</button>
+      <span class="nav-title">Your goals</span>
+      <div class="step-dots"><div class="sdot"></div><div class="sdot on"></div><div class="sdot"></div><div class="sdot"></div></div>
+    </div>
+    <div class="pbar-wrap"><div class="pbar-fill" style="width:50%"></div></div>
+    <div class="label">What's your main goal?</div>
+    <div class="opt-grid">
+      <div class="opt on" onclick="solo(this)">💪 Muscle building</div>
+      <div class="opt" onclick="solo(this)">🏋️ Strength</div>
+      <div class="opt" onclick="solo(this)">🏃 Endurance</div>
+      <div class="opt" onclick="solo(this)">⚖️ Weight management</div>
+      <div class="opt" onclick="solo(this)">🌿 General fitness</div>
+    </div>
+    <div class="label">Experience level</div>
+    <div class="opt-grid">
+      <div class="opt" onclick="solo(this)">Beginner</div>
+      <div class="opt on" onclick="solo(this)">Intermediate</div>
+      <div class="opt" onclick="solo(this)">Advanced</div>
+    </div>
+    <div class="label">Session length</div>
+    <div class="opt-grid">
+      <div class="opt" onclick="solo(this)">20 min</div>
+      <div class="opt" onclick="solo(this)">30 min</div>
+      <div class="opt on" onclick="solo(this)">45 min</div>
+      <div class="opt" onclick="solo(this)">60 min</div>
+      <div class="opt" onclick="solo(this)">90 min</div>
+    </div>
+    <button class="btn btn-a btn-full mt16" onclick="go('s-ob3')">Continue</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 3 — Schedule ══ -->
+  <div class="screen" id="s-ob3">
+    <div class="nav">
+      <button class="back-btn" onclick="go('s-ob2')">←</button>
+      <span class="nav-title">Your schedule</span>
+      <div class="step-dots"><div class="sdot"></div><div class="sdot"></div><div class="sdot on"></div><div class="sdot"></div></div>
+    </div>
+    <div class="pbar-wrap"><div class="pbar-fill" style="width:75%"></div></div>
+    <div class="h2">When are you free?</div>
+    <div class="sub" style="margin-bottom:22px">Pick typical free days and windows. We only suggest times that fit.</div>
+    <div class="label">Free days</div>
+    <div class="day-row">
+      <div class="day on" onclick="this.classList.toggle('on')">M</div>
+      <div class="day on" onclick="this.classList.toggle('on')">T</div>
+      <div class="day" onclick="this.classList.toggle('on')">W</div>
+      <div class="day on" onclick="this.classList.toggle('on')">Th</div>
+      <div class="day" onclick="this.classList.toggle('on')">F</div>
+      <div class="day on" onclick="this.classList.toggle('on')">Sa</div>
+      <div class="day" onclick="this.classList.toggle('on')">Su</div>
+    </div>
+    <div class="label">Morning window</div>
+    <div class="opt-grid">
+      <div class="opt" onclick="toggle(this)">5am–7am</div>
+      <div class="opt on" onclick="toggle(this)">7am–9am</div>
+      <div class="opt" onclick="toggle(this)">9am–11am</div>
+    </div>
+    <div class="label">Evening window</div>
+    <div class="opt-grid">
+      <div class="opt" onclick="toggle(this)">12pm–2pm</div>
+      <div class="opt" onclick="toggle(this)">5pm–7pm</div>
+      <div class="opt on" onclick="toggle(this)">7pm–9pm</div>
+    </div>
+    <button class="btn btn-a btn-full mt16" onclick="go('s-ob4')">Continue</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 4 — Barriers ══ -->
+  <div class="screen" id="s-ob4">
+    <div class="nav">
+      <button class="back-btn" onclick="go('s-ob3')">←</button>
+      <span class="nav-title">What holds you back?</span>
+      <div class="step-dots"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div><div class="sdot on"></div></div>
+    </div>
+    <div class="pbar-wrap"><div class="pbar-fill" style="width:100%"></div></div>
+    <div class="h2">What gets in your way?</div>
+    <div class="sub" style="margin-bottom:22px">Select all that apply — we tailor recommendations around them.</div>
+    <div class="opt-grid">
+      <div class="opt on" onclick="toggle(this)">⏰ Not enough time</div>
+      <div class="opt on" onclick="toggle(this)">😰 Crowded equipment</div>
+      <div class="opt" onclick="toggle(this)">❓ Don't know what to do</div>
+      <div class="opt" onclick="toggle(this)">💤 Low motivation</div>
+      <div class="opt" onclick="toggle(this)">😟 Intimidating environment</div>
+      <div class="opt" onclick="toggle(this)">📅 Unpredictable schedule</div>
+    </div>
+    <button class="btn btn-a btn-full mt16" onclick="go('s-home')">Let's Go →</button>
+    <button class="btn btn-ghost btn-full mt8" style="font-size:13px" onclick="go('s-home')">Skip</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 5 — Home ══ -->
+  <div class="screen" id="s-home">
+    <div class="between" style="margin-bottom:16px">
+      <div class="logo-wrap">
+        <svg width="28" height="28" viewBox="0 0 80 80" fill="none"><rect width="80" height="80" rx="22" fill="var(--accent)"/><rect x="14" y="35" width="52" height="10" rx="5" fill="white"/><rect x="10" y="28" width="12" height="24" rx="6" fill="white"/><rect x="58" y="28" width="12" height="24" rx="6" fill="white"/><rect x="8" y="32" width="8" height="16" rx="4" fill="white" opacity=".6"/><rect x="64" y="32" width="8" height="16" rx="4" fill="white" opacity=".6"/></svg>
+        <div class="logo-text">Reps<span>In</span></div>
+      </div>
+      <div class="prof-ava" style="width:34px;height:34px;font-size:14px;cursor:pointer" onclick="switchTab('s-profile','tab-profile')">N</div>
+    </div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:16px">Saturday, Oct 24</div>
+
+    <div class="next-card">
+      <div class="next-label">⭐ Best time today</div>
+      <div class="next-time">7:00 – 7:45 am</div>
+      <div class="next-sub">Low congestion · Bench Press & Cable machines open</div>
+      <div class="btn-row">
+        <button class="btn btn-sm" style="background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.4)" onclick="go('s-forecast')">View Forecast</button>
+        <button class="btn btn-sm" style="background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.4)" onclick="go('s-workout')">See Workout</button>
+      </div>
+    </div>
+
+    <div class="sec">This week — 3 of 4 sessions</div>
+    <div class="week-row">
+      <div class="wday done"><div class="wday-name">M</div><div class="wday-dot"></div></div>
+      <div class="wday done"><div class="wday-name">T</div><div class="wday-dot"></div></div>
+      <div class="wday"><div class="wday-name">W</div><div class="wday-dot"></div></div>
+      <div class="wday done"><div class="wday-name">Th</div><div class="wday-dot"></div></div>
+      <div class="wday"><div class="wday-name">F</div><div class="wday-dot"></div></div>
+      <div class="wday today"><div class="wday-name">Sa</div><div class="wday-dot"></div></div>
+      <div class="wday"><div class="wday-name">Su</div><div class="wday-dot"></div></div>
+    </div>
+
+    <div class="stats3">
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">3</div><div class="stat-l">Done</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--yellow)">1</div><div class="stat-l">Planned</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Goal</div></div>
+    </div>
+
+    <div class="sec">Quick actions</div>
+    <div class="btn-row" style="margin-top:0">
+      <button class="btn btn-ghost btn-full" style="font-size:13px;flex:1" onclick="go('s-floor')">🟢 Live Floor</button>
+      <button class="btn btn-ghost btn-full" style="font-size:13px;flex:1" onclick="go('s-forecast')">📊 Forecast</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost btn-full" style="font-size:13px;flex:1" onclick="go('s-workout')">🏋️ Workout</button>
+      <button class="btn btn-ghost btn-full" style="font-size:13px;flex:1" onclick="go('s-history')">📅 History</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 6 — Forecast ══ -->
+  <div class="screen" id="s-forecast">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">Equipment Forecast</span>
+    </div>
+    <div class="synthetic-label">⚠️ Synthetic demo data — not real gym occupancy</div>
+    <div class="label">Select day</div>
+    <div class="opt-grid" style="margin-bottom:16px">
+      <div class="opt on" onclick="solo(this);updateForecast()">Today</div>
+      <div class="opt" onclick="solo(this);updateForecast()">Tomorrow</div>
+      <div class="opt" onclick="solo(this);updateForecast()">Monday</div>
+    </div>
+    <div class="time-display" id="forecast-time">7:00 am</div>
+    <div class="time-day" id="forecast-day">Saturday · Low overall congestion</div>
+    <div class="slider-wrap">
+      <input type="range" min="5" max="22" value="7" step="0.5" id="time-slider" oninput="updateForecast()">
+      <div class="slider-labels"><span>5am</span><span>12pm</span><span>10pm</span></div>
+    </div>
+    <div class="sec">Machine occupancy probability</div>
+    <div id="forecast-bars"></div>
+    <div class="ai-box" id="forecast-tip">
+      <div class="ai-ico">✨</div>
+      <div>
+        <div class="ai-title">Low congestion window</div>
+        <div class="ai-text" id="forecast-tip-text">7–9am Saturday is historically your best window. Bench Press and Cable Row are usually available.</div>
+      </div>
+    </div>
+    <button class="btn btn-a btn-full" onclick="go('s-recommend')">See Recommended Times →</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 7 — Recommend ══ -->
+  <div class="screen" id="s-recommend">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">Best Times to Go</span>
+    </div>
+    <div class="synthetic-label">⚠️ Forecast based on synthetic demo data</div>
+    <div class="sub" style="margin-bottom:20px">Based on your availability (7–9am, Sa/M/T/Th) and predicted equipment congestion.</div>
+    <div class="rec-card best" onclick="selectTime('Saturday 7:00–7:45am')">
+      <div class="rec-badge best">⭐ Best match</div>
+      <div class="rec-time">Sat · 7:00 – 7:45 am</div>
+      <div class="rec-meta">Tomorrow · fits your 45-min session</div>
+      <div class="rec-pills">
+        <span class="rpill g">Low congestion</span><span class="rpill g">Bench free</span><span class="rpill g">Cable free</span><span class="rpill">Within your window</span>
+      </div>
+    </div>
+    <div class="rec-card" onclick="selectTime('Monday 7:30–8:15am')">
+      <div class="rec-badge good">👍 Good option</div>
+      <div class="rec-time">Mon · 7:30 – 8:15 am</div>
+      <div class="rec-meta">2 days away · fits your 45-min session</div>
+      <div class="rec-pills">
+        <span class="rpill g">Low congestion</span><span class="rpill y">Squat rack: moderate</span><span class="rpill">Within your window</span>
+      </div>
+    </div>
+    <div class="rec-card" onclick="selectTime('Tuesday 7:00–7:45am')">
+      <div class="rec-badge ok">⚡ Alternative</div>
+      <div class="rec-time">Tue · 7:00 – 7:45 am</div>
+      <div class="rec-meta">3 days away · fits your 45-min session</div>
+      <div class="rec-pills">
+        <span class="rpill y">Moderate congestion</span><span class="rpill y">Bench: busy 7–7:30am</span><span class="rpill g">Cable available</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div style="font-size:12px;color:var(--muted);text-align:center;margin-bottom:16px">Gym open 5am–11pm · Excludes calendar conflicts</div>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 8 — Workout ══ -->
+  <div class="screen" id="s-workout">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">Your Workout</span>
+    </div>
+    <div class="card" style="margin-bottom:14px">
+      <div class="between">
+        <div>
+          <div class="h3">Push Day — Upper Body</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:3px">Intermediate · 45 min · 5 exercises</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;color:var(--muted)">Sat 7:00am</div>
+          <div style="font-size:11px;color:#16a34a;font-weight:700;margin-top:2px">Low congestion</div>
+        </div>
+      </div>
+    </div>
+    <div class="synthetic-label">⚠️ Congestion tags based on demo forecast</div>
+    <div class="sec">Exercises</div>
+    <div id="workout-exercises"></div>
+    <div class="ai-box" id="swap-box" style="margin-top:4px">
+      <div class="ai-ico">🔄</div>
+      <div>
+        <div class="ai-title">Substitution available</div>
+        <div class="ai-text">Leg Press predicted busy at 8am. <strong style="color:var(--text)">Goblet Squat</strong> (dumbbells) is a free alternative — tap to swap.</div>
+        <button class="btn btn-ghost btn-sm" style="margin-top:8px" onclick="swapExercise()">Swap to Goblet Squat</button>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn btn-ghost" style="flex:1" onclick="toast('Workout saved for Sat 7:00am ✓')">Save</button>
+      <button class="btn btn-a" style="flex:2" onclick="go('s-active')">Start Workout →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 9 — Active ══ -->
+  <div class="screen" id="s-active">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">Active Workout</span>
+      <div class="ml-auto" style="font-size:13px;color:var(--muted);font-weight:600" id="active-timer">00:00</div>
+    </div>
+    <div class="between" style="margin-bottom:12px">
+      <div style="font-size:12px;color:var(--muted)">Exercise <span id="cur-ex-num">1</span> of 5</div>
+      <div style="font-size:12px;color:var(--muted)">Set <span id="cur-set-num">1</span> of 4</div>
+    </div>
+    <div class="pbar-wrap" style="margin-bottom:16px"><div class="pbar-fill" id="active-progress" style="width:5%"></div></div>
+    <div class="active-ex">
+      <div class="active-name" id="active-ex-name">Bench Press</div>
+      <div class="active-meta" id="active-ex-meta">4 sets · 8–10 reps</div>
+      <div class="set-row" id="set-dots"></div>
+      <div id="rest-block" style="display:none">
+        <div class="rest-timer" id="rest-count">60</div>
+        <div class="rest-label">seconds rest</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" style="flex:1" onclick="prevEx()">← Prev</button>
+      <button class="btn btn-a" style="flex:2" id="set-btn" onclick="completeSet()">Complete Set ✓</button>
+      <button class="btn btn-ghost" style="flex:1" onclick="nextEx()">Next →</button>
+    </div>
+    <div class="divider"></div>
+    <div class="sec">Up next</div>
+    <div id="upcoming-list"></div>
+    <button class="btn btn-ghost btn-full" style="margin-top:8px;color:var(--red);font-size:13px" onclick="if(confirm('End workout early?'))go('s-complete')">End Workout</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 10 — Complete ══ -->
+  <div class="screen" id="s-complete" style="align-items:center">
+    <div class="complete-hero">
+      <div class="trophy">🏆</div>
+      <div class="complete-title">Workout Done!</div>
+      <div class="complete-sub">Push Day · 38 minutes</div>
+    </div>
+    <svg class="progress-ring" viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="40"/><circle class="ring-fg" cx="50" cy="50" r="40" style="stroke-dashoffset:63"/></svg>
+    <div style="text-align:center;margin-top:4px;margin-bottom:24px">
+      <div style="font-size:22px;font-weight:800;color:var(--accent-dark)">3 of 4</div>
+      <div style="font-size:12px;color:var(--muted)">sessions this week</div>
+    </div>
+    <div class="stats3" style="width:100%">
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">5</div><div class="stat-l">Exercises</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">18</div><div class="stat-l">Sets</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">38</div><div class="stat-l">Minutes</div></div>
+    </div>
+    <div class="ai-box" style="width:100%;margin-top:8px">
+      <div class="ai-ico">📅</div>
+      <div>
+        <div class="ai-title">Next session</div>
+        <div class="ai-text">Based on your schedule, <strong style="color:var(--text)">Monday at 7:30am</strong> looks best — low equipment congestion predicted.</div>
+        <button class="btn btn-a btn-sm" style="margin-top:8px" onclick="toast('Monday 7:30am saved! 📅');go('s-home')">Schedule It</button>
+      </div>
+    </div>
+    <button class="btn btn-ghost btn-full" style="margin-top:10px" onclick="go('s-home')">Back to Home</button>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 11 — History ══ -->
+  <div class="screen" id="s-history">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">History</span>
+    </div>
+    <div class="sec">Past workouts</div>
+    <div class="card">
+      <div class="card-row"><span class="bold">Push Day</span><span class="muted">Thu · 38 min</span></div>
+      <div class="card-row"><span class="bold">Pull Day</span><span class="muted">Tue · 42 min</span></div>
+      <div class="card-row"><span class="bold">Leg Day</span><span class="muted">Mon · 45 min</span></div>
+    </div>
+    <div class="sec" style="margin-top:4px">Weekly sessions</div>
+    <div class="card center">
+      <div style="font-size:36px;font-weight:800;color:var(--accent-dark)">3</div>
+      <div style="font-size:13px;color:var(--muted)">workouts this week</div>
+      <div class="divider"></div>
+      <div style="display:flex;justify-content:center;align-items:flex-end;gap:8px;height:60px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:14px;border-radius:4px 4px 0 0;background:var(--accent)" id="bar1"></div><span style="font-size:9px;color:var(--muted)">W1</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:14px;border-radius:4px 4px 0 0;background:var(--accent)" id="bar2"></div><span style="font-size:9px;color:var(--muted)">W2</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:14px;border-radius:4px 4px 0 0;background:var(--yellow)" id="bar3"></div><span style="font-size:9px;color:var(--muted)">W3</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:14px;border-radius:4px 4px 0 0;background:var(--accent)" id="bar4"></div><span style="font-size:9px;color:var(--muted)">W4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 12 — Live Floor ══ -->
+  <div class="screen" id="s-floor">
+    <div class="between" style="margin-bottom:16px">
+      <div>
+        <div style="font-size:18px;font-weight:800">Live Floor</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:1px">Planet Fitness · Midtown · Now</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--accent-dark);font-weight:700;background:var(--accent-faint);padding:5px 10px;border-radius:20px;border:1px solid var(--accent-border)">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block"></span>LIVE
+      </div>
+    </div>
+    <div class="floor-stats">
+      <div class="stat"><div class="stat-n" style="color:#16a34a" id="fl-free">3</div><div class="stat-l">Open</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--yellow)" id="fl-soon">2</div><div class="stat-l">Soon</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--red)" id="fl-busy">3</div><div class="stat-l">Busy</div></div>
+    </div>
+    <div class="chips" id="floor-chips">
+      <div class="chip on" onclick="floorFilter(this,'All')">All</div>
+      <div class="chip" onclick="floorFilter(this,'Chest')">Chest</div>
+      <div class="chip" onclick="floorFilter(this,'Back')">Back</div>
+      <div class="chip" onclick="floorFilter(this,'Legs')">Legs</div>
+      <div class="chip" onclick="floorFilter(this,'Shoulders')">Shoulders</div>
+    </div>
+    <div class="sec">Equipment Status</div>
+    <div class="mach-grid" id="floor-grid"></div>
+  </div>
+
+  <!-- ════════════════════════════════ SCREEN 13 — Profile ══ -->
+  <div class="screen" id="s-profile">
+    <div class="nav">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="nav-title">Profile</span>
+    </div>
+
+    <div style="display:flex;gap:14px;align-items:center;margin-bottom:20px">
+      <div class="prof-ava">N</div>
+      <div>
+        <div style="font-size:18px;font-weight:700">Nate</div>
+        <div style="font-size:13px;color:var(--muted)">@nate_lifts · Member since Jan 2024</div>
+      </div>
+    </div>
+
+    <div class="sec">This week</div>
+    <div class="stats3">
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">4</div><div class="stat-l">Sessions</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">67</div><div class="stat-l">Sets</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--accent-dark)">3h 2m</div><div class="stat-l">Time</div></div>
+    </div>
+
+    <!-- Theme color picker -->
+    <div class="sec" style="margin-top:4px">App theme color</div>
+    <div class="card" style="margin-bottom:14px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Pick an accent color — updates the whole app instantly.</div>
+      <div class="theme-swatches" id="theme-swatches">
+        <div class="swatch active" style="background:#38bdf8" onclick="setTheme(this,'#38bdf8','#0ea5e9','rgba(56,189,248,.12)','rgba(56,189,248,.35)')"></div>
+        <div class="swatch" style="background:#f472b6" onclick="setTheme(this,'#f472b6','#db2777','rgba(244,114,182,.12)','rgba(244,114,182,.35)')"></div>
+        <div class="swatch" style="background:#fb923c" onclick="setTheme(this,'#fb923c','#ea580c','rgba(251,146,60,.12)','rgba(251,146,60,.35)')"></div>
+        <div class="swatch" style="background:#a78bfa" onclick="setTheme(this,'#a78bfa','#7c3aed','rgba(167,139,250,.12)','rgba(167,139,250,.35)')"></div>
+        <div class="swatch" style="background:#34d399" onclick="setTheme(this,'#34d399','#059669','rgba(52,211,153,.12)','rgba(52,211,153,.35)')"></div>
+        <div class="swatch" style="background:#fbbf24" onclick="setTheme(this,'#fbbf24','#d97706','rgba(251,191,36,.12)','rgba(251,191,36,.35)')"></div>
+        <div class="swatch" style="background:#f87171" onclick="setTheme(this,'#f87171','#dc2626','rgba(248,113,113,.12)','rgba(248,113,113,.35)')"></div>
+        <div class="swatch" style="background:#6b7280" onclick="setTheme(this,'#6b7280','#374151','rgba(107,114,128,.12)','rgba(107,114,128,.35)')"></div>
+      </div>
+    </div>
+
+    <div class="sec">Goals & Preferences</div>
+    <div class="card">
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Goal</span><span style="font-size:13px;font-weight:600">Hypertrophy</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Frequency</span><span style="font-size:13px;font-weight:600">4×/week</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Preferred time</span><span style="font-size:13px;font-weight:600">Morning (6–9am)</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Session length</span><span style="font-size:13px;font-weight:600">45 min</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Experience</span><span style="font-size:13px;font-weight:600">Intermediate</span></div>
+    </div>
+
+    <div class="sec" style="margin-top:4px">Recent machines</div>
+    <div class="card">
+      <div class="card-row"><span class="bold">Bench Press</span><span class="muted">Today · 4 sets</span></div>
+      <div class="card-row"><span class="bold">Incline Press</span><span class="muted">Today · 3 sets</span></div>
+      <div class="card-row"><span class="bold">Squat Rack A</span><span class="muted">Wednesday · 5 sets</span></div>
+      <div class="card-row"><span class="bold">Pull-Up Bar</span><span class="muted">Wednesday · 4 sets</span></div>
+    </div>
+
+    <div class="divider"></div>
+    <button class="btn btn-danger btn-full">Sign Out</button>
+  </div>
+
+  <!-- ════════════════════════════════ TAB BAR ══ -->
+  <div class="tabbar" id="tabbar">
+    <button class="tab on" id="tab-home" onclick="switchTab('s-home','tab-home')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home
+    </button>
+    <button class="tab" id="tab-forecast" onclick="switchTab('s-forecast','tab-forecast')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Forecast
+    </button>
+    <button class="tab" id="tab-floor" onclick="switchTab('s-floor','tab-floor')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 9h12M6 15h12"/></svg>Floor
+    </button>
+    <button class="tab" id="tab-workout" onclick="switchTab('s-workout','tab-workout')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>Workout
+    </button>
+    <button class="tab" id="tab-profile" onclick="switchTab('s-profile','tab-profile')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile
+    </button>
+  </div>
+
+  <!-- Sheet + Toast -->
+  <div class="overlay" id="overlay" onclick="closeSheet()">
+    <div class="sheet" onclick="event.stopPropagation()" id="sheet-body">
+      <div class="sheet-handle"></div>
+      <div id="sheet-content"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast-el"></div>
+</div>
+
+<script>
+// ── Theme ─────────────────────────────────────────────────────────────────────
+function setTheme(swatch, accent, dark, faint, border) {
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  swatch.classList.add('active');
+  const r = document.documentElement.style;
+  r.setProperty('--accent',        accent);
+  r.setProperty('--accent-dark',   dark);
+  r.setProperty('--accent-faint',  faint);
+  r.setProperty('--accent-border', border);
+  // re-render accent-dependent UI
+  renderFloor();
+  renderWorkout();
+  renderHistory();
+}
+
+// ── Navigation ────────────────────────────────────────────────────────────────
+const TAB_SCREENS = ['s-home','s-forecast','s-floor','s-workout','s-history','s-profile'];
+let navHistory = ['s-welcome'];
+
+function go(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  navHistory.push(id);
+  const showTab = TAB_SCREENS.includes(id);
+  document.getElementById('tabbar').classList.toggle('on', showTab);
+  const map = {'s-home':'tab-home','s-forecast':'tab-forecast','s-floor':'tab-floor','s-workout':'tab-workout','s-history':'tab-history','s-profile':'tab-profile'};
+  if (showTab && map[id]) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    document.getElementById(map[id]).classList.add('on');
+  }
+  if (id === 's-forecast') initForecast();
+  if (id === 's-workout')  renderWorkout();
+  if (id === 's-active')   initActive();
+  if (id === 's-history')  renderHistory();
+  if (id === 's-floor')    renderFloor();
+  window.scrollTo(0,0);
+  document.getElementById(id).scrollTo(0,0);
+}
+
+function goBack() {
+  navHistory.pop();
+  const prev = navHistory[navHistory.length-1] || 's-home';
+  go(prev);
+  navHistory.pop();
+}
+
+function skipToHome() { go('s-home'); }
+
+function switchTab(screen, tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  document.getElementById(tab).classList.add('on');
+  go(screen);
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function solo(el) { el.parentElement.querySelectorAll('.opt').forEach(o => o.classList.remove('on')); el.classList.add('on'); }
+function toggle(el) { el.classList.toggle('on'); }
+function selectGym(el) {
+  document.querySelectorAll('#gym-list .card').forEach(c => { c.style.borderColor=''; c.querySelector('span').textContent='○'; c.querySelector('span').style.color='var(--border)'; });
+  el.style.borderColor='var(--accent)'; el.querySelector('span').textContent='✓'; el.querySelector('span').style.color='var(--accent)';
+}
+
+// ── Toast ─────────────────────────────────────────────────────────────────────
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast-el');
+  el.textContent = msg; el.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('on'), 2800);
+}
+
+// ── Forecast ──────────────────────────────────────────────────────────────────
+const F_MACHINES = [
+  { name:'Bench Press',    base:[.9,.85,.6,.35,.3,.25,.3,.45,.55,.7,.8,.85,.9,.8,.75,.7,.65,.75] },
+  { name:'Squat Rack',     base:[.85,.8,.55,.3,.25,.2,.25,.4,.5,.65,.75,.8,.85,.7,.65,.6,.55,.7] },
+  { name:'Cable Row',      base:[.7,.65,.45,.25,.2,.2,.2,.35,.45,.55,.65,.7,.75,.65,.6,.55,.5,.65] },
+  { name:'Lat Pulldown',   base:[.75,.7,.5,.3,.22,.18,.22,.38,.48,.6,.7,.75,.8,.68,.62,.58,.52,.67] },
+  { name:'Leg Press',      base:[.65,.6,.4,.22,.18,.15,.18,.3,.4,.52,.62,.67,.72,.6,.55,.5,.45,.6] },
+  { name:'Shoulder Press', base:[.6,.55,.38,.2,.15,.12,.15,.28,.38,.5,.6,.65,.7,.58,.52,.48,.42,.57] },
+];
+function hourIndex(h) {
+  const hrs=[5,5.5,6,6.5,7,7.5,8,8.5,9,10,11,12,13,14,15,16,17,18];
+  let b=0,bd=99; hrs.forEach((v,i)=>{const d=Math.abs(v-h);if(d<bd){bd=d;b=i;}}); return b;
+}
+function cLevel(p) {
+  if(p<.35) return{label:'Low',cls:'c-low',color:'#16a34a'};
+  if(p<.65) return{label:'Mod',cls:'c-mid',color:'var(--yellow)'};
+  return{label:'High',cls:'c-high',color:'var(--red)'};
+}
+function timeLabel(h) {
+  const hh=Math.floor(h),mm=h%1===.5?'30':'00',ap=hh<12?'am':'pm',d=hh>12?hh-12:hh;
+  return `${d}:${mm} ${ap}`;
+}
+let forecastInited=false;
+function initForecast(){if(forecastInited)return;forecastInited=true;updateForecast();}
+function updateForecast(){
+  const h=parseFloat(document.getElementById('time-slider').value);
+  const idx=hourIndex(h);
+  document.getElementById('forecast-time').textContent=timeLabel(h);
+  const avg=F_MACHINES.reduce((s,m)=>s+m.base[idx],0)/F_MACHINES.length;
+  const ov=avg<.35?'Low overall congestion ✓':avg<.65?'Moderate congestion':'High congestion ⚠️';
+  document.getElementById('forecast-day').textContent='Saturday · '+ov;
+  document.getElementById('forecast-bars').innerHTML=F_MACHINES.map(m=>{
+    const p=Math.min(1,m.base[idx]+(Math.random()*.04-.02));
+    const lv=cLevel(p);
+    return`<div class="machine-row"><span class="machine-label">${m.name}</span><div class="cbar-wrap"><div class="cbar ${lv.cls}" style="width:${Math.round(p*100)}%"></div></div><span class="clevel" style="color:${lv.color}">${lv.label}</span></div>`;
+  }).join('');
+  const tip=document.getElementById('forecast-tip-text');
+  if(h>=6.5&&h<=9) tip.textContent='This is a low-congestion window — most machines are likely available. Good choice for your 45-min session.';
+  else if(h>=17&&h<=19) tip.textContent='Evening peak hours. Bench Press and Squat Rack typically have wait times. Consider 7am instead.';
+  else if(h>=12&&h<=14) tip.textContent='Lunch rush period — moderate congestion expected. Cable machines are usually slightly less busy.';
+  else tip.textContent='Drag the slider to explore congestion patterns across the day for each machine.';
+}
+
+// ── Workout ───────────────────────────────────────────────────────────────────
+let exercises=[
+  {name:'Bench Press',    sets:4,reps:'8–10', rest:90,congestion:'low', note:'Machine free at 7am'},
+  {name:'Incline Press',  sets:3,reps:'10–12',rest:75,congestion:'low', note:'Machine free'},
+  {name:'Cable Fly',      sets:3,reps:'12–15',rest:60,congestion:'low', note:'Cable station open'},
+  {name:'Shoulder Press', sets:4,reps:'8–10', rest:90,congestion:'mid', note:'Moderate at 7:30am'},
+  {name:'Leg Press',      sets:3,reps:'10',   rest:90,congestion:'high',note:'Busy — swap available'},
+];
+function congTag(c){
+  if(c==='low')  return`<span class="ex-tag low">Low</span>`;
+  if(c==='mid')  return`<span class="ex-tag mid">Mod</span>`;
+  return`<span class="ex-tag high">Busy</span>`;
+}
+function renderWorkout(){
+  document.getElementById('workout-exercises').innerHTML=exercises.map((e,i)=>`
+    <div class="ex-item">
+      <div class="ex-num">${i+1}</div>
+      <div style="flex:1">
+        <div class="ex-name">${e.name}</div>
+        <div class="ex-meta">${e.sets} sets · ${e.reps} reps · ${e.rest}s rest</div>
+        <div class="ex-meta" style="margin-top:1px">${e.note}</div>
+      </div>${congTag(e.congestion)}
+    </div>`).join('');
+}
+function swapExercise(){
+  const i=exercises.findIndex(e=>e.name==='Leg Press');
+  if(i>=0){exercises[i]={name:'Goblet Squat',sets:3,reps:'12',rest:75,congestion:'low',note:'Dumbbells — always available'};renderWorkout();document.getElementById('swap-box').innerHTML='<div class="ai-ico">✓</div><div><div class="ai-title">Swapped!</div><div class="ai-text">Goblet Squat replaces Leg Press. Dumbbells are always available.</div></div>';toast('✓ Leg Press → Goblet Squat');}
+}
+function selectTime(label){toast('✓ '+label+' selected');setTimeout(()=>go('s-workout'),600);}
+
+// ── Active Workout ────────────────────────────────────────────────────────────
+let curEx=0,curSet=0,restInterval,workoutInterval,workoutSecs=0;
+function initActive(){
+  curEx=0;curSet=0;workoutSecs=0;clearInterval(workoutInterval);
+  workoutInterval=setInterval(()=>{
+    workoutSecs++;
+    const m=String(Math.floor(workoutSecs/60)).padStart(2,'0');
+    const s=String(workoutSecs%60).padStart(2,'0');
+    const el=document.getElementById('active-timer');if(el)el.textContent=m+':'+s;
+  },1000);
+  renderActive();
+}
+function renderActive(){
+  const ex=exercises[curEx];if(!ex){clearInterval(workoutInterval);go('s-complete');return;}
+  document.getElementById('active-ex-name').textContent=ex.name;
+  document.getElementById('active-ex-meta').textContent=`${ex.sets} sets · ${ex.reps} reps`;
+  document.getElementById('cur-ex-num').textContent=curEx+1;
+  document.getElementById('cur-set-num').textContent=curSet+1;
+  document.getElementById('active-progress').style.width=Math.round(((curEx*4+curSet)/(exercises.length*4))*100)+'%';
+  let dots='';for(let i=0;i<ex.sets;i++)dots+=`<div class="set-dot ${i<curSet?'done':i===curSet?'cur':''}"></div>`;
+  document.getElementById('set-dots').innerHTML=dots;
+  const up=exercises.slice(curEx+1,curEx+3);
+  document.getElementById('upcoming-list').innerHTML=up.map(u=>`<div class="ex-item" style="padding:10px 14px"><div class="ex-num" style="width:24px;height:24px;font-size:10px">${exercises.indexOf(u)+1}</div><div><div class="ex-name" style="font-size:13px">${u.name}</div><div class="ex-meta">${u.sets} sets · ${u.reps}</div></div></div>`).join('')||'<div style="font-size:13px;color:var(--muted);padding:8px 0">Last exercise!</div>';
+}
+function completeSet(){
+  const ex=exercises[curEx];curSet++;
+  if(curSet>=ex.sets){curSet=0;curEx++;if(curEx>=exercises.length){clearInterval(workoutInterval);go('s-complete');return;}renderActive();startRest(ex.rest);}
+  else{renderActive();startRest(60);}
+}
+function startRest(secs){
+  const rb=document.getElementById('rest-block'),rc=document.getElementById('rest-count'),btn=document.getElementById('set-btn');
+  rb.style.display='block';btn.textContent='Skip Rest';btn.onclick=skipRest;
+  let t=secs;rc.textContent=t;clearInterval(restInterval);
+  restInterval=setInterval(()=>{t--;rc.textContent=t;if(t<=0){clearInterval(restInterval);endRest();}},1000);
+}
+function endRest(){
+  document.getElementById('rest-block').style.display='none';
+  const btn=document.getElementById('set-btn');btn.textContent='Complete Set ✓';btn.onclick=completeSet;
+}
+function skipRest(){clearInterval(restInterval);endRest();}
+function nextEx(){clearInterval(restInterval);endRest();curEx=Math.min(exercises.length-1,curEx+1);curSet=0;renderActive();}
+function prevEx(){clearInterval(restInterval);endRest();curEx=Math.max(0,curEx-1);curSet=0;renderActive();}
+
+// ── History ───────────────────────────────────────────────────────────────────
+function renderHistory(){
+  const vals=[3,4,2,3],max=4;
+  ['bar1','bar2','bar3','bar4'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.style.height=Math.round((vals[i]/max)*50)+'px';});
+}
+
+// ── Live Floor ────────────────────────────────────────────────────────────────
+const FLOOR_MACHINES=[
+  {id:1,name:'Bench Press',    zone:'Chest',    user:'Marcus T.',  setsLeft:1,total:4,queue:[{name:'Jordan R.',ava:'J',color:'#7c3aed',workin:true},{name:'You',ava:'N',color:'var(--accent)',workin:false,me:true}],status:'almost',
+   svgBg:'#dbeafe', svgPath:'M20,28h-2v-4H6v4H4V20a2,2,0,0,1,2-2H8V15h8v3h2a2,2,0,0,1,2,2Zm-3,4H7v2h10ZM9,17v1h6V17Z'},
+  {id:2,name:'Squat Rack A',   zone:'Legs',     user:null,         setsLeft:0,total:0,queue:[],status:'free',
+   svgBg:'#dcfce7', svgPath:'M7,10V8H5V6H3V18H5V16H7V14H17V16H19V18H21V6H19V8H17V10ZM17,12H7V12H17Z'},
+  {id:3,name:'Pull-Up Bar',    zone:'Back',     user:'Jordan R.',  setsLeft:3,total:4,queue:[{name:'Aisha M.',ava:'A',color:'#ec4899',workin:false}],status:'busy',
+   svgBg:'#fce7f3', svgPath:'M4,8H20V10H13V20H11V10H4Z'},
+  {id:4,name:'Cable Row',      zone:'Back',     user:'Aisha M.',   setsLeft:2,total:3,queue:[],status:'busy',
+   svgBg:'#fef9c3', svgPath:'M5,12H19M5,12l4-4M5,12l4,4M14,6v12'},
+  {id:5,name:'Incline Press',  zone:'Chest',    user:null,         setsLeft:0,total:0,queue:[],status:'free',
+   svgBg:'#ede9fe', svgPath:'M4,18l4-8h8l4,8M8,10V8h8v2'},
+  {id:6,name:'Leg Press',      zone:'Legs',     user:'Tyler K.',   setsLeft:4,total:5,queue:[{name:'Devon L.',ava:'D',color:'#06b6d4',workin:true},{name:'Priya S.',ava:'P',color:'#a855f7',workin:false},{name:'You',ava:'N',color:'var(--accent)',workin:false,me:true}],status:'busy',
+   svgBg:'#ffedd5', svgPath:'M6,18V10l6-4l6,4V18H14V14H10V18Z'},
+  {id:7,name:'Lat Pulldown',   zone:'Back',     user:'Priya S.',   setsLeft:1,total:3,queue:[{name:'You',ava:'N',color:'var(--accent)',workin:false,me:true}],status:'almost',
+   svgBg:'#f0fdf4', svgPath:'M12,4V20M6,8l6-4l6,4M8,20h8'},
+  {id:8,name:'Shoulder Press', zone:'Shoulders',user:null,         setsLeft:0,total:0,queue:[],status:'free',
+   svgBg:'#f0f9ff', svgPath:'M8,8h8v2H8ZM7,10h10v2H7ZM9,18V12h6v6'},
+];
+
+let floorZone='All';
+function floorFilter(chip,zone){
+  document.querySelectorAll('#floor-chips .chip').forEach(c=>c.classList.remove('on'));
+  chip.classList.add('on'); floorZone=zone; renderFloor();
+}
+function floorPct(m){return m.total?Math.round(((m.total-m.setsLeft)/m.total)*100):100;}
+function floorBarColor(s){return s==='almost'?'var(--yellow)':s==='busy'?'var(--red)':'#22c55e';}
+
+// SVG machine illustrations
+function machineSVG(m){
+  return`<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="padding:10px"><path d="${m.svgPath}"/></svg>`;
+}
+
+function renderFloor(){
+  const list=floorZone==='All'?FLOOR_MACHINES:FLOOR_MACHINES.filter(m=>m.zone===floorZone);
+  document.getElementById('fl-free').textContent=FLOOR_MACHINES.filter(m=>m.status==='free').length;
+  document.getElementById('fl-soon').textContent=FLOOR_MACHINES.filter(m=>m.status==='almost').length;
+  document.getElementById('fl-busy').textContent=FLOOR_MACHINES.filter(m=>m.status==='busy').length;
+
+  document.getElementById('floor-grid').innerHTML=list.map(m=>{
+    const pct=floorPct(m);
+    const photo=`<div class="mach-photo" style="background:${m.svgBg}">
+      ${machineSVG(m)}
+      <div class="mach-photo-label">${m.name}</div>
+    </div>`;
+    if(m.status==='free'){
+      return`<div class="mach-card free" onclick="openMachineSheet(${m.id})">${photo}
+        <div class="mach-body">
+          <div class="mach-user">&nbsp;</div>
+          <span class="mach-pill free">Free Now</span>
+        </div></div>`;
+    }
+    return`<div class="mach-card ${m.status}" onclick="openMachineSheet(${m.id})">${photo}
+      <div class="mach-body">
+        <div class="mach-user">${m.user}</div>
+        <div style="display:flex;align-items:center;gap:3px">
+          <span class="mach-pill ${m.status}">${m.setsLeft} set${m.setsLeft!==1?'s':''} left</span>
+          ${m.queue.length>0?`<span class="mach-wait">· ${m.queue.length} waiting</span>`:''}
+        </div>
+        <div class="mach-bar"><div class="mach-fill" style="width:${pct}%;background:${floorBarColor(m.status)}"></div></div>
+      </div></div>`;
+  }).join('');
+}
+
+let floorSets=3;
+function adjFloorSets(d){floorSets=Math.max(1,Math.min(10,floorSets+d));const n=document.getElementById('fs-n'),l=document.getElementById('fs-label');if(n)n.textContent=floorSets;if(l)l.textContent=floorSets;}
+function floorCheckIn(id){
+  const m=FLOOR_MACHINES.find(x=>x.id===id);m.status='busy';m.user='You';m.setsLeft=floorSets;m.total=floorSets;
+  closeSheet();renderFloor();toast(`✓ Checked in on ${m.name} — ${floorSets} sets visible to others`);
+}
+function joinQueue(id){
+  const m=FLOOR_MACHINES.find(x=>x.id===id);
+  if(!m.queue.some(q=>q.me))m.queue.push({name:'You',ava:'N',color:'var(--accent)',workin:false,me:true});
+  closeSheet();renderFloor();toast(`🔔 You're in the queue for ${m.name}`);
+}
+function askWorkin(userName){closeSheet();toast(`💬 Work-in request sent to ${userName}!`);}
+
+function openMachineSheet(id){
+  const m=FLOOR_MACHINES.find(x=>x.id===id);
+  let body='';
+  if(m.status==='free'){
+    body=`<div style="color:#16a34a;font-weight:700;font-size:15px;padding:8px 0 14px">✓ This machine is free — jump right in!</div>
+      <div class="sec">How many sets are you planning?</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:22px;margin:18px 0">
+        <button onclick="adjFloorSets(-1)" style="width:44px;height:44px;border-radius:50%;background:var(--s2);border:1px solid var(--border);font-size:22px;color:var(--text);cursor:pointer">−</button>
+        <div id="fs-n" style="font-size:52px;font-weight:800;color:var(--accent-dark);min-width:60px;text-align:center;line-height:1">3</div>
+        <button onclick="adjFloorSets(1)" style="width:44px;height:44px;border-radius:50%;background:var(--s2);border:1px solid var(--border);font-size:22px;color:var(--text);cursor:pointer">+</button>
+      </div>
+      <button class="btn btn-a btn-full" onclick="floorCheckIn(${m.id})">Check In · <span id="fs-label">3</span> Sets</button>`;
+  } else {
+    const pct=floorPct(m);
+    const queueHtml=m.queue.length?`<div class="sec" style="margin-top:14px">Queue (${m.queue.length})</div>${m.queue.map(q=>`<div class="q-item"><div class="q-ava" style="background:${q.color}">${q.ava}</div><div><div class="q-name">${q.name}${q.me?' (you)':''}</div><div class="q-sub">${q.me?'Your spot is held':'Waiting'}</div></div>${q.workin?'<span class="workin-badge">Open to work-in</span>':''}</div>`).join('')}`:'';
+    body=`<div class="card card-sm" style="margin-bottom:4px">
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Current user</span><span style="font-size:13px;font-weight:700">${m.user}</span></div>
+      <div class="card-row"><span style="font-size:13px;color:var(--muted)">Sets remaining</span><span style="font-size:13px;font-weight:700;color:${floorBarColor(m.status)}">${m.setsLeft} / ${m.total}</span></div>
+      <div class="mach-bar" style="margin-top:6px"><div class="mach-fill" style="width:${pct}%;background:${floorBarColor(m.status)}"></div></div>
+    </div>${queueHtml}
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="btn btn-ghost" style="flex:1" onclick="joinQueue(${m.id})">🔔 Join Queue</button>
+      <button class="btn btn-a" style="flex:1" onclick="askWorkin('${m.user}')">🤝 Work In</button>
+    </div>`;
+  }
+  openSheet(`<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+    <div style="width:48px;height:48px;border-radius:12px;background:${m.svgBg};overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="${m.svgPath}"/></svg>
+    </div>
+    <div style="flex:1"><div style="font-size:18px;font-weight:700">${m.name}</div><div style="font-size:13px;color:var(--muted)">${m.zone} Zone</div></div>
+    <span class="sdot-live ${m.status}"></span>
+  </div>
+  <div style="height:1px;background:var(--border);margin:14px 0"></div>${body}`);
+}
+
+// ── Sheet ─────────────────────────────────────────────────────────────────────
+function openSheet(html){document.getElementById('sheet-content').innerHTML=html;document.getElementById('overlay').classList.add('on');}
+function closeSheet(){document.getElementById('overlay').classList.remove('on');}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+renderWorkout();
+renderFloor();
+renderHistory();
+</script>
+</body>
+</html>
