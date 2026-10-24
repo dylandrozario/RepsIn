@@ -79,12 +79,24 @@ export default function ForecastScreen() {
       </Text>
 
       {/* day-of-week dot buttons */}
+      <View style={styles.dayHeadRow}>
+        <Label muted>Day</Label>
+        <Text style={styles.dayNameLabel}>
+          {weekday}{dayIdx === todayIdx ? ' · Today' : ''}
+        </Text>
+      </View>
       <View style={styles.dayRow}>
         {DOW_LETTERS.map((letter, i) => {
           const active = i === dayIdx;
           const isToday = i === todayIdx;
           return (
-            <PressableScale key={i} onPress={() => setDayIdx(i)} style={styles.dayDotCol}>
+            <PressableScale
+              key={i}
+              onPress={() => setDayIdx(i)}
+              style={styles.dayDotCol}
+              accessibilityLabel={DOW_FULL[i]}
+              accessibilityState={{ selected: active }}
+            >
               <View style={[styles.dayDot, active && styles.dayDotActive]}>
                 <Text style={[styles.dayDotText, active && styles.dayDotTextActive]}>{letter}</Text>
               </View>
@@ -93,15 +105,6 @@ export default function ForecastScreen() {
           );
         })}
       </View>
-
-      <Divider />
-
-      {/* data source disclosure — real foot-traffic, estimated waits */}
-      <Text style={styles.demo}>
-        <Text style={styles.demoTag}>FOOT-TRAFFIC DATA  </Text>
-        Busyness is based on historical foot-traffic data from BestTime for this venue. Wait times
-        are estimates derived from it, not a live measured queue.
-      </Text>
 
       <Divider />
 
@@ -163,6 +166,14 @@ export default function ForecastScreen() {
           {idx < rows.length - 1 ? <Divider style={{ marginVertical: spacing.lg }} /> : null}
         </View>
       ))}
+
+      {/* data source disclosure — at the bottom */}
+      <Divider style={{ marginTop: spacing.xl }} />
+      <Text style={styles.demo}>
+        <Text style={styles.demoTag}>FOOT-TRAFFIC DATA  </Text>
+        Busyness is based on historical foot-traffic data from BestTime for this venue. Wait times
+        are estimates derived from it, not a live measured queue.
+      </Text>
     </Screen>
   );
 }
@@ -171,7 +182,9 @@ const styles = StyleSheet.create({
   demo: { fontSize: 13, lineHeight: 19, color: colors.inkSoft },
   demoTag: { color: colors.purple, fontWeight: '700', letterSpacing: 0.5 },
 
-  dayRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: spacing.lg },
+  dayHeadRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: spacing.lg },
+  dayNameLabel: { fontSize: 14, fontWeight: '700', color: colors.ink },
+  dayRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: spacing.sm },
   dayDotCol: { alignItems: 'center' },
   dayDot: {
     width: 38, height: 38, borderRadius: 19,

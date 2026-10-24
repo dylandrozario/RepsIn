@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import Logo from '../components/Logo';
 import { useAuth } from '../auth/AuthContext';
 import { colors, type, fonts, spacing, radius, shadow, gradients } from '../theme/theme';
 
@@ -16,6 +17,7 @@ export default function LoginScreen() {
   } = useAuth();
 
   const [mode, setMode] = useState('signin'); // 'signin' | 'signup'
+  const [localError, setLocalError] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +25,13 @@ export default function LoginScreen() {
   const isSignup = mode === 'signup';
 
   const submit = async () => {
-    if (!email.trim() || !password) return;
+    setLocalError(null);
+    if (!email.trim()) { setLocalError('Enter your email to continue.'); return; }
+    if (!password) { setLocalError('Enter your password to continue.'); return; }
+    if (isSignup && password.length < 6) {
+      setLocalError('Password must be at least 6 characters.');
+      return;
+    }
     if (isSignup) {
       const res = await signUpWithEmail(email, password, name);
       if (res.ok && res.needsConfirmation) {
@@ -57,7 +65,7 @@ export default function LoginScreen() {
           style={[styles.hero, { paddingTop: insets.top + 48 }]}
         >
           <View style={styles.logo}>
-            <Text style={styles.bolt}>⚡</Text>
+            <Logo size={44} color="#fff" />
           </View>
           <Text style={styles.wordmark}>RepsIn</Text>
           <Text style={styles.tagline}>Train smarter. Skip the wait.</Text>
@@ -145,9 +153,9 @@ export default function LoginScreen() {
             <Text style={styles.googleText}>Continue with Google</Text>
           </Pressable>
 
-          {error ? (
+          {localError || error ? (
             <View style={styles.errorBox}>
-              <Text style={styles.errorText}>{error}</Text>
+              <Text style={styles.errorText}>{localError || error}</Text>
             </View>
           ) : null}
 

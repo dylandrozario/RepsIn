@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { View, Text, Pressable, StyleSheet, ScrollView, TextInput, Alert, Animated, Easing, useWindowDimensions } from 'react-native';
+import { View, Text, Pressable, StyleSheet, ScrollView, Alert, Animated, Easing, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 
@@ -37,7 +37,6 @@ export default function TrackerScreen() {
   const slide = useRef(new Animated.Value(0)).current;
   const [viewSize, setViewSize] = useState({ width: 1, height: 1 });
 
-  const [serverUrl, setServerUrlState] = useState('');
   const [serverOk, setServerOk] = useState(null); // null unknown, true/false
   const [showSkeleton, setShowSkeleton] = useState(true);
 
@@ -58,13 +57,11 @@ export default function TrackerScreen() {
 
   useEffect(() => {
     (async () => {
-      // Auto-fills from the Expo dev host (same laptop, port 8000) if the user
-      // hasn't saved a custom URL. Then auto-connects.
+      // Auto-detect the coach from the Expo dev host (same computer, port 8000)
+      // and connect — no manual address entry needed.
       const url = await loadServerUrl();
-      if (url) {
-        setServerUrlState(url);
-        verify(url);
-      }
+      if (url) verify(url);
+      else setServerOk(false);
     })();
   }, [verify]);
 
@@ -79,17 +76,11 @@ export default function TrackerScreen() {
     }
   }, []);
 
-  const saveServer = useCallback(async () => {
-    const saved = await setServerUrl(serverUrl);
-    setServerUrlState(saved);
-    verify(saved);
-  }, [serverUrl, verify]);
-
-  // Clear any saved URL and re-derive from the Expo dev host.
+  // Re-derive the coach address from the Expo dev host and reconnect.
   const autoDetect = useCallback(async () => {
+    setServerOk(null);
     const derived = deriveServerUrl();
     const saved = await setServerUrl(derived);
-    setServerUrlState(saved);
     if (saved) verify(saved);
     else setServerOk(false);
   }, [verify]);
@@ -133,8 +124,8 @@ export default function TrackerScreen() {
   }, []);
 
   const start = useCallback(async () => {
-    if (serverOk === false || !serverUrl) {
-      Alert.alert('Server not connected', 'Enter your laptop server URL and tap Connect first.');
+    if (serverOk !== true) {
+      Alert.alert('Coach not connected', "Your AI form coach isn't connected yet. Tap Retry, then Start.");
       return;
     }
     await resetSession(exerciseRef.current);
@@ -153,7 +144,7 @@ export default function TrackerScreen() {
       loopRef.current.running = true;
       tick();
     });
-  }, [serverOk, serverUrl, tick, slide]);
+  }, [serverOk, tick, slide]);
 
   const stop = useCallback(() => {
     loopRef.current.running = false;
@@ -246,14 +237,15 @@ export default function TrackerScreen() {
             </View>
 
             <View style={[styles.cueWrap, { top: insets.top + 86 }]}>
-              {!status.poseDetected ? (
+              {serverOk === false ? (
+                <CuePill text="Lost the coach — reconnecting…" tone="warn" />
+              ) : !status.poseDetected ? (
                 <CuePill text="Step fully into frame" tone="warn" />
               ) : status.cues.length > 0 ? (
                 status.cues.map((c) => <CuePill key={c} text={c} tone="warn" />)
               ) : (
                 <CuePill text="Good form" tone="ok" />
               )}
-              {latency != null ? <Text style={styles.latency}>{latency} ms</Text> : null}
             </View>
 
             <View style={[styles.floatControls, { bottom: insets.bottom + 90 }]}>
@@ -261,7 +253,7 @@ export default function TrackerScreen() {
                 <Text style={styles.stopText}>Stop</Text>
               </Pressable>
               <Pressable onPress={() => setShowSkeleton((s) => !s)} style={styles.floatToggle}>
-                <Text style={styles.floatToggleText}>{showSkeleton ? 'Skeleton on' : 'Skeleton off'}</Text>
+                <Text style={styles.floatToggleText}>{showSkeleton ? 'Overlay on' : 'Overlay off'}</Text>
               </Pressable>
             </View>
           </>
@@ -273,14 +265,10 @@ export default function TrackerScreen() {
         style={[styles.setupSheet, { transform: [{ translateY: sheetTranslateY }] }]}
         pointerEvents={active ? 'none' : 'auto'}
       >
-        {/* small live preview at the top */}
-        <View style={styles.stage}>
-          <View style={[styles.topOverlay, { paddingTop: insets.top + 8 }]}>
-            <View>
-              <Text style={styles.overlayKicker}>{ready ? 'READY' : 'STARTING…'}</Text>
-              <Text style={styles.overlayExercise}>{current?.label}</Text>
-            </View>
-          </View>
+        {/* header: ready state + chosen exercise (on the cream sheet) */}
+        <View style={[styles.setupHeader, { paddingTop: insets.top + spacing.sm }]}>
+          <Text style={styles.setupKicker}>{ready ? 'READY' : 'STARTING…'}</Text>
+          <Text style={styles.setupExercise}>{current?.label}</Text>
         </View>
 
         {/* controls */}
@@ -289,34 +277,24 @@ export default function TrackerScreen() {
           contentContainerStyle={{ paddingBottom: insets.bottom + 100 }}
           showsVerticalScrollIndicator={false}
         >
-          <Label>Laptop server</Label>
-          <View style={styles.serverRow}>
-            <TextInput
-              value={serverUrl}
-              onChangeText={setServerUrlState}
-              placeholder="http://192.168.x.x:8000"
-              placeholderTextColor={colors.inkFaint}
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="url"
-              style={styles.input}
-            />
-            <Pressable onPress={saveServer} style={styles.connectBtn}>
-              <Text style={styles.connectText}>Connect</Text>
-            </Pressable>
-          </View>
-          <View style={styles.statusLine}>
+          <Label>AI form coach</Label>
+          <Text style={[type.small, { marginTop: 4, marginBottom: spacing.md }]}>
+            Counts your reps and checks your form live, using your camera.
+          </Text>
+          <View style={styles.coachCard}>
             <View style={[styles.statusDot, serverOk === true ? styles.dotOk : serverOk === false ? styles.dotBad : styles.dotIdle]} />
             <Text style={[type.small, { flex: 1 }]}>
               {serverOk === true
-                ? 'Connected'
+                ? 'Coach connected — ready to track'
                 : serverOk === false
-                ? 'Not reachable — make sure the server is running on your laptop'
-                : 'Auto-detecting your laptop…'}
+                ? "Coach offline. Make sure it's running on the same Wi-Fi."
+                : 'Connecting to your coach…'}
             </Text>
-            <Pressable onPress={autoDetect} hitSlop={8}>
-              <Text style={styles.autoLink}>Auto-detect</Text>
-            </Pressable>
+            {serverOk !== true ? (
+              <Pressable onPress={autoDetect} hitSlop={8}>
+                <Text style={styles.autoLink}>Retry</Text>
+              </Pressable>
+            ) : null}
           </View>
 
           <View style={styles.divider} />
@@ -345,7 +323,7 @@ export default function TrackerScreen() {
               <Button label="Start tracking" variant="solid" onPress={start} />
             </View>
             <Pressable onPress={() => setShowSkeleton((s) => !s)} style={styles.toggleBtn}>
-              <Text style={styles.toggleText}>{showSkeleton ? 'Skeleton on' : 'Skeleton off'}</Text>
+              <Text style={styles.toggleText}>{showSkeleton ? 'Overlay on' : 'Overlay off'}</Text>
             </Pressable>
           </View>
         </ScrollView>
@@ -402,7 +380,20 @@ const styles = StyleSheet.create({
   },
   floatToggleText: { color: '#fff', fontSize: 13, fontWeight: '700' },
 
-  stage: { flex: 1, backgroundColor: '#15121F', overflow: 'hidden' },
+  stage: { height: 120, backgroundColor: colors.bg, overflow: 'hidden' },
+
+  // Setup-sheet header (on the cream background — dark text).
+  setupHeader: { paddingHorizontal: spacing.xl, paddingBottom: spacing.md },
+  setupKicker: { color: colors.purple, fontSize: 11, letterSpacing: 1.4, fontWeight: '700' },
+  setupExercise: { fontFamily: fonts.serif, color: colors.ink, fontSize: 28, marginTop: 2 },
+
+  // Connection status card (replaces the old IP input).
+  coachCard: {
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: colors.card, borderRadius: radius.md,
+    paddingHorizontal: spacing.lg, paddingVertical: spacing.md,
+    ...shadow.card,
+  },
 
   topOverlay: {
     position: 'absolute', top: 0, left: 0, right: 0,

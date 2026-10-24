@@ -17,6 +17,7 @@ import { makeRedirectUri } from 'expo-auth-session';
 import * as QueryParams from 'expo-auth-session/build/QueryParams';
 
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import storage from '../services/storageService';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -47,6 +48,7 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState(null);
   const [devMode, setDevMode] = useState(false);
   const profileSyncedFor = useRef(null);
+  const signedOutRef = useRef(false); // true after explicit sign-out, blocks stale auth events
 
   // Restore any persisted session on launch, and subscribe to changes.
   useEffect(() => {
@@ -62,7 +64,16 @@ export function AuthProvider({ children }) {
       setInitializing(false);
     });
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event, newSession) => {
+      // After an explicit sign-out, ignore any late TOKEN_REFRESHED/USER_UPDATED
+      // events carrying the old session — only a real SIGNED_IN re-authenticates.
+      if (signedOutRef.current) {
+        if (event === 'SIGNED_IN' && newSession) {
+          signedOutRef.current = false;
+          setSession(newSession);
+        }
+        return;
+      }
       setSession(newSession ?? null);
     });
 
@@ -87,6 +98,7 @@ export function AuthProvider({ children }) {
   // Instant fake sign-in for previewing the UI without any backend setup.
   const devSignIn = useCallback(() => {
     setError(null);
+    signedOutRef.current = false;
     setDevMode(true);
     setSession(DEV_FAKE_SESSION);
   }, []);
@@ -159,6 +171,7 @@ export function AuthProvider({ children }) {
     }
     setSigningIn(true);
     try {
+      signedOutRef.current = false;
       const { error: e } = await supabase.auth.signInWithPassword({
         email: email.trim(),
         password,
@@ -200,18 +213,28 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  const signOut = useCallback(async () => {
+  const signOut = useCallback(() => {
     setError(null);
-    try {
-      if (!devMode) await supabase.auth.signOut();
-    } catch (e) {
-      setError(e?.message || 'Sign-out failed.');
-    } finally {
-      profileSyncedFor.current = null;
-      setDevMode(false);
-      setSession(null);
-    }
-  }, [devMode]);
+
+    // 1) Flip the UI to signed-out IMMEDIATELY — don't wait on the network.
+    //    This is what sends the user back to the login screen.
+    signedOutRef.current = true; // block stale token-refresh events from re-logging in
+    profileSyncedFor.current = null;
+    setDevMode(false);
+    setSession(null);
+
+    // 2) Revoke the Supabase session + clear local cache in the background.
+    //    Use local scope (no server round-trip that can hang on bad networks).
+    (async () => {
+      try {
+        await supabase.auth.signOut({ scope: 'local' });
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.warn('[auth] signOut:', e?.message);
+      }
+      try { await storage.clearUserData(); } catch {}
+    })();
+  }, []);
 
   const value = {
     session,

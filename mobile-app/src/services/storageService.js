@@ -140,6 +140,25 @@ class StorageService {
     }
   }
 
+  // Clear per-user data on sign-out (keeps device-level settings like the
+  // pose server URL). Prevents one account's schedule/availability from
+  // leaking to the next account signed in on this device.
+  async clearUserData() {
+    try {
+      await AsyncStorage.multiRemove([
+        KEYS.USER_PREFERENCES,
+        KEYS.AVAILABILITY_WINDOWS,
+        KEYS.SCHEDULED_WORKOUTS,
+        KEYS.COMPLETED_WORKOUTS,
+        KEYS.SELECTED_GYM,
+      ]);
+      return true;
+    } catch (error) {
+      console.error('Error clearing user data:', error);
+      return false;
+    }
+  }
+
   // Clear all data
   async clearAll() {
     try {

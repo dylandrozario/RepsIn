@@ -129,13 +129,20 @@ export default function ProfileScreen() {
 
       <Divider />
       <Label muted>Signed in via</Label>
-      <Text style={[type.bodyInk, { marginTop: 6 }]}>Google / Email</Text>
+      <Text style={[type.bodyInk, { marginTop: 6 }]}>{providerLabel(user)}</Text>
 
       <View style={{ height: spacing.xxl }} />
       <Button label="Sign out" variant="light" onPress={confirmSignOut} />
       <View style={{ height: spacing.xl }} />
     </Screen>
   );
+}
+
+function providerLabel(user) {
+  const p = user?.app_metadata?.provider;
+  if (p === 'google') return 'Google';
+  if (p === 'email') return 'Email';
+  return 'Email'; // sensible default
 }
 
 function Stat({ value, label }) {

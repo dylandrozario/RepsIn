@@ -1,16 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Logo from './Logo';
 import { colors, fonts, spacing } from '../theme/theme';
 
-/** Top bar: lightning logo + RepsIn wordmark, avatar on the right. */
+/** Top bar: RepsIn logo, avatar on the right. */
 export default function AppHeader({ initials = 'AM' }) {
   const insets = useSafeAreaInsets();
   return (
     <View style={[styles.wrap, { paddingTop: insets.top + 6 }]}>
       <View style={styles.left}>
         <View style={styles.logo}>
-          <Text style={styles.bolt}>⚡</Text>
+          <Logo size={24} color="#fff" />
         </View>
       </View>
       <View style={styles.avatar}>

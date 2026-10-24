@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Screen from '../components/Screen';
 import { Label, Button, Chip, Divider } from '../components/UI';
+import GymDropdown from '../components/GymDropdown';
 import { FadeInView } from '../motion/AnimatedComponents';
-import { ProgressBar } from '../motion/Progress';
 import { stagger } from '../motion/motion';
 import { colors, type, spacing } from '../theme/theme';
-import { FITNESS_GOALS, EXPERIENCE_LEVELS, WORKOUT_DURATIONS, GYMS, DEMO_GYM } from '../data/gymData';
+import { FITNESS_GOALS, EXPERIENCE_LEVELS, WORKOUT_DURATIONS, DEMO_GYM } from '../data/gymData';
 import storage from '../services/storageService';
 import { setActiveGym } from '../services/recommendationEngine';
 import { useAuth } from '../auth/AuthContext';
@@ -19,13 +19,10 @@ export default function OnboardingScreen({ onDone }) {
   const [experience, setExperience] = useState('intermediate');
   const [duration, setDuration] = useState(45);
   const [weeklyGoal, setWeeklyGoal] = useState(3);
-  const [gymId, setGymId] = useState(DEMO_GYM.id);
-
-  const steps = [goal, experience, duration, weeklyGoal];
-  const progress = steps.filter(Boolean).length / steps.length;
+  const [gym, setGym] = useState(DEMO_GYM);
 
   const finish = async () => {
-    const gym = setActiveGym(gymId);
+    setActiveGym(gym.id);
     const prefs = {
       goal, experience, duration,
       gymId: gym.id,
@@ -40,8 +37,6 @@ export default function OnboardingScreen({ onDone }) {
 
   return (
     <Screen>
-      <View style={{ height: spacing.lg }} />
-      <ProgressBar value={progress} height={4} />
       <View style={{ height: spacing.lg }} />
 
       <FadeInView delay={stagger(0)}>
@@ -95,19 +90,7 @@ export default function OnboardingScreen({ onDone }) {
       <FadeInView delay={stagger(5)}>
         <Divider />
         <Label muted>Your gym (Boston)</Label>
-        <View style={styles.wrapRow}>
-          {GYMS.map((g) => (
-            <Chip
-              key={g.id}
-              label={g.name}
-              selected={gymId === g.id}
-              onPress={() => setGymId(g.id)}
-            />
-          ))}
-        </View>
-        <Text style={[type.small, { marginTop: spacing.sm }]}>
-          {GYMS.find((g) => g.id === gymId)?.address}
-        </Text>
+        <GymDropdown gym={gym} onSelect={setGym} style={{ marginTop: spacing.md }} />
 
         <View style={{ height: spacing.xxl }} />
         <Button label="Next: map my week" icon="→" onPress={finish} />

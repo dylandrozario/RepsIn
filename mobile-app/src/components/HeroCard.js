@@ -74,10 +74,10 @@ export default function HeroCard({
       </Pressable>
 
       <View style={styles.bottomRow}>
-        <Text style={styles.footer}>{footer}</Text>
+        <View style={{ flex: 1 }} />
         <View style={styles.matchRing}>
           <Text style={styles.matchNum}>{match}</Text>
-          <Text style={styles.matchLabel}>MATCH</Text>
+          <Text style={styles.matchLabel}>% FIT</Text>
         </View>
       </View>
     </LinearGradient>

@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Alert, ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import HeroCard from '../components/HeroCard';
 import { Label, Divider, IconTile, Button } from '../components/UI';
 import GymDropdown from '../components/GymDropdown';
-import { colors, type, fonts, spacing, radius, shadow, waitMinutes } from '../theme/theme';
+import { colors, type, fonts, spacing, radius, shadow, waitMinutes, congestionColor, waitLevelLabel } from '../theme/theme';
 import { DEMO_GYM, getGymById } from '../data/gymData';
 import predictor from '../services/occupancyPredictor';
 import { getBestSlot, formatHour, explainSlot, setActiveGym } from '../services/recommendationEngine';
@@ -186,16 +186,6 @@ export default function HomeScreen({ navigation, route }) {
   const match = Math.max(70, 100 - bestAvg);
   const why = useMemo(() => explainSlot(best, availability), [best, availability]);
 
-  const outlookHour = best?.hour ?? 17;
-  const outlookWeekday = best?.weekday ?? weekday;
-  const outlook = useMemo(() => {
-    return DEMO_GYM.equipment.slice(0, 3).map((e) => {
-      const p = predictor.predict(e.type, outlookWeekday, outlookHour);
-      const likelyOpen = Math.max(0, Math.round(e.units * (1 - p.probability)));
-      return { type: e.type, name: e.name, units: e.units, likelyOpen, busy: p.congestionLevel === 'high' };
-    });
-  }, [outlookWeekday, outlookHour]);
-
   const dateLabel = now
     .toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
     .toUpperCase();
@@ -233,6 +223,17 @@ export default function HomeScreen({ navigation, route }) {
     return (
       <View style={{ flex: 1 }}>
         <BestTimeReveal slot={reveal.slot} duration={reveal.duration} onDone={finishReveal} />
+      </View>
+    );
+  }
+
+  // --- Loading: wait for real data before rendering the hero -----------------
+  // Avoids flashing fabricated defaults (e.g. "5:30 PM", "32% full").
+  if (!loaded) {
+    return (
+      <View style={[styles.root, styles.loadingWrap]}>
+        <ActivityIndicator color={colors.purple} />
+        <Text style={[type.small, { marginTop: spacing.md }]}>Finding your best time…</Text>
       </View>
     );
   }
@@ -291,10 +292,22 @@ export default function HomeScreen({ navigation, route }) {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: insets.bottom + 110 }}
     >
+      {/* greeting + why — above the hero */}
+      <FadeInView
+        delay={stagger(0)}
+        style={{ paddingTop: insets.top + spacing.lg, paddingHorizontal: spacing.xl, marginBottom: spacing.lg }}
+      >
+        <Label>{dateLabel}</Label>
+        <Text style={[type.display, styles.greet]}>{greeting(now.getHours())}, {firstName}.</Text>
+        {why ? <Text style={type.body}>{why}</Text> : null}
+
+        {/* prominent gym switcher — dropdown */}
+        <GymDropdown gym={gym} onSelect={changeGym} style={{ marginTop: spacing.lg }} />
+      </FadeInView>
+
       {/* hero — your best window */}
-      <View style={{ height: screenH - insets.bottom - 56 }}>
+      <View style={{ paddingHorizontal: spacing.xl }}>
         <HeroCard
-          fillScreen
           initials={initials(profile?.name)}
           onPressProfile={() => navigation.navigate('Profile')}
           time={best ? formatHour(best.hour) : '5:30 PM'}
@@ -307,20 +320,10 @@ export default function HomeScreen({ navigation, route }) {
         />
       </View>
 
-      {/* greeting + why */}
-      <FadeInView delay={stagger(0)} style={{ marginTop: spacing.xxl, paddingHorizontal: spacing.xl }}>
-        <Label>{dateLabel}</Label>
-        <Text style={[type.display, styles.greet]}>{greeting(now.getHours())}, {firstName}.</Text>
-        {why ? <Text style={type.body}>{why}</Text> : null}
-
-        {/* prominent gym switcher — dropdown */}
-        <GymDropdown gym={gym} onSelect={changeGym} style={{ marginTop: spacing.lg }} />
-      </FadeInView>
-
-      {/* next workout card (if scheduled) */}
-      {next ? (
-        <FadeInView delay={stagger(1)} style={{ marginTop: spacing.xxl, paddingHorizontal: spacing.xl }}>
-          <Label>Next workout</Label>
+      {/* next workout card — scheduled, or an empty-state prompt */}
+      <FadeInView delay={stagger(1)} style={{ marginTop: spacing.xxl, paddingHorizontal: spacing.xl }}>
+        <Label>Next workout</Label>
+        {next ? (
           <View style={styles.nextCard}>
             <View style={{ flex: 1 }}>
               <Text style={type.h3}>{next.templateName}</Text>
@@ -330,8 +333,16 @@ export default function HomeScreen({ navigation, route }) {
             </View>
             <Button label="Mark done" variant="light" onPress={markComplete} />
           </View>
-        </FadeInView>
-      ) : null}
+        ) : (
+          <View style={styles.nextCard}>
+            <View style={{ flex: 1 }}>
+              <Text style={type.h3}>Nothing scheduled yet</Text>
+              <Text style={type.small}>Tap your best time above to plan your next session.</Text>
+            </View>
+            <Button label="Plan it" variant="light" onPress={planWorkout} />
+          </View>
+        )}
+      </FadeInView>
 
       {/* week strip — data-driven */}
       <FadeInView delay={stagger(2)} style={{ marginTop: spacing.xxl, paddingHorizontal: spacing.xl }}>
@@ -386,42 +397,13 @@ export default function HomeScreen({ navigation, route }) {
         </View>
       </FadeInView>
 
-      {/* equipment outlook */}
-      <FadeInView delay={stagger(3)} style={{ paddingHorizontal: spacing.xl }}>
-        <Divider style={{ marginVertical: spacing.xxl }} />
-        <Label>Equipment outlook</Label>
-        <View style={styles.outlookHead}>
-          <Text style={type.h1}>What you'll need</Text>
-          <PressableScale onPress={() => navigation.navigate('Forecast')}>
-            <Text style={styles.viewLink}>View forecast →</Text>
-          </PressableScale>
-        </View>
-
-        <View style={{ marginTop: spacing.lg }}>
-          {outlook.map((item, idx) => (
-            <FadeInView key={item.type} delay={stagger(4 + idx)}>
-              <View style={styles.equipRow}>
-                <IconTile glyph={item.type.includes('cable') ? 'circle' : 'square'} />
-                <View style={styles.equipMid}>
-                  <Text style={type.h3}>{item.name}</Text>
-                  <Text style={type.small}>{item.likelyOpen} of {item.units} likely open</Text>
-                </View>
-                <Text style={[styles.statusText, item.busy ? styles.statusBusy : styles.statusOpen]}>
-                  {item.busy ? 'Busy' : 'Open'}
-                </Text>
-              </View>
-              {idx < outlook.length - 1 ? <Divider style={{ marginVertical: spacing.lg }} /> : null}
-            </FadeInView>
-          ))}
-        </View>
-      </FadeInView>
-
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.bg },
+  loadingWrap: { alignItems: 'center', justifyContent: 'center' },
   locRow: { flexDirection: 'row', alignItems: 'center', marginTop: spacing.lg },
   locPin: { fontSize: 13, marginRight: 6 },
   locText: { fontSize: 15, color: colors.ink, fontWeight: '600' },

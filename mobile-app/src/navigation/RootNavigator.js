@@ -11,6 +11,7 @@ import TrackerScreen from '../screens/TrackerScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import LoginScreen from '../screens/LoginScreen';
+import LandingScreen from '../screens/LandingScreen';
 import storage from '../services/storageService';
 import { useAuth } from '../auth/AuthContext';
 import { colors } from '../theme/theme';
@@ -42,8 +43,8 @@ function Tabs({ prefs }) {
       <Tab.Screen name="Workout" options={{ title: 'Workout' }} initialParams={{ prefs }}>
         {(props) => <WorkoutScreen {...props} />}
       </Tab.Screen>
-      <Tab.Screen name="Tracker" options={{ title: 'Form' }} component={TrackerScreen} />
-      <Tab.Screen name="Profile" options={{ title: 'You' }} component={ProfileScreen} />
+      <Tab.Screen name="Tracker" options={{ title: 'Train' }} component={TrackerScreen} />
+      <Tab.Screen name="Profile" options={{ title: 'Profile' }} component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
@@ -56,10 +57,15 @@ function Loading() {
   );
 }
 
+// Module-level flag so the splash plays once per app launch, not on every
+// re-render/auth change within a session.
+let landingShown = false;
+
 export default function RootNavigator() {
   const { session, initializing } = useAuth();
   const [loadingPrefs, setLoadingPrefs] = useState(true);
   const [prefs, setPrefs] = useState(null);
+  const [showLanding, setShowLanding] = useState(!landingShown);
 
   // Load onboarding prefs once we know who the user is.
   useEffect(() => {
@@ -81,6 +87,11 @@ export default function RootNavigator() {
       mounted = false;
     };
   }, [session]);
+
+  // Animated landing plays once per launch, before anything else. Tappable to skip.
+  if (showLanding) {
+    return <LandingScreen onDone={() => { landingShown = true; setShowLanding(false); }} />;
+  }
 
   // Still restoring the auth session.
   if (initializing) return <Loading />;
