@@ -12,7 +12,7 @@
 | **P1 — Stretch** | Build only if the complete MVP works |
 | **P2 — Future** | Longer-term product roadmap |
 
-**Core journey:** Onboard → enter availability → view equipment forecasts → choose recommended time → get a workout → schedule → complete.
+**Core journey:** Onboard → enter availability → view equipment forecasts → choose recommended time → get a workouxt → schedule → complete.
 
 **Data integrity:** Equipment predictions during the hackathon are derived from **synthetic training data**. They must be labeled as demonstrations, **not** real-time or validated gym occupancy. Predicted full occupancy is **not** the same as expected wait time.
 
